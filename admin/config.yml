@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "img/noticias"     # Dónde se guardan las imágenes en tu repo
+public_folder: "/img/noticias"   # Cómo se acceden públicamente esas imágenes
+
+collections:
+  - name: "noticias"
+    label: "Noticias"
+    folder: "noticias"           # Asegurate de que esta carpeta exista
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+      - { label: "Imagen", name: "image", widget: "image" }

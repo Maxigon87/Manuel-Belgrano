@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Contacto - Escuela Manuel Belgrano N°3</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Free HTML Templates" name="keywords" />
+    <meta content="Free HTML Templates" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link
+      href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Header Start -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 bg-secondary d-none d-lg-block">
+          <a
+            href="index.html"
+            class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="img/logo mb.png"
+              alt="logo escuela"
+              width="150"
+              height="100"
+              class="img-fluid"
+            />
+          </a>
+        </div>
+        <div class="col-lg-9">
+          <div class="row bg-white border-bottom d-none d-lg-flex">
+            <div class="col-lg-7 text-left">
+              <div class="h-100 d-inline-flex align-items-center py-2 px-3">
+                <i class="fa fa-envelope text-primary mr-2"></i>
+                <small>
+secretariamanuelbelgrano3@gmail.com</small>
+              </div>
+              <div class="h-100 d-inline-flex align-items-center py-2 px-2">
+                <i class="fa fa-phone-alt text-primary mr-2"></i>
+                <small>Interno: 8335</small>
+              </div>
+            </div>
+            <div class="col-lg-5 text-right">
+              <div class="d-inline-flex align-items-center p-2">
+                <a
+                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
+                  href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
+                  href="https://www.instagram.com/escuelamanuelbelgrano3/"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
+                  href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec"
+                >
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <nav class="navbar navbar-expand-lg bg-white navbar-light p-0">
+            <a href="index.html" class="navbar-brand d-block d-lg-none">
+              <h1 class="m-0 display-4 text-primary text-uppercase">MB</h1>
+            </a>
+            <button
+              type="button"
+              class="navbar-toggler"
+              data-toggle="collapse"
+              data-target="#navbarCollapse"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse justify-content-between"
+              id="navbarCollapse"
+            >
+              <div class="navbar-nav mr-auto py-0">
+                <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                <a onclick="abrirModal()" class="nav-item nav-link">Docentes</a>
+
+                <!--<a href="service.html" class="nav-item nav-link">otros</a>
+                <a href="team.html" class="nav-item nav-link">otros</a>-->
+                <div class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >Alumnos</a
+                  >
+                  <div class="dropdown-menu rounded-0 m-0">
+                    <a href="inscripciones.html" class="dropdown-item"
+                      >Inscripciones</a
+                    >
+                    <a href="egresados.html" class="dropdown-item">Egresados</a>
+                    <a href="problems.html" class="dropdown-item"
+                      >Taller de Lectura</a
+                    >
+                  </div>
+                </div>
+                <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
+              </div>
+              <div class="fecha-container">
+                <span id="fecha"> </span>📅 <span id="clima"></span>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-page-header" style="margin-bottom: 90px">
+      <div class="container">
+        <div
+          class="d-flex flex-column align-items-center justify-content-center"
+          style="min-height: 400px"
+        >
+          <h3 class="display-3 text-white text-uppercase">EGRESADOS</h3>
+          <div class="d-inline-flex text-white">
+            <p class="m-0 text-uppercase">
+              <a class="text-white" href="">Alumnos</a>
+            </p>
+            <i class="fa fa-angle-double-right pt-1 px-3"></i>
+            <p class="m-0 text-uppercase">Egresados</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Alumnos-->
+    <!--<div class="container-fluid py-5">
+      <div class="container py-5">
+        <div class="text-center pb-2">
+          <h6 class="text-uppercase">Our Attorneys</h6>
+          <h1 class="mb-4">Meet Our Attorneys</h1>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="bg-primary rounded" style="height: 200px"></div>
+            <div
+              class="owl-carousel team-carousel position-relative"
+              style="margin-top: -97px; padding: 0 30px"
+            >
+              <div
+                class="team-item text-center bg-white rounded overflow-hidden pt-4"
+              >
+                <h5 class="mb-2 px-4">Attorney Name</h5>
+                <p class="mb-3 px-4">Practice Area</p>
+                <div class="team-img position-relative">
+                  <img class="img-fluid" src="img/team-1.jpg" alt="" />
+                  <div class="team-social">
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="team-item text-center bg-white rounded overflow-hidden pt-4"
+              >
+                <h5 class="mb-2 px-4">Attorney Name</h5>
+                <p class="mb-3 px-4">Practice Area</p>
+                <div class="team-img position-relative">
+                  <img class="img-fluid" src="img/team-2.jpg" alt="" />
+                  <div class="team-social">
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="team-item text-center bg-white rounded overflow-hidden pt-4"
+              >
+                <h5 class="mb-2 px-4">Attorney Name</h5>
+                <p class="mb-3 px-4">Practice Area</p>
+                <div class="team-img position-relative">
+                  <img class="img-fluid" src="img/team-3.jpg" alt="" />
+                  <div class="team-social">
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="team-item text-center bg-white rounded overflow-hidden pt-4"
+              >
+                <h5 class="mb-2 px-4">Attorney Name</h5>
+                <p class="mb-3 px-4">Practice Area</p>
+                <div class="team-img position-relative">
+                  <img class="img-fluid" src="img/team-4.jpg" alt="" />
+                  <div class="team-social">
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="team-item text-center bg-white rounded overflow-hidden pt-4"
+              >
+                <h5 class="mb-2 px-4">Attorney Name</h5>
+                <p class="mb-3 px-4">Practice Area</p>
+                <div class="team-img position-relative">
+                  <img class="img-fluid" src="img/team-5.jpg" alt="" />
+                  <div class="team-social">
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-square mx-1" href="#"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>-->
+    <!-- Team End -->
+
+    <!-- Features Start -->
+    <div class="container-fluid py-5">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-lg-6" style="min-height: 500px">
+            <div class="position-relative h-100 rounded overflow-hidden">
+              <img
+                class="position-absolute w-100 h-100"
+                src="img/egresados.jpeg"
+                style="object-fit: cover"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6 pt-5 pb-lg-5">
+            <div class="feature-text bg-white rounded p-lg-5">
+              <h6 class="text-uppercase">2024</h6>
+              <h1 class="mb-4">Nombre</h1>
+              <div class="d-flex mb-4">
+                <div class="ml-4">
+                  <h5></h5>
+                  <p class="m-0">
+                    Los primeros egresados de una escuela secundaria marcan un
+                    momento histórico, reflejando esfuerzo personal, apoyo
+                    docente y familiar. Son pioneros que inspiran a las futuras
+                    generaciones con su legado educativo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Features End -->
+
+    <!-- Footer Start -->
+    <div
+      class="container-fluid bg-secondary text-white pt-5 px-sm-3 px-md-5"
+      style="margin-top: 90px"
+    >
+      <div class="row mt-5">
+        <div class="col-lg-4">
+          <div
+            class="d-flex justify-content-lg-center p-4"
+            style="background: rgba(256, 256, 256, 0.05)"
+          >
+            <i class="fa fa-2x fa-map-marker-alt text-primary"></i>
+            <a
+              href="https://maps.google.com/?q=Pringles+319"
+              target="_blank"
+              style="text-decoration: none"
+            >
+              <div class="ml-3">
+                <h5 class="text-white">¿Dónde estamos?</h5>
+                <p class="m-0">Pringles 319</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div
+            class="d-flex justify-content-lg-center p-4"
+            style="background: rgba(256, 256, 256, 0.05)"
+          >
+            <i class="fa fa-2x fa-envelope-open text-primary"></i>
+            <a
+              href="mailto:escuela@manuelbelgrano.edu.ar?subject=Consulta%20desde%20la%20web&body=Hola%2C%20quisiera%20saber%20m%C3%A1s%20sobre..."
+              style="text-decoration: none"
+            >
+              <div class="ml-3">
+                <h5 class="text-white">
+¿Quieres escribirnos?</h5>
+                <p class="m-0">
+secretariamanuelbelgrano3@gmail.com</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div
+            class="d-flex justify-content-lg-center p-4"
+            style="background: rgba(256, 256, 256, 0.05)"
+          >
+            <i class="fa fa-2x fa-phone-alt text-primary"></i>
+            <div class="ml-3">
+              <h5 class="text-white">Puedes llamarnos</h5>
+              <p class="m-0">Interno: 8335</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-5">
+        <div class="col-lg-6 mb-5">
+          <a href="index.html" class="navbar-brand">
+            <h1 class="m-0 mt-n2 display-4 text-primary text-uppercase">
+              MB N°3
+            </h1>
+          </a>
+          <p>
+            Nuestra escuela ofrece formación en distintos niveles educativos,
+            con docentes comprometidos a enseñar y acompañar. Fomentamos un
+            ambiente de respeto, inclusión y aprendizaje activo. Creemos en una
+            educación que construye valores y saberes en comunidad.
+          </p>
+          <div class="d-flex justify-content-start mt-4">
+            <a
+              class="btn btn-lg btn-outline-light btn-lg-square mr-2"
+              href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              class="btn btn-lg btn-outline-light btn-lg-square"
+              href="https://www.instagram.com/escuelamanuelbelgrano3/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-5">
+          <h4 class="font-weight-semi-bold text-primary mb-4">
+            Links populares
+          </h4>
+          <div class="d-flex flex-column justify-content-start">
+            <a class="text-white mb-2" href="index.html"
+              ><i class="fa fa-angle-right mr-2"></i>Inicio</a
+            >
+            <a class="text-white mb-2" href="inscripciones.html"
+              ><i class="fa fa-angle-right mr-2"></i>Inscripciónes</a
+            >
+            <!--
+        <a class="text-white mb-2" href="#"
+          ><i class="fa fa-angle-right mr-2"></i>Egresados</a
+        >-->
+            <a class="text-white" href="nosotros.html"
+              ><i class="fa fa-angle-right mr-2"></i>Nosotros</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="row p-4 mt-5 mx-0"
+        style="background: rgba(256, 256, 256, 0.05)"
+      >
+        <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+          <p class="m-0 text-white">
+            &copy;
+            <a class="font-weight-bold" href="nosotros.html">Administración</a>.
+            Escuela Manuel Belgrano
+          </p>
+        </div>
+        <div class="col-md-6 text-center text-md-right">
+          <p class="m-0 text-white">
+            Desarrollado por
+            <a class="font-weight-bold" href="problems.html">EMGI</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary px-3 back-to-top"
+      ><i class="fa fa-angle-double-up"></i
+    ></a>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v22.0"
+    ></script>
+
+    <!-- Otros scripts -->
+    <script src="js/main.js"></script>
+    <!--Login a Docentes-->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <h2>Acceso docente</h2>
+        <input type="password" id="passwordInput" placeholder="Contraseña" />
+        <button onclick="checkPassword()">Entrar</button>
+        <p id="errorMsg"></p>
+      </div>
+    </div>
+  </body>
+</html>

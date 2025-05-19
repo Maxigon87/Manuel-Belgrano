@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Contacto - Escuela Manuel Belgrano N°3</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 bg-secondary d-none d-lg-block">
+          <a
+            href="index.html"
+            class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="img/logo mb.png"
+              alt="logo escuela"
+              width="150"
+              height="100"
+              class="img-fluid"
+            />
+          </a>
+        </div>
+        <div class="col-lg-9">
+          <div class="row bg-white border-bottom d-none d-lg-flex">
+            <div class="col-lg-7 text-left">
+              <div class="h-100 d-inline-flex align-items-center py-2 px-3">
+                <i class="fa fa-envelope text-primary mr-2"></i>
+                <small>
+secretariamanuelbelgrano3@gmail.com</small>
+              </div>
+              <div class="h-100 d-inline-flex align-items-center py-2 px-2">
+                <i class="fa fa-phone-alt text-primary mr-2"></i>
+                <small>Interno: 8335</small>
+              </div>
+            </div>
+            <div class="col-lg-5 text-right">
+              <div class="d-inline-flex align-items-center p-2">
+                <a
+                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
+                  href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
+                  href="https://www.instagram.com/escuelamanuelbelgrano3/"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
+                  href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec"
+                >
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <nav class="navbar navbar-expand-lg bg-white navbar-light p-0">
+            <a href="index.html" class="navbar-brand d-block d-lg-none">
+              <h1 class="m-0 display-4 text-primary text-uppercase">MB</h1>
+            </a>
+            <button
+              type="button"
+              class="navbar-toggler"
+              data-toggle="collapse"
+              data-target="#navbarCollapse"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse justify-content-between"
+              id="navbarCollapse"
+            >
+              <div class="navbar-nav mr-auto py-0">
+                <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                                <a onclick="abrirModal()" class="nav-item nav-link">Docentes</a>
+
+                <!--<a href="service.html" class="nav-item nav-link">otros</a>
+                <a href="team.html" class="nav-item nav-link">otros</a>-->
+                <div class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    >Alumnos</a
+                  >
+                  <div class="dropdown-menu rounded-0 m-0">
+                    <a href="inscripciones.html" class="dropdown-item"
+                      >Inscripciones</a
+                    >
+                    <a href="egresados.html" class="dropdown-item">Egresados</a>
+                    <a href="problems.html" class="dropdown-item">Taller de Lectura</a
+                    >
+                  </div>
+                </div>
+                
+              </div>
+              <div class="fecha-container">
+                <span id="fecha"> </span>📅 <span id="clima"></span>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-page-header" style="margin-bottom: 90px;">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                <h3 class="display-3 text-white text-uppercase">Contacto</h3>
+                <div class="d-inline-flex text-white">
+                    <p class="m-0 text-uppercase"><a class="text-white" href="">Inicio</a></p>
+                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                    <p class="m-0 text-uppercase">Nosotros</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <div class="container mt-1">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="p-4 bg-info text-white text-center rounded shadow">
+            <h4 class="fw-bold mb-0 horariocliente" >Atención de 8:30 a 14:00</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center pb-2">
+                <h6 class="text-uppercase">Mail y ubicación.</h6>
+                <h1 class="mb-4">Puedes escribirnos o visitarnos.</h1>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="contact-form">
+                    <div id="form-message" style="display:none;" class="alert alert-success">
+                        ¡Tu mensaje fue enviado con éxito!
+                    </div>
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/">
+                      <input type="hidden" name="form-name" value="contact" />
+                        <p style="display:none">
+                          <label>No llenar si eres humano: <input name="bot-field" /></label>
+                        </p>
+                        <div class="form-row">
+                            <div class="col-sm-6 control-group">
+                                <input type="text" class="form-control p-4" id="name" name="name" placeholder="Tu Nombre" required="required" data-validation-required-message="Ingresa tu nombre" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="col-sm-6 control-group">
+                                <input type="email" class="form-control p-4" id="email" name="email" placeholder="Tu Email" required="required" data-validation-required-message="Ingresa tu email" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control p-4" id="subject" name="subject" placeholder="Asunto" required="required" data-validation-required-message="Ingresa un asunto" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <textarea class="form-control p-4" rows="6" id="message" name="message" placeholder="Mensaje" required="required" data-validation-required-message="Aquí escribe tu mensaje"></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary btn-block" type="submit" id="sendMessageButton">Enviar Mensaje</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+                <div class="col-lg-6" style="min-height: 400px;">
+                    <div class="position-relative h-100 rounded overflow-hidden">
+                        <iframe style="width: 100%; height: 100%; object-fit: cover;"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3334.667634378282!2d-66.33063542428127!3d-33.30135718989232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d43eabac17aa6b%3A0x7bc67e318c604d83!2sPringles%20319%2C%20D5702%20San%20Luis!5e0!3m2!1ses!2sar!4v1745339779478!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ></div>
+    <!-- Contact End -->
+    
+
+    <!-- Footer Start -->
+    <div
+      class="container-fluid bg-secondary text-white pt-5 px-sm-3 px-md-5"
+      style="margin-top: 90px"
+    >
+      <div class="row mt-5">
+        <div class="col-lg-4">
+          <div
+            class="d-flex justify-content-lg-center p-4"
+            style="background: rgba(256, 256, 256, 0.05)"
+          >
+            <i class="fa fa-2x fa-map-marker-alt text-primary"></i>
+            <a
+              href="https://maps.google.com/?q=Pringles+319"
+              target="_blank"
+              style="text-decoration: none"
+            >
+              <div class="ml-3">
+                <h5 class="text-white">¿Dónde estamos?</h5>
+                <p class="m-0">Pringles 319</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div
+            class="d-flex justify-content-lg-center p-4"
+            style="background: rgba(256, 256, 256, 0.05)"
+          >
+            <i class="fa fa-2x fa-envelope-open text-primary"></i>
+            <a
+              href="mailto:escuela@manuelbelgrano.edu.ar?subject=Consulta%20desde%20la%20web&body=Hola%2C%20quisiera%20saber%20m%C3%A1s%20sobre..."
+              style="text-decoration: none"
+            >
+              <div class="ml-3">
+                <h5 class="text-white">
+¿Quieres escribirnos?</h5>
+                <p class="m-0">
+secretariamanuelbelgrano3@gmail.com</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div
+            class="d-flex justify-content-lg-center p-4"
+            style="background: rgba(256, 256, 256, 0.05)"
+          >
+            <i class="fa fa-2x fa-phone-alt text-primary"></i>
+            <div class="ml-3">
+              <h5 class="text-white">Puedes llamarnos</h5>
+              <p class="m-0">Interno: 8335</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-5">
+        <div class="col-lg-6 mb-5">
+          <a href="index.html" class="navbar-brand">
+            <h1 class="m-0 mt-n2 display-4 text-primary text-uppercase">
+              MB N°3
+            </h1>
+          </a>
+          <p>
+            Nuestra escuela ofrece formación en distintos niveles educativos,
+            con docentes comprometidos a enseñar y acompañar. Fomentamos un
+            ambiente de respeto, inclusión y aprendizaje activo. Creemos en una
+            educación que construye valores y saberes en comunidad.
+          </p>
+          <div class="d-flex justify-content-start mt-4">
+            <a
+              class="btn btn-lg btn-outline-light btn-lg-square mr-2"
+              href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              class="btn btn-lg btn-outline-light btn-lg-square"
+              href="https://www.instagram.com/escuelamanuelbelgrano3/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-5">
+          <h4 class="font-weight-semi-bold text-primary mb-4">
+            Links populares
+          </h4>
+          <div class="d-flex flex-column justify-content-start">
+            <a class="text-white mb-2" href="index.html"
+              ><i class="fa fa-angle-right mr-2"></i>Inicio</a
+            >
+            <a class="text-white mb-2" href="inscripciones.html"
+          ><i class="fa fa-angle-right mr-2"></i>Inscripciones</a
+        >
+        <!--
+        <a class="text-white mb-2" href="#"
+          ><i class="fa fa-angle-right mr-2"></i>Egresados</a
+        >-->
+            <a class="text-white" href="nosotros.html"
+              ><i class="fa fa-angle-right mr-2"></i>Nosotros</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="row p-4 mt-5 mx-0"
+        style="background: rgba(256, 256, 256, 0.05)"
+      >
+        <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+          <p class="m-0 text-white">
+            &copy; <a class="font-weight-bold" href="nosotros.html">Administracion</a>.
+            Escuela Manuel Belgrano
+          </p>
+        </div>
+        <div class="col-md-6 text-center text-md-right">
+          <p class="m-0 text-white">
+            Desarrollado por
+            <a class="font-weight-bold" href="problems.html">EMGI</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary px-3 back-to-top"
+      ><i class="fa fa-angle-double-up"></i
+    ></a>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v22.0"
+    ></script>
+
+    <!-- Otros scripts -->
+    <script src="js/main.js"></script>
+    <!--Login a Docentes-->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <h2>Acceso docente</h2>
+        <input type="password" id="passwordInput" placeholder="Contraseña" />
+        <button onclick="checkPassword()">Entrar</button>
+        <p id="errorMsg"></p>
+      </div>
+    </div>
+  </body>
+</html>

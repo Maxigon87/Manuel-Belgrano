@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manuel Belgrano N°3</title>
+  <link rel="stylesheet" href="css/noterminada.css">
+  
+</head>
+<div class="bsod-container">
+  <img src="img/mono.png" alt="mono">
+  <div class="message">
+    Perdón, pero aún no termino esta página.<br>
+    Estamos completando lo que falta...
+  </div>
+  <div class="progress" id="progress-bar">
+    <span id="progress-text">77% completado</span>
+  </div>
+</div><br>
+<a href="index.html" class="boton-volver">Volver</a>
+
+<script>
+  let progress = 77;
+  const progressText = document.getElementById('progress-text');
+
+  setInterval(() => {
+    progress = progress < 80 ? progress + 1 : 77;
+    progressText.textContent = `${progress}% completado`;
+  }, 150);
+</script>
+</body>
+</html>

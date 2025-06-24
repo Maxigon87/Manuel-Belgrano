@@ -159,31 +159,34 @@ const form = document.getElementById("contactForm");
 const messageDiv = document.getElementById("form-message");
 
 //Clima 
-const API_KEY = '8a06e798068047e3870154505252904';
+const API_KEY = window.API_KEY || "";
 const lat = -33.2955; // Latitud de San Luis, Argentina
 const lon = -66.3370; // Longitud de San Luis, Argentina
-const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${lat},${lon}&lang=es`;
 
-fetch(url)
-    .then(res => res.json())
-    .then(data => {
-        const temp = data.current.temp_c; // Temperatura en °C
-        const desc = data.current.condition.text; // Descripción del clima
-        const icon = data.current.condition.icon; // Icono
-        const nombreCiudad = data.location.name; // Nombre de la ciudad
+if (API_KEY) {
+    const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${lat},${lon}&lang=es`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            const temp = data.current.temp_c;
+            const desc = data.current.condition.text;
+            const icon = data.current.condition.icon;
+            const nombreCiudad = data.location.name;
+            document.getElementById("clima").innerHTML = `${nombreCiudad}: ${temp}°C, ${desc} <img src="https:${icon}" alt="icono clima">`;
+        })
+        .catch(err => {
+            console.error("Error al obtener el clima:", err);
+            document.getElementById("clima").textContent = "Clima no disponible";
+        });
+} else {
+    document.getElementById("clima").textContent = "Clima no disponible";
+}
 
-        // Mostrar en el HTML
-        document.getElementById('clima').innerHTML = `${nombreCiudad}: ${temp}°C, ${desc} <img src="https:${icon}" alt="icono clima">`;
-    })
-    .catch(err => {
-        console.error('Error al obtener el clima:', err);
-        document.getElementById('clima').textContent = 'Clima no disponible';
-    });
 
 //Login para entrar a Docentes: 
 
 
-const CORRECT_PASSWORD = "3escuelas2025"; // ¡Cambia esto!
+const CORRECT_PASSWORD = window.CORRECT_PASSWORD || "";// Configure password externally
 
 function checkPassword() {
     const input = document.getElementById("passwordInput").value;

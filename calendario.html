@@ -146,7 +146,7 @@
                     >
                     <a href="egresados.html" class="dropdown-item">Egresados</a>
                     <a href="calendario.html" class="dropdown-item"
-                      >Calendario Escolar</a
+                      >Información Escolar</a
                     >
                   </div>
                 </div>
@@ -168,38 +168,73 @@
         <h2
           class="fw-bold text-primary mb-3 animate__animated animate__fadeInDown"
         >
-          📅 Calendario Escolar
+          📅 Información Escolar 2025
         </h2>
         <p class="text-muted mb-4 animate__animated animate__fadeInUp">
-          Planificá tu año escolar con el calendario oficial.
+          Planificá tu año escolar con el calendario oficial y conocé los
+          horarios de atención a familias.
         </p>
       </div>
 
-      <!-- Imagen del calendario -->
-      <div class="text-center animate__animated animate__zoomIn">
-        <img
-          src="img/calendario.jpg"
-          alt="Calendario Escolar 2025"
-          class="img-fluid rounded shadow-lg calendar-img"
-          style="
-            max-width: 100%;
-            height: auto;
-            transition: transform 0.3s ease-in-out;
-          "
-          onmouseover="this.style.transform='scale(1.02)'"
-          onmouseout="this.style.transform='scale(1)'"
-        />
-      </div>
+      <div class="row align-items-start animate__animated animate__fadeIn">
+        <!-- Calendario -->
+        <div class="col-lg-6 text-center mb-5 mb-lg-0">
+          <h4 class="text-primary mb-3">📆 Calendario Escolar</h4>
+          <img
+            src="img/calendario.jpg"
+            alt="Calendario Escolar 2025"
+            class="img-fluid rounded shadow-lg"
+            style="
+              max-width: 100%;
+              height: auto;
+              transition: transform 0.3s ease-in-out;
+            "
+            onmouseover="this.style.transform='scale(1.02)'"
+            onmouseout="this.style.transform='scale(1)'"
+          />
+          <div class="mt-3">
+            <a
+              href="img/calendario.jpg"
+              download
+              class="btn btn-outline-primary btn-sm"
+            >
+              <i class="bi bi-download me-2"></i>Descargar Calendario
+            </a>
+          </div>
+        </div>
 
-      <!-- Botón de descarga -->
-      <div class="text-center mt-4 animate__animated animate__fadeInUp">
-        <a
-          href="img/calendario.jpg"
-          download
-          class="btn btn-outline-primary btn-lg"
-        >
-          <i class="bi bi-download me-2"></i>Descargar Imagen
-        </a>
+        <!-- Separador vertical (solo en pantallas grandes) -->
+        <div
+          class="d-none d-lg-block"
+          style="width: 1px; background-color: #ccc; height: auto"
+        ></div>
+
+        <!-- Horarios -->
+        <div class="col-lg-5 text-center">
+          <h4 class="text-secondary mb-3">🕰️ Horarios para Padres y Tutores</h4>
+          <img
+            src="img/horarios.jpg"
+            alt="Horarios de atención"
+            class="img-fluid rounded shadow-lg"
+            style="
+              max-width: 110%;
+              height: auto;
+              transition: transform 0.3s ease-in-out;
+            "
+            onmouseover="this.style.transform='scale(1.05)'"
+            onmouseout="this.style.transform='scale(1)'"
+          />
+
+          <div class="mt-3">
+            <a
+              href="img/horarios.jpg"
+              download
+              class="btn btn-outline-secondary btn-sm"
+            >
+              <i class="bi bi-download me-2"></i>Descargar Horarios
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 

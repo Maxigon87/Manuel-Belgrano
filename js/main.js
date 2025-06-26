@@ -194,7 +194,7 @@ function checkPassword() {
 
     if (input === "") {
         errorMsg.textContent = "Ingrese una contraseña.";
-    } else if (input === CORRECT_PASSWORD) {
+    } else if (input === "3escuelas2025") {
         localStorage.setItem("access_granted", "true");
         window.location.href = "docentes.html"; // Asegurate que este path exista
     } else {

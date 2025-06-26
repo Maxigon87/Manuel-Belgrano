@@ -97,7 +97,12 @@
             >
               <div class="navbar-nav mr-auto py-0">
                 <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                                <a onclick="abrirModal()" class="nav-item nav-link">Docentes</a>
+                                <a
+                  onclick="abrirModal()"
+                  class="nav-item nav-link"
+                  style="cursor: pointer"
+                  >Docentes</a
+                >
 
                 <!--<a href="service.html" class="nav-item nav-link">otros</a>
                 <a href="team.html" class="nav-item nav-link">otros</a>-->
@@ -273,6 +278,7 @@
     <a href="#" class="btn btn-primary px-3 back-to-top"
       ><i class="fa fa-angle-double-up"></i
     ></a>
+    <script src="js/modal.js" defer></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -301,6 +307,9 @@
         <h2>Acceso docente</h2>
         <input type="password" id="passwordInput" placeholder="Contraseña" />
         <button onclick="checkPassword()">Entrar</button>
+        <button onclick="cerrarModal()" style="margin-top: 10px">
+          Cancelar
+        </button>
         <p id="errorMsg"></p>
       </div>
     </div>

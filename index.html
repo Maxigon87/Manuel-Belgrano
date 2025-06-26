@@ -33,6 +33,9 @@
       href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
       rel="stylesheet"
     />
+    <!--MOdal-->
+    <link rel="stylesheet" href="css/modal.css" />
+    
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
@@ -122,10 +125,15 @@
             >
               <div class="navbar-nav mr-auto py-0">
                 <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                <a onclick="abrirModal()" class="nav-item nav-link">Docentes</a>
+                <a
+                  onclick="abrirModal()"
+                  class="nav-item nav-link"
+                  style="cursor: pointer"
+                  >Docentes</a
+                >
 
                 <!--<a href="service.html" class="nav-item nav-link">otros</a>
-                <a href="team.html" class="nav-item nav-link">otros</a>-->
+  <a href="team.html" class="nav-item nav-link">otros</a>-->
                 <div class="nav-item dropdown">
                   <a
                     href="#"
@@ -138,17 +146,15 @@
                       >Inscripciones</a
                     >
                     <a href="egresados.html" class="dropdown-item">Egresados</a>
-                    <a href="problems.html" class="dropdown-item"
-                      >Taller de Lectura</a
+                    <a href="calendario.html" class="dropdown-item"
+                      >Calendario Escolar</a
                     >
                   </div>
                 </div>
                 <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
               </div>
               <!--Fecha-->
-              <div class="fecha-container">
-                <span id="fecha"></span>📅 
-              </div>
+              <div class="fecha-container"><span id="fecha"></span>📅</div>
             </div>
           </nav>
         </div>
@@ -533,53 +539,6 @@ Sus puertas se abrieron de par en par.
     </div>
 
     <!-- About End -->
-
-    <!-- Calendario escolar-->
-    <!-- Sección de Calendario Escolar -->
-    <div class="container my-5">
-      <div class="text-center">
-        <h2
-          class="fw-bold text-primary mb-3 animate__animated animate__fadeInDown"
-        >
-          📅 Calendario Escolar
-        </h2>
-        <p class="text-muted mb-4 animate__animated animate__fadeInUp">
-          Planificá tu año escolar con el calendario oficial.
-        </p>
-      </div>
-
-      <!-- Calendario embebido en PDF -->
-      <div
-        class="ratio ratio-4x3 shadow-lg rounded overflow-hidden animate__animated animate__zoomIn"
-      >
-        <iframe
-          src="documentos/calendario.pdf"
-          type="application/pdf"
-          width="100%"
-          height="600px"
-          style="border: none"
-        >
-          <p>
-            Tu navegador no puede mostrar PDFs.
-            <a href="documentos/calendario.pdf" target="_blank"
-              >Descargar calendario</a
-            >.
-          </p>
-        </iframe>
-      </div>
-
-      <!-- Botón de descarga -->
-      <div class="text-center mt-4 animate__animated animate__fadeInUp">
-        <a
-          href="documentos/calendario.pdf"
-          target="_blank"
-          class="btn btn-outline-primary btn-lg"
-        >
-          <i class="bi bi-download me-2"></i>Descargar PDF
-        </a>
-      </div>
-    </div>
-
     <!-- Footer Start -->
     <div
       class="container-fluid bg-secondary text-white pt-5 px-sm-3 px-md-5"
@@ -706,7 +665,7 @@ Sus puertas se abrieron de par en par.
     <a href="#" class="btn btn-primary px-3 back-to-top"
       ><i class="fa fa-angle-double-up"></i
     ></a>
-
+    <script src="js/modal.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -727,12 +686,16 @@ Sus puertas se abrieron de par en par.
 
     <!-- Otros scripts -->
     <script src="js/main.js"></script>
+
     <!--Login a Docentes-->
     <div id="loginModal" class="modal">
       <div class="modal-content">
         <h2>Acceso docente</h2>
         <input type="password" id="passwordInput" placeholder="Contraseña" />
         <button onclick="checkPassword()">Entrar</button>
+        <button onclick="cerrarModal()" style="margin-top: 10px">
+          Cancelar
+        </button>
         <p id="errorMsg"></p>
       </div>
     </div>

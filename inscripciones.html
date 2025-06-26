@@ -21,6 +21,8 @@
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
   <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
+  <!--Modal-->
+  <link rel="stylesheet" href="css/modal.css" />
   <!-- Customized Bootstrap Stylesheet -->
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/style.min.css" rel="stylesheet" />
@@ -98,7 +100,12 @@ secretariamanuelbelgrano3@gmail.com</small>
           >
             <div class="navbar-nav mr-auto py-0">
               <a href="index.html" class="nav-item nav-link active">Inicio</a>
-              <a onclick="abrirModal()" class="nav-item nav-link">Docentes</a>
+              <a
+                  onclick="abrirModal()"
+                  class="nav-item nav-link"
+                  style="cursor: pointer"
+                  >Docentes</a
+                >
               <!--<a href="service.html" class="nav-item nav-link">otros</a>
               <a href="team.html" class="nav-item nav-link">otros</a>-->
               <div class="nav-item dropdown">
@@ -113,8 +120,8 @@ secretariamanuelbelgrano3@gmail.com</small>
                     >Inscripciones</a
                   >
                   <a href="egresados.html" class="dropdown-item">Egresados</a>
-                  <a href="problems.html" class="dropdown-item"
-                    >Taller de Lectura</a
+                  <a href="calendario.html" class="dropdown-item"
+                    >Calendario Escolar</a
                   >
                 </div>
               </div>
@@ -372,7 +379,7 @@ secretariamanuelbelgrano3@gmail.com</p>
 <a href="#" class="btn btn-primary px-3 back-to-top"
   ><i class="fa fa-angle-double-up"></i
 ></a>
-
+<script src="js/modal.js" deger></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <script src="lib/easing/easing.min.js"></script>
@@ -395,12 +402,14 @@ secretariamanuelbelgrano3@gmail.com</p>
 <script src="js/main.js"></script>
 <!--Login a Docentes-->
 <div id="loginModal" class="modal">
-  <div class="modal-content">
-    <h2>Acceso docente</h2>
-    <input type="password" id="passwordInput" placeholder="Contraseña" />
-    <button onclick="checkPassword()">Entrar</button>
-    <p id="errorMsg"></p>
-  </div>
-</div>
+      <div class="modal-content">
+        <h2>Acceso docente</h2>
+        <input type="password" id="passwordInput" placeholder="Contraseña" />
+        <button onclick="checkPassword()">Entrar</button>
+        <button onclick="cerrarModal()" style="margin-top: 10px">
+          Cancelar
+        </button>
+        <p id="errorMsg"></p>
+      </div>
 </body>
 </html>

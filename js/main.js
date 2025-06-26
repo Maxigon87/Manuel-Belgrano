@@ -183,40 +183,7 @@ if (API_KEY) {
 }
 
 
-//Login para entrar a Docentes: 
 
-
-const CORRECT_PASSWORD = window.CORRECT_PASSWORD || "";// Configure password externally
-
-function checkPassword() {
-    const input = document.getElementById("passwordInput").value;
-    const errorMsg = document.getElementById("errorMsg");
-
-    if (input === "") {
-        errorMsg.textContent = "Ingrese una contraseña.";
-    } else if (input === "3escuelas2025") {
-        localStorage.setItem("access_granted", "true");
-        window.location.href = "docentes.html"; // Asegurate que este path exista
-    } else {
-        errorMsg.textContent = "Contraseña incorrecta.";
-    }
-}
-
-// Si ya se autenticó, no mostrar el modal
-window.onload = function () {
-    if (localStorage.getItem("access_granted") === "true") {
-        document.getElementById("loginModal").style.display = "none";
-    }
-};
-function abrirModal() {
-    document.getElementById("loginModal").style.display = "flex";
-}
-  window.onclick = function (event) {
-    const modal = document.getElementById("loginModal");
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  };
 
 
 

@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Manuel Belgrano N°3</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Pagina Oficial - Manuel Belgrano N°3" name="keywords" />
+    <meta content="Pagina Oficial - Manuel Belgrano N°3" name="description" />
 
-<head>
-    <meta charset="utf-8">
-    <title>Contacto - Escuela Manuel Belgrano N°3</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
-
-    <!-- Favicon -->
+    <!-- Icono -->
+    <link rel="icon" href="img/logo mb.png" sizes="32x32" type="image/png" />
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link
+      href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+      rel="stylesheet"
+    />
+    <!--MOdal-->
+    <link rel="stylesheet" href="css/modal.css" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/style.min.css" rel="stylesheet">
-</head>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style.min.css" rel="stylesheet" />
+  </head>
 
-<body>
+  <body>
     <!-- Header Start -->
     <div class="container-fluid">
       <div class="row">
@@ -49,8 +64,7 @@
             <div class="col-lg-7 text-left">
               <div class="h-100 d-inline-flex align-items-center py-2 px-3">
                 <i class="fa fa-envelope text-primary mr-2"></i>
-                <small>
-secretariamanuelbelgrano3@gmail.com</small>
+                <small> secretariamanuelbelgrano3@gmail.com</small>
               </div>
               <div class="h-100 d-inline-flex align-items-center py-2 px-2">
                 <i class="fa fa-phone-alt text-primary mr-2"></i>
@@ -77,12 +91,24 @@ secretariamanuelbelgrano3@gmail.com</small>
                 >
                   <i class="fab fa-youtube"></i>
                 </a>
+                <!--otra clase
+                <a 
+                class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
+                href="carga.html">
+                <i class="fas fa-file-alt"></i>
+              </a>-->
               </div>
             </div>
           </div>
           <nav class="navbar navbar-expand-lg bg-white navbar-light p-0">
             <a href="index.html" class="navbar-brand d-block d-lg-none">
-              <h1 class="m-0 display-4 text-primary text-uppercase">MB</h1>
+              <img
+                src="img/logo mb.png"
+                alt="logo escuela"
+                width="50"
+                height="50"
+                class="img-fluid"
+              />
             </a>
             <button
               type="button"
@@ -98,7 +124,7 @@ secretariamanuelbelgrano3@gmail.com</small>
             >
               <div class="navbar-nav mr-auto py-0">
                 <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                                <a
+                <a
                   onclick="abrirModal()"
                   class="nav-item nav-link"
                   style="cursor: pointer"
@@ -119,15 +145,15 @@ secretariamanuelbelgrano3@gmail.com</small>
                       >Inscripciones</a
                     >
                     <a href="egresados.html" class="dropdown-item">Egresados</a>
-                    <a href="calendario.html" class="dropdown-item">Calendario Escolar</a
+                    <a href="calendario.html" class="dropdown-item"
+                      >Calendario Escolar</a
                     >
                   </div>
                 </div>
-                
+                <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
               </div>
-              <div class="fecha-container">
-                <span id="fecha"> </span>📅 
-              </div>
+              <!--Fecha-->
+              <div class="fecha-container"><span id="fecha"></span>📅</div>
             </div>
           </nav>
         </div>
@@ -135,87 +161,47 @@ secretariamanuelbelgrano3@gmail.com</small>
     </div>
     <!-- Header End -->
 
+    <!-- Calendario escolar-->
+    <!-- Calendario escolar -->
+    <div class="container my-5">
+      <div class="text-center">
+        <h2
+          class="fw-bold text-primary mb-3 animate__animated animate__fadeInDown"
+        >
+          📅 Calendario Escolar
+        </h2>
+        <p class="text-muted mb-4 animate__animated animate__fadeInUp">
+          Planificá tu año escolar con el calendario oficial.
+        </p>
+      </div>
 
-    <!-- Page Header Start -->
-    <div class="container-fluid bg-page-header" style="margin-bottom: 90px;">
-        <div class="container">
-            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-3 text-white text-uppercase">Contacto</h3>
-                <div class="d-inline-flex text-white">
-                    <p class="m-0 text-uppercase"><a class="text-white" href="">Inicio</a></p>
-                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">Nosotros</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Page Header End -->
-    <div class="container mt-1">
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="p-4 bg-info text-white text-center rounded shadow">
-            <h4 class="fw-bold mb-0 horariocliente" >Atención de 8:30 a 14:00</h4>
-          </div>
-        </div>
+      <!-- Imagen del calendario -->
+      <div class="text-center animate__animated animate__zoomIn">
+        <img
+          src="img/calendario.jpg"
+          alt="Calendario Escolar 2025"
+          class="img-fluid rounded shadow-lg calendar-img"
+          style="
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+          "
+          onmouseover="this.style.transform='scale(1.02)'"
+          onmouseout="this.style.transform='scale(1)'"
+        />
+      </div>
+
+      <!-- Botón de descarga -->
+      <div class="text-center mt-4 animate__animated animate__fadeInUp">
+        <a
+          href="img/calendario.jpg"
+          download
+          class="btn btn-outline-primary btn-lg"
+        >
+          <i class="bi bi-download me-2"></i>Descargar Imagen
+        </a>
       </div>
     </div>
-
-    <!-- Contact Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center pb-2">
-                <h6 class="text-uppercase">Mail y ubicación.</h6>
-                <h1 class="mb-4">Puedes escribirnos o visitarnos.</h1>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 mb-5 mb-lg-0">
-                <div class="contact-form">
-                    <div id="form-message" style="display:none;" class="alert alert-success">
-                        ¡Tu mensaje fue enviado con éxito!
-                    </div>
-                    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/">
-                      <input type="hidden" name="form-name" value="contact" />
-                        <p style="display:none">
-                          <label>No llenar si eres humano: <input name="bot-field" /></label>
-                        </p>
-                        <div class="form-row">
-                            <div class="col-sm-6 control-group">
-                                <input type="text" class="form-control p-4" id="name" name="name" placeholder="Tu Nombre" required="required" data-validation-required-message="Ingresa tu nombre" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="col-sm-6 control-group">
-                                <input type="email" class="form-control p-4" id="email" name="email" placeholder="Tu Email" required="required" data-validation-required-message="Ingresa tu email" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <input type="text" class="form-control p-4" id="subject" name="subject" placeholder="Asunto" required="required" data-validation-required-message="Ingresa un asunto" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <textarea class="form-control p-4" rows="6" id="message" name="message" placeholder="Mensaje" required="required" data-validation-required-message="Aquí escribe tu mensaje"></textarea>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary btn-block" type="submit" id="sendMessageButton">Enviar Mensaje</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-                <div class="col-lg-6" style="min-height: 400px;">
-                    <div class="position-relative h-100 rounded overflow-hidden">
-                        <iframe style="width: 100%; height: 100%; object-fit: cover;"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3334.667634378282!2d-66.33063542428127!3d-33.30135718989232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d43eabac17aa6b%3A0x7bc67e318c604d83!2sPringles%20319%2C%20D5702%20San%20Luis!5e0!3m2!1ses!2sar!4v1745339779478!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
-                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div ></div>
-    <!-- Contact End -->
-    
 
     <!-- Footer Start -->
     <div
@@ -252,10 +238,8 @@ secretariamanuelbelgrano3@gmail.com</small>
               style="text-decoration: none"
             >
               <div class="ml-3">
-                <h5 class="text-white">
-¿Quieres escribirnos?</h5>
-                <p class="m-0">
-secretariamanuelbelgrano3@gmail.com</p>
+                <h5 class="text-white">¿Quieres escribirnos?</h5>
+                <p class="m-0">secretariamanuelbelgrano3@gmail.com</p>
               </div>
             </a>
           </div>
@@ -308,9 +292,9 @@ secretariamanuelbelgrano3@gmail.com</p>
               ><i class="fa fa-angle-right mr-2"></i>Inicio</a
             >
             <a class="text-white mb-2" href="inscripciones.html"
-          ><i class="fa fa-angle-right mr-2"></i>Inscripciones</a
-        >
-        <!--
+              ><i class="fa fa-angle-right mr-2"></i>Inscripciones</a
+            >
+            <!--
         <a class="text-white mb-2" href="#"
           ><i class="fa fa-angle-right mr-2"></i>Egresados</a
         >-->
@@ -326,7 +310,8 @@ secretariamanuelbelgrano3@gmail.com</p>
       >
         <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
           <p class="m-0 text-white">
-            &copy; <a class="font-weight-bold" href="nosotros.html">Administracion</a>.
+            &copy;
+            <a class="font-weight-bold" href="nosotros.html">Administración</a>.
             Escuela Manuel Belgrano
           </p>
         </div>

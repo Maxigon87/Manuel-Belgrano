@@ -24,3 +24,4 @@ window.checkPassword = function () {
         errorMsg.textContent = "Contraseña incorrecta.";
     }
 };
+

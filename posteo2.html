@@ -12,6 +12,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="css/grip.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;500;700&display=swap"
       rel="stylesheet"
@@ -163,110 +164,220 @@
     </div>
     <!-- Header End -->
 
-    <div class="container my-5">
-      <div class="text-center">
-        <h2
-          class="fw-bold text-primary mb-3 animate__animated animate__fadeInDown"
+    <style>
+      .galeria-container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: #ffffff;
+        padding: 30px;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+      }
+
+      .galeria-container h1,
+      .galeria-container h2,
+      .galeria-container h3 {
+        font-weight: 600;
+        margin-top: 1.4em;
+        margin-bottom: 0.6em;
+      }
+
+      .galeria-container h1 {
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .galeria-container p {
+        margin: 0 0 1em;
+        text-align: justify;
+      }
+
+      .galeria-imagenes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 15px 0 25px;
+        justify-content: center;
+      }
+
+      .galeria-imagenes img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .bloque-autor {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
+      }
+
+      .bloque-autor h2 {
+        margin-top: 0;
+      }
+
+      .etiqueta-autor {
+        font-weight: bold;
+      }
+
+      .nota-img {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: -5px;
+        margin-bottom: 10px;
+      }
+    </style>
+
+    <div class="galeria-container">
+      <!-- Boton-->
+      <div class="text-center mb-4">
+        <a
+          href="galeria.html"
+          class="btn btn-primary btn-lg px-4 py-2 shadow-sm"
+          style="
+            font-size: 14px;
+            color: #ffffff;
+            border-radius: 50px;
+            background-color: #298cf7;
+            border-color: #007bff;
+          "
         >
-          📷 Galería de Proyectos y Producciones Estudiantiles
-        </h2>
-        <p class="text-muted mb-4 animate__animated animate__fadeInUp">
-          En esta sección compartimos las producciones y actividades realizadas
-          por nuestros estudiantes. Cada posteo combina textos e imágenes que
-          reflejan su creatividad, su mirada crítica y el trabajo realizado en
-          las distintas áreas. Es un espacio para mostrar y valorar su
-          aprendizaje cotidiano.
+          <i class="fas fa-images mr-2"></i>
+          MENU GALERIA
+        </a>
+      </div>
+
+      <!-- Título principal -->
+      <section>
+        <h1>Casas tomadas</h1>
+
+        <p>
+          En 1946 Julio Cortázar despierta agitado por una pesadilla: ha soñado
+          que estaba en una casa y que era paulatinamente desplazado por seres
+          indescriptibles hasta que, finalmente, quedaba en la calle. Se
+          levanta, va hasta la máquina de escribir y, “de una sentada”, escribe
+          <em>Casa Tomada</em>, uno de los cuentos más emblemáticos de la
+          literatura argentina.
         </p>
-      </div>
-      <div class="row">
-        <!-- Tarjeta -->
-        <div class="col-md-4 mb-4">
-          <a href="posteo1.html" style="text-decoration: none; color: inherit">
-            <div class="card h-100" style="cursor: pointer">
-              <img
-                src="img/posteos/posteo1/posteo1.png"
-                class="card-img-top"
-                alt="Proyecto Aquello otro"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Aquello otro</h5>
-                <p class="card-text">
-                  Así vemos, sentimos y contamos lo desconocido.
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4">
-          <a href="posteo2.html" style="text-decoration: none; color: inherit">
-            <div class="card h-100" style="cursor: pointer">
-              <img
-                src="img/posteos/posteo2/posteo2.png"
-                class="card-img-top"
-                alt="Casas tomadas"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Casas tomadas</h5>
-                <p class="card-text">
-                  Las sombras toman lo que el miedo deja libre.
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-<!--
-        <div class="col-md-4 mb-4">
-          <a href="posteo1.html" style="text-decoration: none; color: inherit">
-            <div class="card h-100" style="cursor: pointer">
-              <img
-                src="img/posteos/posteo1/proyecto1.png"
-                class="card-img-top"
-                alt="Proyecto Aquello otro"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Aquello otro</h5>
-                <p class="card-text">
-                  Así vemos, sentimos y contamos lo desconocido.
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>-->
-      </div>
 
-      <!-- MODAL / Ventana flotante -->
-      <div
-        class="modal fade"
-        id="modalProyecto1"
-        tabindex="-1"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered modal-gallery-full">
-          <div class="modal-content">
-            <div class="modal-header">
-              <div>
-                <p class="text-uppercase text-muted mb-1 small">Proyecto</p>
-                <h4 class="modal-title mb-0">Aquello otro</h4>
-              </div>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Cerrar"
-              ></button>
-            </div>
+        <p>
+          No lo sabe aún, pero la interpretación de este cuento encontrará
+          caminos psicológicos, políticos, ideológicos, históricos.
+        </p>
 
-            <div class="modal-body">
-              <img
-                src="img/galeria/proyecto1.jpg"
-                class="img-fluid"
-                alt="Producción estudiantil"
-              />
-            </div>
-          </div>
+        <div class="galeria-imagenes">
+          <img src="img/posteos/posteo2/Imagen 1.jpg" alt="Imagen 1" />
+          <img src="img/posteos/posteo2/Imagen 2.jpg" alt="Imagen 2" />
         </div>
-      </div>
+
+        <p>
+          Tomando en este cuento como disparador, realizamos en Quinto Año una
+          planificación por tópico basada en “la casa” como símbolo. Se inicia
+          con una lectura de este relato, y, meses después, luego de un largo
+          recorrido por los corredores temáticos que han devenido del tema,
+          finalizamos con un trabajo creativo basado en esta obra.
+        </p>
+
+        <p>Lo titulamos <strong>Casas Tomadas</strong>.</p>
+
+        <p>
+          En este trabajo final cada estudiante toma, aleatoriamente, del
+          dispositivo que vemos a continuación tres posibles opciones. Elegimos
+          entre emociones, condenas, felicidades, fortunas por las que una casa,
+          simbólicamente, puede ser “tomada”.
+        </p>
+
+        <div class="galeria-imagenes">
+          <img src="img/posteos/posteo2/Imagen 3.jpg" alt="Imagen 3" />
+          <img src="img/posteos/posteo2/Imagen 4.jpg" alt="Imagen 4" />
+          <img src="img/posteos/posteo2/Imagen 5.jpg" alt="Imagen 5" />
+          <img src="img/posteos/posteo2/Imagen 6.jpg" alt="Imagen 6" />
+          <img src="img/posteos/posteo2/Imagen 7.jpg" alt="Imagen 7" />
+          <img src="img/posteos/posteo2/Imagen 8.jpg" alt="Imagen 8" />
+          <img src="img/posteos/posteo2/Imagen 9.jpg" alt="Imagen 9" />
+        </div>
+
+        <p>
+          De esas opciones, cada estudiante se queda con una, a su elección. De
+          allí, realiza un trabajo de fanzine-objeto con combinaciones a su
+          elección, libres, con texto, imagen, diseño, etc., que represente de
+          acuerdo a su interpretación personal una casa tomada por…
+        </p>
+
+        <p>
+          A continuación vemos algunos de los más destacados trabajos.
+          Apreciamos que cada estudiante ha podido dar una impronta personal a
+          cada trabajo, con expresiones artísticas originales y brillantes.
+        </p>
+
+        <p>
+          Además de la alegría por tan hermosos trabajos, concluimos que el
+          potencial expresivo de los alumnos es ilimitado cuando puede trabajar
+          con un criterio dado pero libremente en su expresión, sin bajadas de
+          línea políticas o ideológicas y con respeto a su forma de verse a sí
+          mismos y al mundo.
+        </p>
+      </section>
     </div>
+    <!-- GRID DE ALUMNOS -->
+    <h3 class="alumnos-titulo">Casas tomadas por estudiantes</h3>
+    <p class="text-center" style="font-size: 0.95rem">
+      Hacé clic en cada tarjeta para ver el dibujo.
+    </p>
+
+    <div class="alumnos-grid">
+      <!-- Alumno 1 -->
+      <button
+        class="alumno-card"
+        data-toggle="modal"
+        data-target="#alumnoModal"
+        data-nombre="Alumno 1"
+        data-img="img/posteos/posteo2/alumnos/alumno1.jpg"
+      >
+        <img
+          src="img/posteos/posteo2/alumnos/alumno1.jpg"
+          alt="Dibujo Alumno 1"
+        />
+        <div class="alumno-nombre">Alumno 1</div>
+      </button>
+
+      <!-- Alumno 2 -->
+      <button
+        class="alumno-card"
+        data-toggle="modal"
+        data-target="#alumnoModal"
+        data-nombre="Alumno 2"
+        data-img="img/posteos/posteo2/alumnos/alumno2.jpg"
+      >
+        <img
+          src="img/posteos/posteo2/alumnos/alumno2.jpg"
+          alt="Dibujo Alumno 2"
+        />
+        <div class="alumno-nombre">Alumno 2</div>
+      </button>
+
+      <!-- Alumno 3 -->
+      <button
+        class="alumno-card"
+        data-toggle="modal"
+        data-target="#alumnoModal"
+        data-nombre="Alumno 3"
+        data-img="img/posteos/posteo2/alumnos/alumno3.jpg"
+      >
+        <img
+          src="img/posteos/posteo2/alumnos/alumno3.jpg"
+          alt="Dibujo Alumno 3"
+        />
+        <div class="alumno-nombre">Alumno 3</div>
+      </button>
+
+      <!-- Copiá y pegá más bloques "alumno-card" cambiando nombre, imagen y alt -->
+    </div>
+    <!-- FIN GRID DE ALUMNOS -->
+
+    <!-- Fin sección galería -->
 
     <!-- Footer Start -->
     <div

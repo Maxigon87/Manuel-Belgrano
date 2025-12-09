@@ -282,6 +282,64 @@
       body.lightbox-open {
         overflow: hidden;
       }
+
+      .alumnos-modales .alumno-offcanvas {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: min(1000px, 95vw);
+        max-width: 100%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        visibility: hidden;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        box-shadow: -4px 0 16px rgba(0, 0, 0, 0.2);
+        z-index: 1055;
+      }
+
+      .alumnos-modales .alumno-offcanvas.show {
+        visibility: visible;
+        transform: translateX(0);
+      }
+
+      .alumnos-modales .offcanvas-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .alumnos-modales .offcanvas-title {
+        margin-bottom: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .alumnos-modales .offcanvas-body {
+        padding: 1rem 1.25rem 1.5rem;
+        overflow-y: auto;
+        flex: 1 1 auto;
+      }
+
+      .offcanvas-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 1050;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .offcanvas-backdrop.fade {
+        opacity: 0;
+        transition: opacity 0.15s linear;
+      }
+
+      .offcanvas-backdrop.show {
+        opacity: 0.5;
+      }
     </style>
 
     <div class="galeria-container">
@@ -384,8 +442,8 @@
       <div class="alumnos-grid">
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-bruno"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-bruno"
         >
           <img
             src="img/posteos/posteo2/01 Bruno/Bruno 1.jpg"
@@ -395,16 +453,16 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-zoe"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-zoe"
         >
           <img src="img/posteos/posteo2/02 Zoe/Zoe 1.jpg" alt="Dibujo de Zoe" />
           <div class="alumno-nombre">Zoe</div>
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-celia"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-celia"
         >
           <img
             src="img/posteos/posteo2/03 Celia/Celia 1.jpg"
@@ -414,8 +472,8 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-francisco"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-francisco"
         >
           <img
             src="img/posteos/posteo2/04 Francisco/Francisco 1.jpg"
@@ -425,8 +483,8 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-ariana"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-ariana"
         >
           <img
             src="img/posteos/posteo2/05 Ariana/Ariana 1.jpg"
@@ -436,8 +494,8 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-nina"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-nina"
         >
           <img
             src="img/posteos/posteo2/06 Nina/Nina 1.jpg"
@@ -447,8 +505,8 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-genaro"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-genaro"
         >
           <img
             src="img/posteos/posteo2/07 Genaro/Genaro 1.jpg"
@@ -458,8 +516,8 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-antonella"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-antonella"
         >
           <img
             src="img/posteos/posteo2/08 Antonella/Antonella 1.jpg"
@@ -469,8 +527,8 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-emilio"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-emilio"
         >
           <img
             src="img/posteos/posteo2/09 Emilio/Emilio 1.jpg"
@@ -480,8 +538,8 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-eunice"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-eunice"
         >
           <img
             src="img/posteos/posteo2/10 Eunice/Eunice 1.jpg"
@@ -491,16 +549,16 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-mia"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-mia"
         >
           <img src="img/posteos/posteo2/11 Mia/Mia 1.jpg" alt="Dibujo de Mia" />
           <div class="alumno-nombre">Mia</div>
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-alma"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-alma"
         >
           <img
             src="img/posteos/posteo2/12 Alma/Alma 1.jpg"
@@ -510,8 +568,8 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-josefina"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-josefina"
         >
           <img
             src="img/posteos/posteo2/13 Josefina/Josefina 1.jpg"
@@ -521,8 +579,8 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-thiago"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-thiago"
         >
           <img
             src="img/posteos/posteo2/14 Thiago/Thiago 1.jpg"
@@ -532,8 +590,8 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-maitena"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-maitena"
         >
           <img
             src="img/posteos/posteo2/15 Maitena/Maitena 1.jpg"
@@ -543,8 +601,8 @@
         </button>
         <button
           class="alumno-card"
-          data-toggle="modal"
-          data-target="#modal-jazmin"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#modal-jazmin"
         >
           <img
             src="img/posteos/posteo2/16 Jazmin/Jazmin 1.jpg"
@@ -558,1168 +616,1024 @@
     <!-- MODALES ALUMNOS -->
     <div class="alumnos-modales">
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-bruno"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-bruno-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-bruno-label">Bruno</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-bruno-label">Bruno</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Bruno : me tocó la melancolía y traté de que en el texto se
+            entienda una casa acogedora. Me inspiré mucho en canciones de
+            soul y jazz .
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/01 Bruno/Bruno 1.jpg"
+                alt="Dibujo de Bruno"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Bruno : me tocó la melancolía y traté de que en el texto se
-                entienda una casa acogedora. Me inspiré mucho en canciones de
-                soul y jazz .
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/01 Bruno/Bruno 1.jpg"
-                    alt="Dibujo de Bruno"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/01 Bruno/Bruno 2.jpg"
-                    alt="Dibujo de Bruno"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/01 Bruno/Bruno 3.jpg"
-                    alt="Dibujo de Bruno"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/01 Bruno/Bruno 4.jpg"
-                    alt="Dibujo de Bruno"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/01 Bruno/Bruno 7.jpg"
-                    alt="Dibujo de Bruno"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/01 Bruno/Bruno 2.jpg"
+                alt="Dibujo de Bruno"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/01 Bruno/Bruno 3.jpg"
+                alt="Dibujo de Bruno"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/01 Bruno/Bruno 4.jpg"
+                alt="Dibujo de Bruno"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/01 Bruno/Bruno 7.jpg"
+                alt="Dibujo de Bruno"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-zoe"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-zoe-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-zoe-label">Zoe</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-zoe-label">Zoe</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Zoe : (casa tomada por la oscuridad ) Me quise expresar o
+            mostrar el lado oscuro de un asesino, y en eso se basó el
+            contexto de la c asa; busqué escenarios donde un asesino podría
+            matar y no ser encontrado (basado en películas).
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/02 Zoe/Zoe 1.jpg"
+                alt="Dibujo de Zoe"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Zoe : (casa tomada por la oscuridad ) Me quise expresar o
-                mostrar el lado oscuro de un asesino, y en eso se basó el
-                contexto de la c asa; busqué escenarios donde un asesino podría
-                matar y no ser encontrado (basado en películas).
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/02 Zoe/Zoe 1.jpg"
-                    alt="Dibujo de Zoe"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/02 Zoe/Zoe 10.jpg"
-                    alt="Dibujo de Zoe"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/02 Zoe/Zoe 11.jpg"
-                    alt="Dibujo de Zoe"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/02 Zoe/Zoe 2.jpg"
-                    alt="Dibujo de Zoe"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/02 Zoe/Zoe 3.jpg"
-                    alt="Dibujo de Zoe"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/02 Zoe/Zoe 4.jpg"
-                    alt="Dibujo de Zoe"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/02 Zoe/Zoe 5.jpg"
-                    alt="Dibujo de Zoe"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/02 Zoe/Zoe 6.jpg"
-                    alt="Dibujo de Zoe"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/02 Zoe/Zoe 7.jpg"
-                    alt="Dibujo de Zoe"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/02 Zoe/Zoe 8.jpg"
-                    alt="Dibujo de Zoe"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/02 Zoe/Zoe 9.jpg"
-                    alt="Dibujo de Zoe"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/02 Zoe/Zoe 10.jpg"
+                alt="Dibujo de Zoe"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/02 Zoe/Zoe 11.jpg"
+                alt="Dibujo de Zoe"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/02 Zoe/Zoe 2.jpg"
+                alt="Dibujo de Zoe"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/02 Zoe/Zoe 3.jpg"
+                alt="Dibujo de Zoe"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/02 Zoe/Zoe 4.jpg"
+                alt="Dibujo de Zoe"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/02 Zoe/Zoe 5.jpg"
+                alt="Dibujo de Zoe"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/02 Zoe/Zoe 6.jpg"
+                alt="Dibujo de Zoe"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/02 Zoe/Zoe 7.jpg"
+                alt="Dibujo de Zoe"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/02 Zoe/Zoe 8.jpg"
+                alt="Dibujo de Zoe"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/02 Zoe/Zoe 9.jpg"
+                alt="Dibujo de Zoe"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-celia"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-celia-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-celia-label">Celia</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-celia-label">Celia</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Celia : me tocó indiferencia , y traté de explicar la situación
+            de una mudanza y lo que conlleva esto; el formato es un libro
+            alterado .
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/03 Celia/Celia 1.jpg"
+                alt="Dibujo de Celia"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Celia : me tocó indiferencia , y traté de explicar la situación
-                de una mudanza y lo que conlleva esto; el formato es un libro
-                alterado .
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/03 Celia/Celia 1.jpg"
-                    alt="Dibujo de Celia"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/03 Celia/Celia 2.jpg"
-                    alt="Dibujo de Celia"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/03 Celia/Celia 3.jpg"
-                    alt="Dibujo de Celia"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/03 Celia/Celia 4.jpg"
-                    alt="Dibujo de Celia"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/03 Celia/Celia 5.jpg"
-                    alt="Dibujo de Celia"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/03 Celia/Celia 6.jpg"
-                    alt="Dibujo de Celia"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/03 Celia/Celia 7.jpg"
-                    alt="Dibujo de Celia"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/03 Celia/Celia 2.jpg"
+                alt="Dibujo de Celia"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/03 Celia/Celia 3.jpg"
+                alt="Dibujo de Celia"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/03 Celia/Celia 4.jpg"
+                alt="Dibujo de Celia"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/03 Celia/Celia 5.jpg"
+                alt="Dibujo de Celia"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/03 Celia/Celia 6.jpg"
+                alt="Dibujo de Celia"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/03 Celia/Celia 7.jpg"
+                alt="Dibujo de Celia"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-francisco"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-francisco-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-francisco-label">Francisco</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-francisco-label">Francisco</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Francisco : (casa tomada por la calma ) para hacer la casa tomé
+            inspiración de como de vez en cuando las casas quedan en calma
+            por uno s minutos; en eso me basé para la historia
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/04 Francisco/Francisco 1.jpg"
+                alt="Dibujo de Francisco"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Francisco : (casa tomada por la calma ) para hacer la casa tomé
-                inspiración de como de vez en cuando las casas quedan en calma
-                por uno s minutos; en eso me basé para la historia
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/04 Francisco/Francisco 1.jpg"
-                    alt="Dibujo de Francisco"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/04 Francisco/Francisco 2.jpg"
-                    alt="Dibujo de Francisco"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/04 Francisco/Francisco 3.jpg"
-                    alt="Dibujo de Francisco"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/04 Francisco/Francisco 4.jpg"
-                    alt="Dibujo de Francisco"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/04 Francisco/Francisco 5.jpg"
-                    alt="Dibujo de Francisco"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/04 Francisco/Francisco 6.jpg"
-                    alt="Dibujo de Francisco"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/04 Francisco/Francisco 2.jpg"
+                alt="Dibujo de Francisco"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/04 Francisco/Francisco 3.jpg"
+                alt="Dibujo de Francisco"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/04 Francisco/Francisco 4.jpg"
+                alt="Dibujo de Francisco"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/04 Francisco/Francisco 5.jpg"
+                alt="Dibujo de Francisco"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/04 Francisco/Francisco 6.jpg"
+                alt="Dibujo de Francisco"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-ariana"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-ariana-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-ariana-label">Ariana</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-ariana-label">Ariana</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Ariana : me tocó la palabra ausencia ; p ara crearlo usé un
+            ejemplo real que suele pasar en las infancias de niños; refleja
+            cómo esta situación le afecta a los niños de manera psicológica
+            y emocional; se sitúa en la habitación de un niño, oscura y sin
+            esperanza
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/05 Ariana/Ariana 1.jpg"
+                alt="Dibujo de Ariana"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Ariana : me tocó la palabra ausencia ; p ara crearlo usé un
-                ejemplo real que suele pasar en las infancias de niños; refleja
-                cómo esta situación le afecta a los niños de manera psicológica
-                y emocional; se sitúa en la habitación de un niño, oscura y sin
-                esperanza
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/05 Ariana/Ariana 1.jpg"
-                    alt="Dibujo de Ariana"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/05 Ariana/Ariana 2.jpg"
-                    alt="Dibujo de Ariana"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/05 Ariana/Ariana 3.jpg"
-                    alt="Dibujo de Ariana"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/05 Ariana/Ariana 4.jpg"
-                    alt="Dibujo de Ariana"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/05 Ariana/Ariana 5.jpg"
-                    alt="Dibujo de Ariana"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/05 Ariana/Ariana 2.jpg"
+                alt="Dibujo de Ariana"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/05 Ariana/Ariana 3.jpg"
+                alt="Dibujo de Ariana"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/05 Ariana/Ariana 4.jpg"
+                alt="Dibujo de Ariana"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/05 Ariana/Ariana 5.jpg"
+                alt="Dibujo de Ariana"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-nina"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-nina-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-nina-label">Nina</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-nina-label">Nina</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Nina : me tocó la palabra paz , y para hacer mi obra me inspiré
+            en la búsqueda de la paz interior
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/06 Nina/Nina 1.jpg"
+                alt="Dibujo de Nina"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Nina : me tocó la palabra paz , y para hacer mi obra me inspiré
-                en la búsqueda de la paz interior
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/06 Nina/Nina 1.jpg"
-                    alt="Dibujo de Nina"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/06 Nina/Nina 2.jpg"
-                    alt="Dibujo de Nina"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/06 Nina/Nina 3.jpg"
-                    alt="Dibujo de Nina"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/06 Nina/Nina 2.jpg"
+                alt="Dibujo de Nina"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/06 Nina/Nina 3.jpg"
+                alt="Dibujo de Nina"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-genaro"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-genaro-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-genaro-label">Genaro</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-genaro-label">Genaro</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Genaro : (una casa tomada por la furia ) lo que intenté expresar
+            en mi casa con la emoción que me tocó es una casa prendida
+            fuego; utilicé cenizas, pasto seco, cartón, etc.
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/07 Genaro/Genaro 1.jpg"
+                alt="Dibujo de Genaro"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Genaro : (una casa tomada por la furia ) lo que intenté expresar
-                en mi casa con la emoción que me tocó es una casa prendida
-                fuego; utilicé cenizas, pasto seco, cartón, etc.
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/07 Genaro/Genaro 1.jpg"
-                    alt="Dibujo de Genaro"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/07 Genaro/Genaro 2.jpg"
-                    alt="Dibujo de Genaro"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/07 Genaro/Genaro 3.jpg"
-                    alt="Dibujo de Genaro"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/07 Genaro/Genaro 4.jpg"
-                    alt="Dibujo de Genaro"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/07 Genaro/Genaro 5.jpg"
-                    alt="Dibujo de Genaro"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/07 Genaro/Genaro 2.jpg"
+                alt="Dibujo de Genaro"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/07 Genaro/Genaro 3.jpg"
+                alt="Dibujo de Genaro"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/07 Genaro/Genaro 4.jpg"
+                alt="Dibujo de Genaro"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/07 Genaro/Genaro 5.jpg"
+                alt="Dibujo de Genaro"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-antonella"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-antonella-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-antonella-label">Antonella</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-antonella-label">Antonella</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Antonella : me tocó horror ; mi idea era hacer algo grotesco,
+            por ejemplo del estilo de puppet combo , un dependiente de
+            sarrollador de videojuegos; me basé en stay out of the house ,
+            un juego que trata de escapar de un asesino; el personaje había
+            sido secuestrado, y la casa del asesino era muy grotesca, con
+            sangre, etc.
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/08 Antonella/Antonella 1.jpg"
+                alt="Dibujo de Antonella"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Antonella : me tocó horror ; mi idea era hacer algo grotesco,
-                por ejemplo del estilo de puppet combo , un dependiente de
-                sarrollador de videojuegos; me basé en stay out of the house ,
-                un juego que trata de escapar de un asesino; el personaje había
-                sido secuestrado, y la casa del asesino era muy grotesca, con
-                sangre, etc.
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/08 Antonella/Antonella 1.jpg"
-                    alt="Dibujo de Antonella"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/08 Antonella/Antonella 2.jpg"
-                    alt="Dibujo de Antonella"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/08 Antonella/Antonella 3.jpg"
-                    alt="Dibujo de Antonella"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/08 Antonella/Antonella 4.jpg"
-                    alt="Dibujo de Antonella"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/08 Antonella/Antonella 5.jpg"
-                    alt="Dibujo de Antonella"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/08 Antonella/Antonella 2.jpg"
+                alt="Dibujo de Antonella"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/08 Antonella/Antonella 3.jpg"
+                alt="Dibujo de Antonella"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/08 Antonella/Antonella 4.jpg"
+                alt="Dibujo de Antonella"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/08 Antonella/Antonella 5.jpg"
+                alt="Dibujo de Antonella"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-emilio"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-emilio-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-emilio-label">Emilio</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-emilio-label">Emilio</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Emilio : me tocó dulzura , entonces pensé en una casa de
+            jengibre, tomé algunos materiales y empecé a hacerla sin ningún
+            plano pensado anteriormente, después de hacerla sólo hice
+            algunos detalles faltantes
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/09 Emilio/Emilio 1.jpg"
+                alt="Dibujo de Emilio"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Emilio : me tocó dulzura , entonces pensé en una casa de
-                jengibre, tomé algunos materiales y empecé a hacerla sin ningún
-                plano pensado anteriormente, después de hacerla sólo hice
-                algunos detalles faltantes
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/09 Emilio/Emilio 1.jpg"
-                    alt="Dibujo de Emilio"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/09 Emilio/Emilio 2.jpg"
-                    alt="Dibujo de Emilio"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/09 Emilio/Emilio 3.jpg"
-                    alt="Dibujo de Emilio"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/09 Emilio/Emilio 4.jpg"
-                    alt="Dibujo de Emilio"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/09 Emilio/Emilio 5.jpg"
-                    alt="Dibujo de Emilio"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/09 Emilio/Emilio 2.jpg"
+                alt="Dibujo de Emilio"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/09 Emilio/Emilio 3.jpg"
+                alt="Dibujo de Emilio"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/09 Emilio/Emilio 4.jpg"
+                alt="Dibujo de Emilio"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/09 Emilio/Emilio 5.jpg"
+                alt="Dibujo de Emilio"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-eunice"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-eunice-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-eunice-label">Eunice</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-eunice-label">Eunice</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Eunice : me tocó soledad ; hice una casa simple dada la
+            sensación acogedora, pero por dentro simplemente hay u na chica
+            rodeada de frases; quise hacer algunas sombras proyectadas por
+            la chica dando a entender su desesperación para no sentirse en
+            soledad; por dentro no existe la puerta para dar a entender que
+            la chica no ve la salida; esta casita está inspirada en la casa
+            de un vecino que vive solo.
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/10 Eunice/Eunice 1.jpg"
+                alt="Dibujo de Eunice"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Eunice : me tocó soledad ; hice una casa simple dada la
-                sensación acogedora, pero por dentro simplemente hay u na chica
-                rodeada de frases; quise hacer algunas sombras proyectadas por
-                la chica dando a entender su desesperación para no sentirse en
-                soledad; por dentro no existe la puerta para dar a entender que
-                la chica no ve la salida; esta casita está inspirada en la casa
-                de un vecino que vive solo.
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/10 Eunice/Eunice 1.jpg"
-                    alt="Dibujo de Eunice"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/10 Eunice/Eunice 2.jpg"
-                    alt="Dibujo de Eunice"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/10 Eunice/Eunice 3.jpg"
-                    alt="Dibujo de Eunice"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/10 Eunice/Eunice 4.jpg"
-                    alt="Dibujo de Eunice"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/10 Eunice/Eunice 5.jpg"
-                    alt="Dibujo de Eunice"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/10 Eunice/Eunice 6.jpg"
-                    alt="Dibujo de Eunice"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/10 Eunice/Eunice 7.jpg"
-                    alt="Dibujo de Eunice"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/10 Eunice/Eunice 2.jpg"
+                alt="Dibujo de Eunice"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/10 Eunice/Eunice 3.jpg"
+                alt="Dibujo de Eunice"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/10 Eunice/Eunice 4.jpg"
+                alt="Dibujo de Eunice"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/10 Eunice/Eunice 5.jpg"
+                alt="Dibujo de Eunice"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/10 Eunice/Eunice 6.jpg"
+                alt="Dibujo de Eunice"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/10 Eunice/Eunice 7.jpg"
+                alt="Dibujo de Eunice"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-mia"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-mia-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-mia-label">Mia</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-mia-label">Mia</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Mía : me tocó silencio ; me puse a pensar y me di cuenta que una
+            casa no siempre se refleja el silencio por fuera; lo que hice
+            fue una linda casa por fuera, con todos sus cuidados y por
+            dentro de la casa una persona hundida en sus pensamientos por no
+            saber cómo expresarlo; también hice en el techo unas nubes y
+            gatitos porque a veces callar lo que sentimos o pensamos es una
+            tormenta constante con nuestra mente de la cual no nos dejan ver
+            lo bueno que pasa a nuestro alrededor.
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/11 Mia/Mia 1.jpg"
+                alt="Dibujo de Mia"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Mía : me tocó silencio ; me puse a pensar y me di cuenta que una
-                casa no siempre se refleja el silencio por fuera; lo que hice
-                fue una linda casa por fuera, con todos sus cuidados y por
-                dentro de la casa una persona hundida en sus pensamientos por no
-                saber cómo expresarlo; también hice en el techo unas nubes y
-                gatitos porque a veces callar lo que sentimos o pensamos es una
-                tormenta constante con nuestra mente de la cual no nos dejan ver
-                lo bueno que pasa a nuestro alrededor.
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/11 Mia/Mia 1.jpg"
-                    alt="Dibujo de Mia"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/11 Mia/Mia 2.jpg"
-                    alt="Dibujo de Mia"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/11 Mia/Mia 3.jpg"
-                    alt="Dibujo de Mia"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/11 Mia/Mia 4.jpg"
-                    alt="Dibujo de Mia"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/11 Mia/Mia 2.jpg"
+                alt="Dibujo de Mia"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/11 Mia/Mia 3.jpg"
+                alt="Dibujo de Mia"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/11 Mia/Mia 4.jpg"
+                alt="Dibujo de Mia"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-alma"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-alma-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-alma-label">Alma</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-alma-label">Alma</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Alma : (una casa tomada por la serenidad ) en mi casa se ve
+            mucho el color celeste, blanco y gris, que relaciono con la
+            tranquilidad y el silencio; mi casa fue de color rosa con blanco
+            y con detalles de abejas en las flores y el techo
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/12 Alma/Alma 1.jpg"
+                alt="Dibujo de Alma"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Alma : (una casa tomada por la serenidad ) en mi casa se ve
-                mucho el color celeste, blanco y gris, que relaciono con la
-                tranquilidad y el silencio; mi casa fue de color rosa con blanco
-                y con detalles de abejas en las flores y el techo
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/12 Alma/Alma 1.jpg"
-                    alt="Dibujo de Alma"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/12 Alma/Alma 2.jpg"
-                    alt="Dibujo de Alma"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/12 Alma/Alma 3.jpg"
-                    alt="Dibujo de Alma"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/12 Alma/Alma 2.jpg"
+                alt="Dibujo de Alma"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/12 Alma/Alma 3.jpg"
+                alt="Dibujo de Alma"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-josefina"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-josefina-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-josefina-label">Josefina</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-josefina-label">Josefina</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Josefina : me tocó satisfacción ; intenté hacer una casa que se
+            vea ordenada, limpia, una casa colorida, donde se transmita paz
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/13 Josefina/Josefina 1.jpg"
+                alt="Dibujo de Josefina"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Josefina : me tocó satisfacción ; intenté hacer una casa que se
-                vea ordenada, limpia, una casa colorida, donde se transmita paz
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/13 Josefina/Josefina 1.jpg"
-                    alt="Dibujo de Josefina"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/13 Josefina/Josefina 2.jpg"
-                    alt="Dibujo de Josefina"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/13 Josefina/Josefina 3.jpg"
-                    alt="Dibujo de Josefina"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/13 Josefina/Josefina 2.jpg"
+                alt="Dibujo de Josefina"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/13 Josefina/Josefina 3.jpg"
+                alt="Dibujo de Josefina"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-thiago"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-thiago-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-thiago-label">Thiago</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-thiago-label">Thiago</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">Frase no disponible.</p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/14 Thiago/Thiago 1.jpg"
+                alt="Dibujo de Thiago"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">Frase no disponible.</p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/14 Thiago/Thiago 1.jpg"
-                    alt="Dibujo de Thiago"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/14 Thiago/Thiago 2.jpg"
-                    alt="Dibujo de Thiago"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/14 Thiago/Thiago 3.jpg"
-                    alt="Dibujo de Thiago"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/14 Thiago/Thiago 4.jpg"
-                    alt="Dibujo de Thiago"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/14 Thiago/Thiago 5.jpg"
-                    alt="Dibujo de Thiago"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/14 Thiago/Thiago 6.jpg"
-                    alt="Dibujo de Thiago"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/14 Thiago/Thiago 2.jpg"
+                alt="Dibujo de Thiago"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/14 Thiago/Thiago 3.jpg"
+                alt="Dibujo de Thiago"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/14 Thiago/Thiago 4.jpg"
+                alt="Dibujo de Thiago"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/14 Thiago/Thiago 5.jpg"
+                alt="Dibujo de Thiago"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/14 Thiago/Thiago 6.jpg"
+                alt="Dibujo de Thiago"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-maitena"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-maitena-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-maitena-label">Maitena</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-maitena-label">Maitena</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">Frase no disponible.</p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/15 Maitena/Maitena 1.jpg"
+                alt="Dibujo de Maitena"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">Frase no disponible.</p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/15 Maitena/Maitena 1.jpg"
-                    alt="Dibujo de Maitena"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/15 Maitena/Maitena 2.jpg"
-                    alt="Dibujo de Maitena"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/15 Maitena/Maitena 3.jpg"
-                    alt="Dibujo de Maitena"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/15 Maitena/Maitena 2.jpg"
+                alt="Dibujo de Maitena"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/15 Maitena/Maitena 3.jpg"
+                alt="Dibujo de Maitena"
+              />
             </div>
           </div>
         </div>
       </div>
       <div
-        class="modal fade"
+        class="offcanvas offcanvas-end alumno-offcanvas"
         id="modal-jazmin"
         tabindex="-1"
-        role="dialog"
         aria-labelledby="modal-jazmin-label"
-        aria-hidden="true"
       >
-        <div
-          class="modal-dialog modal-lg modal-dialog-centered"
-          role="document"
-        >
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-jazmin-label">Jazmin</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="modal-jazmin-label">Jazmin</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <p class="alumno-frase">
+            Jazmín : (casa tomada por el sosiego ) me inspiré en lo que creo que
+            significa el sosiego, como tranquilidad, relajación, paz, por eso
+            hice un lugar que para mí transmite eso, como una habitación donde
+            puedes dormir tranquilamente; después de un largo día y relajarte,
+            tomar o comer algo en paz o también leer un libro en la sala en tu
+            sofá.
+          </p>
+          <div class="row">
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/16 Jazmin/Jazmin 1.jpg"
+                alt="Dibujo de Jazmin"
+              />
             </div>
-            <div class="modal-body">
-              <p class="alumno-frase">
-                Jazmín : (casa tomada por el sosiego ) me inspiré en lo que creo
-                que significa el sosiego, como tranquilidad, relajación, paz,
-                por eso hice un lugar que para mí transmite eso, como una
-                habitación donde puedes dormir tranquilamente; después de un
-                largo día y relajarte, tomar o comer algo en paz o también leer
-                un libro en la sala en tu sofá.
-              </p>
-              <div class="row">
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/16 Jazmin/Jazmin 1.jpg"
-                    alt="Dibujo de Jazmin"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/16 Jazmin/Jazmin 2.jpg"
-                    alt="Dibujo de Jazmin"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/16 Jazmin/Jazmin 3.jpg"
-                    alt="Dibujo de Jazmin"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/16 Jazmin/Jazmin 4.jpg"
-                    alt="Dibujo de Jazmin"
-                  />
-                </div>
-                <div class="col-12 mb-3">
-                  <img
-                    class="img-fluid w-100"
-                    src="img/posteos/posteo2/16 Jazmin/Jazmin 5.jpg"
-                    alt="Dibujo de Jazmin"
-                  />
-                </div>
-              </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/16 Jazmin/Jazmin 2.jpg"
+                alt="Dibujo de Jazmin"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/16 Jazmin/Jazmin 3.jpg"
+                alt="Dibujo de Jazmin"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/16 Jazmin/Jazmin 4.jpg"
+                alt="Dibujo de Jazmin"
+              />
+            </div>
+            <div class="col-12 mb-3">
+              <img
+                class="img-fluid w-100"
+                src="img/posteos/posteo2/16 Jazmin/Jazmin 5.jpg"
+                alt="Dibujo de Jazmin"
+              />
             </div>
           </div>
         </div>

@@ -163,97 +163,232 @@
     </div>
     <!-- Header End -->
 
-    <div class="container my-5">
-      <div class="text-center">
-        <h2
-          class="fw-bold text-primary mb-3 animate__animated animate__fadeInDown"
+    <style>
+      .galeria-container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: #ffffff;
+        padding: 30px;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+      }
+
+      .galeria-container h1,
+      .galeria-container h2,
+      .galeria-container h3 {
+        font-weight: 600;
+        margin-top: 1.4em;
+        margin-bottom: 0.6em;
+      }
+
+      .galeria-container h1 {
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .galeria-container p {
+        margin: 0 0 1em;
+        text-align: justify;
+      }
+
+      .galeria-imagenes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 15px 0 25px;
+        justify-content: center;
+      }
+
+      .galeria-imagenes img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .bloque-autor {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
+      }
+
+      .bloque-autor h2 {
+        margin-top: 0;
+      }
+
+      .etiqueta-autor {
+        font-weight: bold;
+      }
+
+      .nota-img {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: -5px;
+        margin-bottom: 10px;
+      }
+    </style>
+
+    <div class="galeria-container">
+      <!-- Boton-->
+      <div class="text-center mb-4">
+        <a
+          href="galeria.html"
+          class="btn btn-primary btn-lg px-4 py-2 shadow-sm"
+          style="
+            font-size: 14px;
+            color: #ffffff;
+            border-radius: 50px;
+            background-color: #298cf7;
+            border-color: #007bff;
+          "
         >
-          📷 Galería de Proyectos y Producciones Estudiantiles
-        </h2>
-        <p class="text-muted mb-4 animate__animated animate__fadeInUp">
-          En esta sección compartimos las producciones y actividades realizadas
-          por nuestros estudiantes. Cada posteo combina textos e imágenes que
-          reflejan su creatividad, su mirada crítica y el trabajo realizado en
-          las distintas áreas. Es un espacio para mostrar y valorar su
-          aprendizaje cotidiano.
-        </p>
-        <h3>Profesor Paez Augusto y alumnos de 5to año</h3> <br>
-      </div>
-      <div class="row">
-        <!-- Tarjeta -->
-        <div class="col-md-4 mb-4">
-          <a href="posteo1.html" style="text-decoration: none; color: inherit">
-            <div class="card h-100" style="cursor: pointer">
-              <img
-                src="img/posteos/posteo1/posteo1.png"
-                class="card-img-top"
-                alt="Proyecto Aquello otro"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Aquello otro</h5>
-                <p class="card-text">
-                  Así vemos, sentimos y contamos lo desconocido.
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4">
-          <a href="posteo2.html" style="text-decoration: none; color: inherit">
-            <div class="card h-100" style="cursor: pointer">
-              <img
-                src="img/posteos/posteo2/posteo2.png"
-                class="card-img-top"
-                alt="Casas tomadas"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Casas tomadas</h5>
-                <p class="card-text">
-                  Las sombras toman lo que el miedo deja libre.
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4">
-          <a href="posteo3.html" style="text-decoration: none; color: inherit">
-            <div class="card h-100" style="cursor: pointer">
-              <img
-                src="img/posteos/posteo3/Imagen 1 - copia.jpg"
-                class="card-img-top"
-                alt="Casas tomadas"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Palabras Tetris</h5>
-                <p class="card-text">
-                  Crecer es encajar palabras que nos construyen
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-<!--
-        <div class="col-md-4 mb-4">
-          <a href="posteo1.html" style="text-decoration: none; color: inherit">
-            <div class="card h-100" style="cursor: pointer">
-              <img
-                src="img/posteos/posteo1/proyecto1.png"
-                class="card-img-top"
-                alt="Proyecto Aquello otro"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Aquello otro</h5>
-                <p class="card-text">
-                  Así vemos, sentimos y contamos lo desconocido.
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>-->
+          <i class="fas fa-images mr-2"></i>
+          MENU GALERIA
+        </a>
       </div>
 
-      
+      <!-- Título principal -->
+      <section class="posteo">
+        <h2>Palabras Tetris</h2>
+
+        <div class="galeria-imagenes">
+          <img
+            src="img/posteos/posteo3/Imagen%201.jpg"
+            alt="Trabajo Palabras Tetris"
+          />
+        </div>
+
+        <p>
+          Los estudiantes de sexto año, en paralelo a la euforia del último año,
+          los festejos y la presión, se enfrentan a una situación dual: por un
+          lado, están en el final de un ciclo escolar de preparación, con lo que
+          abandonan, junto con la escuela y sus compañeros, la etapa de la
+          niñez-adolescencia; por otro, se encuentran al comienzo de un ciclo,
+          que es la juventud y la adultez, una etapa de estudio o de trabajo que
+          los coloca ineludiblemente del lado de las responsabilidades.
+        </p>
+
+        <p>
+          ¿Cómo sintetizar esto desde una planificación por tópico y con qué
+          tipo de trabajo abordar esa reflexión y ese autoconocimiento?
+        </p>
+
+        <p>
+          <strong>Palabras Tetris</strong> es el trabajo final creativo de sexto
+          año, el último del ciclo secundario, y tiene el objetivo de mirar
+          hacia adentro, pensando en el futuro, en el presente y en el pasado.
+          El eje es la palabra, el lenguaje y su profunda capacidad metafórica.
+        </p>
+
+        <p>
+          Cada estudiante elabora cinco piezas (cinco fanzines-objeto)
+          inspiradas en las figuras del clásico juego nacido en la extinta URSS.
+          En cada pieza hay una palabra elegida, de profundo significado
+          personal.
+        </p>
+
+        <div class="galeria-imagenes">
+          <img
+            src="img/posteos/posteo3/Imagen%202.jpg"
+            alt="Proceso de trabajo Palabras Tetris"
+          />
+        </div>
+
+        <h3>Palabras Tetris, el trabajo</h3>
+
+        <p>
+          Crecer no es otra cosa que acumular palabras. Dotarlas de formas
+          diferentes, encastrarlas, encajarlas unas sobre otras y tratar, en lo
+          posible, de que no pesen. Que rimen. Que tengan sentido por separado y
+          juntas.
+        </p>
+
+        <p>
+          Algunas, las más pesadas, tienen una forma fija y caen al fondo de
+          nuestra vida. Las demás se van acomodando a su alrededor y la van
+          tapando. A veces, mientras más palabras las cubren, más pesadas se
+          vuelven: más grandes, luminosas, inspiradoras o insoportables.
+        </p>
+
+        <p>
+          Otras palabras, en cambio, livianas como una nave, llegan con una
+          forma y con el tiempo les damos otra. Les cambiamos el color, las
+          volvemos a pintar. Y si ellas se renuevan, nosotros también cambiamos.
+        </p>
+
+        <p>
+          Coleccionistas de palabras: eso es lo que somos. A mayor cantidad,
+          mejor.
+        </p>
+
+        <p>
+          ¿Cuáles son las tuyas? ¿Cuál llevás en el bolsillo? ¿Cuál está en la
+          llave de tu casa? ¿Cuál es la primera que cargás al iniciar un viaje?
+          ¿Cuál dejás para que se la lleven y aparece siempre en una caja?
+        </p>
+
+        <h4>La primera palabra: La palabra que me trajo hasta acá</h4>
+        <p>
+          Es la palabra que marcó mi recorrido hasta hoy. ¿Me facilitó el camino
+          o me lo dificultó? ¿La quiero dejar atrás o seguir llevándola conmigo?
+        </p>
+
+        <h4>La segunda palabra: La palabra que nunca voy a escribir</h4>
+        <p>
+          Es la palabra que no me representa y que elijo mantener lejos de mi
+          vida.
+        </p>
+
+        <h4>La tercera palabra: La palabra que me habita</h4>
+        <p>Es la palabra que mejor me define, mi esencia. ¿Qué palabra soy?</p>
+
+        <h4>La cuarta palabra: Mi palabra nave</h4>
+        <p>
+          Es la palabra que elijo para acompañarme de ahora en adelante en el
+          viaje de la vida.
+        </p>
+
+        <h4>La quinta palabra: La palabra a la que voy</h4>
+        <p>
+          En el camino que imagino para mi vida hay sueños, metas y anhelos.
+          ¿Qué palabra los engloba?
+        </p>
+
+        <div class="galeria-imagenes">
+          <img
+            src="img/posteos/posteo3/Imagen%203.jpg"
+            alt="Trabajos finales Palabras Tetris"
+          />
+        </div>
+
+        <p>
+          A continuación se presentan algunos de los trabajos realizados, en los
+          que se observa agradecimiento, apego familiar, ilusión por el futuro y
+          una gran sensibilidad.
+        </p>
+
+        <div class="galeria-imagenes">
+          <img src="img/posteos/posteo3/Imagen%204.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%205.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%206.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%207.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%208.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%209.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%2010.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%2011.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%2012.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%2013.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%2014.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%2015.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%2016.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%2017.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%2018.jpg" alt="" />
+          <img src="img/posteos/posteo3/Imagen%2019.jpg" alt="" />
+        </div>
+      </section>
     </div>
+    <!-- Fin sección galería -->
 
     <!-- Footer Start -->
     <div

@@ -152,7 +152,10 @@ const fecha = new Date();
 const dia = String(fecha.getDate()).padStart(2, "0");
 const mes = String(fecha.getMonth() + 1).padStart(2, "0");
 const año = String(fecha.getFullYear()).slice(-2);
-document.getElementById("fecha").textContent = `${dia}/${mes}/${año}`;
+const fechaElement = document.getElementById("fecha");
+if (fechaElement) {
+    fechaElement.textContent = `${dia}/${mes}/${año}`;
+}
 
 //Cartel de envio de formulario
 const form = document.getElementById("contactForm");
@@ -163,23 +166,26 @@ const API_KEY = window.API_KEY || "";
 const lat = -33.2955; // Latitud de San Luis, Argentina
 const lon = -66.3370; // Longitud de San Luis, Argentina
 
-if (API_KEY) {
-    const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${lat},${lon}&lang=es`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            const temp = data.current.temp_c;
-            const desc = data.current.condition.text;
-            const icon = data.current.condition.icon;
-            const nombreCiudad = data.location.name;
-            document.getElementById("clima").innerHTML = `${nombreCiudad}: ${temp}°C, ${desc} <img src="https:${icon}" alt="icono clima">`;
-        })
-        .catch(err => {
-            console.error("Error al obtener el clima:", err);
-            document.getElementById("clima").textContent = "Clima no disponible";
-        });
-} else {
-    document.getElementById("clima").textContent = "Clima no disponible";
+const climaElement = document.getElementById("clima");
+if (climaElement) {
+    if (API_KEY) {
+        const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${lat},${lon}&lang=es`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                const temp = data.current.temp_c;
+                const desc = data.current.condition.text;
+                const icon = data.current.condition.icon;
+                const nombreCiudad = data.location.name;
+                climaElement.innerHTML = `${nombreCiudad}: ${temp}°C, ${desc} <img src="https:${icon}" alt="icono clima">`;
+            })
+            .catch(err => {
+                console.error("Error al obtener el clima:", err);
+                climaElement.textContent = "Clima no disponible";
+            });
+    } else {
+        climaElement.textContent = "Clima no disponible";
+    }
 }
 
 

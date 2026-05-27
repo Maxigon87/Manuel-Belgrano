@@ -1,4 +1,4 @@
-#loginModal {
+#loginModal, #adminAuthModal, #newsCreateModal {
   display: none;
   position: fixed;
   z-index: 9999;
@@ -36,3 +36,4 @@
   color: red;
   margin-top: 10px;
 }
+

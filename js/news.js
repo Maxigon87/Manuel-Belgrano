@@ -109,6 +109,10 @@ async function cargarNoticias() {
     }
 }
 
-// Ejecutar al cargar el DOM
-document.addEventListener("DOMContentLoaded", cargarNoticias);
+// Ejecutar al cargar el DOM de forma segura
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", cargarNoticias);
+} else {
+    cargarNoticias();
+}
 export { cargarNoticias };

@@ -128,6 +128,7 @@ secretariamanuelbelgrano3@gmail.com</small>
                   </div>
                 </div>
                 <a href="problems.html" class="nav-item nav-link">Nosotros</a>
+                <a href="#" onclick="cerrarSesionDocente(event)" class="nav-item nav-link text-danger font-weight-bold"><i class="fas fa-sign-out-alt mr-1"></i> Salir</a>
               </div>
               <div class="fecha-container">
                 <span id="fecha"> </span>📅 
@@ -157,8 +158,13 @@ secretariamanuelbelgrano3@gmail.com</small>
 
     <!-- Control de Acceso local por contraseña docente -->
     <script>
-      if (localStorage.getItem("access_granted") !== "true") {
+      if (sessionStorage.getItem("access_granted") !== "true") {
         alert("Acceso privado. Por favor, ingrese desde la página principal con la contraseña.");
+        window.location.href = "index.html";
+      }
+      function cerrarSesionDocente(event) {
+        if (event) event.preventDefault();
+        sessionStorage.removeItem("access_granted");
         window.location.href = "index.html";
       }
     </script>
@@ -510,6 +516,6 @@ secretariamanuelbelgrano3@gmail.com</p>
 
     <!-- Scripts de Firebase y Administración de Noticias -->
     <script type="module" src="js/firebase.js"></script>
-    <script type="module" src="js/admin-news.js"></script>
+    <script type="module" src="js/admin-news.js?v=1.2"></script>
   </body>
 </html>

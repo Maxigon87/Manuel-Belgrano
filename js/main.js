@@ -139,11 +139,17 @@ async function verificarClave() {
         
         if (response.ok) {
             const data = await response.json();
-            if (data.fields && data.fields.rol && data.fields.rol.stringValue === "docente") {
-                // Redirige si la clave es correcta y guarda el acceso localmente
-                localStorage.setItem("access_granted", "true");
-                window.location.href = "docentes.html";
-                return;
+            if (data.fields) {
+                const hasDocenteRole = data.fields.rol && data.fields.rol.stringValue === "docente";
+                const isEnabled = data.fields.enabled && data.fields.enabled.booleanValue === true;
+                const isExplicitlyDisabled = data.fields.enabled && data.fields.enabled.booleanValue === false;
+
+                if (!isExplicitlyDisabled && (hasDocenteRole || isEnabled)) {
+                    // Redirige si la clave es correcta y guarda el acceso localmente
+                    sessionStorage.setItem("access_granted", "true");
+                    window.location.href = "docentes.html";
+                    return;
+                }
             }
         }
         alert("Contraseña incorrecta. Intente nuevamente.");

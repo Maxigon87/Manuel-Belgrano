@@ -22,6 +22,8 @@ import {
     deleteObject 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 
+console.log("admin-news.js: El script se ha cargado.");
+
 // Las contraseñas ya no se guardan en el código, se verifican en la nube usando la colección 'accesos' en Firestore
 
 // Variables locales
@@ -49,10 +51,15 @@ let btnCancelNews;
 let adminNewsList;
 
 // Inicializar elementos y listeners al cargar la página
-document.addEventListener("DOMContentLoaded", () => {
+function inicializarAdminNews() {
+    console.log("admin-news.js: inicializarAdminNews se está ejecutando...");
     // Si no estamos en docentes.html con el botón de subir noticias, salir
     btnSubirNoticia = document.getElementById("btnSubirNoticia");
-    if (!btnSubirNoticia) return;
+    if (!btnSubirNoticia) {
+        console.warn("admin-news.js: No se encontró el botón con ID 'btnSubirNoticia'.");
+        return;
+    }
+    console.log("admin-news.js: Botón 'btnSubirNoticia' encontrado. Inicializando referencias de elementos y configurando listeners...");
 
     // Obtener referencias de elementos
     adminAuthModal = document.getElementById("adminAuthModal");
@@ -105,7 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
         imagePreview.src = "";
         imagePreviewContainer.style.display = "none";
     });
-});
+}
+
+// Ejecutar inicialización de forma segura
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", inicializarAdminNews);
+} else {
+    inicializarAdminNews();
+}
 
 // Funciones de utilidad para modales
 function abrirModal(modal) {

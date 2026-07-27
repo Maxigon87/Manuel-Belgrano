@@ -206,11 +206,36 @@ if (climaElement) {
         climaElement.textContent = "Clima no disponible";
     }
 }
+// 1. Efecto Sticky Header Shrink en scroll
+window.addEventListener("scroll", function () {
+    const header = document.querySelector(".main-header");
+    if (header) {
+        if (window.scrollY > 50) {
+            header.classList.add("header-scrolled");
+        } else {
+            header.classList.remove("header-scrolled");
+        }
+    }
+});
 
+// 2. Intersection Observer para animaciones de entrada (Scroll-Reveal)
+document.addEventListener("DOMContentLoaded", function () {
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+    if (revealElements.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("reveal-active");
+                    observer.unobserve(entry.target); // Solo revelar una vez
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
 
-
-
-
-
-
-
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+    }
+});

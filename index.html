@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>Manuel Belgrano N°3</title>
+    <title>Escuela N°3 Manuel Belgrano - San Luis</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="Pagina Oficial - Manuel Belgrano N°3" name="keywords" />
-    <meta content="Pagina Oficial - Manuel Belgrano N°3" name="description" />
+    <meta content="Página Oficial - Escuela N°3 Manuel Belgrano - San Luis" name="keywords" />
+    <meta content="Sitio oficial de la Escuela N°3 Manuel Belgrano. Información escolar, docentes, alumnos y noticias." name="description" />
 
-    <!-- Icono -->
+    <!-- Icono Institucional -->
     <link rel="icon" href="img/logo mb.png" sizes="32x32" type="image/png" />
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <!-- Google Web Fonts (Plus Jakarta Sans & Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
@@ -27,434 +28,250 @@
       rel="stylesheet"
     />
 
-    <!-- Libraries Stylesheet -->
+    <!-- Component Libraries Stylesheets -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
     <link
       href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
       rel="stylesheet"
     />
-    <!--MOdal-->
+
+    <!-- Base Bootstrap & Modal -->
+    <link href="css/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/modal.css" />
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="css/style.min.css" rel="stylesheet" />
+    <!-- Rediseño Minimalista Escolar Moderno -->
+    <link href="css/minimal-style.css" rel="stylesheet" />
   </head>
 
   <body>
-    <!-- Header Start -->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-3 bg-secondary d-none d-lg-block">
-          <a
-            href="index.html"
-            class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center"
-          >
-            <img
-              src="img/logo mb.png"
-              alt="logo escuela"
-              width="150"
-              height="100"
-              class="img-fluid"
-            />
-          </a>
-        </div>
-        <div class="col-lg-9">
-          <div class="row bg-white border-bottom d-none d-lg-flex">
-            <div class="col-lg-7 text-left">
-              <div class="h-100 d-inline-flex align-items-center py-2 px-3">
-                <i class="fa fa-envelope text-primary mr-2"></i>
-                <small> secretariamanuelbelgrano3@gmail.com</small>
+    <!-- Top Bar Superior Start -->
+    <div class="top-bar d-none d-lg-block">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <div class="top-bar-info">
+              <div class="top-bar-item">
+                <i class="fa fa-envelope"></i>
+                <span>secretariamanuelbelgrano3@gmail.com</span>
               </div>
-              <div class="h-100 d-inline-flex align-items-center py-2 px-2">
-                <i class="fa fa-phone-alt text-primary mr-2"></i>
-                <small>Interno: 8335</small>
+              <div class="top-bar-item">
+                <i class="fa fa-phone-alt"></i>
+                <span>Interno: 8335</span>
               </div>
             </div>
-            <div class="col-lg-5 text-right">
-              <div class="d-inline-flex align-items-center p-2">
+          </div>
+          <div class="col-lg-5 text-right">
+            <div class="d-inline-flex align-items-center gap-3">
+              <div class="social-links mr-3">
                 <a
-                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
+                  class="social-icon"
                   href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA"
+                  target="_blank"
+                  title="Facebook"
                 >
                   <i class="fab fa-facebook-f"></i>
                 </a>
                 <a
-                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
+                  class="social-icon"
                   href="https://www.instagram.com/escuelamanuelbelgrano3/"
+                  target="_blank"
+                  title="Instagram"
                 >
                   <i class="fab fa-instagram"></i>
                 </a>
                 <a
-                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
+                  class="social-icon"
                   href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec"
+                  target="_blank"
+                  title="YouTube"
                 >
                   <i class="fab fa-youtube"></i>
                 </a>
-                <!--otra clase
-                <a 
-                class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
-                href="carga.html">
-                <i class="fas fa-file-alt"></i>
-              </a>-->
+              </div>
+              <!-- Indicador de Fecha Actual -->
+              <div class="fecha-badge">
+                <span id="fecha"></span> 📅
               </div>
             </div>
           </div>
-          <nav class="navbar navbar-expand-lg bg-white navbar-light p-0">
-            <a href="index.html" class="navbar-brand d-block d-lg-none">
-              <img
-                src="img/logo mb.png"
-                alt="logo escuela"
-                width="50"
-                height="50"
-                class="img-fluid"
-              />
-            </a>
-            <button
-              type="button"
-              class="navbar-toggler"
-              data-toggle="collapse"
-              data-target="#navbarCollapse"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div
-              class="collapse navbar-collapse justify-content-between"
-              id="navbarCollapse"
-            >
-              <div class="navbar-nav mr-auto py-0">
-                <a href="index.html" class="nav-item nav-link active">Inicio</a>
+        </div>
+      </div>
+    </div>
+    <!-- Top Bar Superior End -->
+
+    <!-- Header / Navbar Start -->
+    <header class="main-header">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+          <a href="index.html" class="brand-logo navbar-brand">
+            <img
+              src="img/logo mb.png"
+              alt="Logo Escuela N°3 Manuel Belgrano"
+              class="img-fluid"
+            />
+            <div class="brand-title d-none d-sm-flex">
+              <span class="title-main">Escuela N°3 Manuel Belgrano</span>
+              <span class="title-sub">San Luis - Argentina</span>
+            </div>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Alternar navegación"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav py-2 py-lg-0 align-items-lg-center">
+              <a href="index.html" class="nav-item nav-link active">Inicio</a>
+              
+              <a
+                onclick="abrirModal()"
+                class="nav-item nav-link"
+                style="cursor: pointer"
+              >Docentes</a>
+
+              <!-- Menú Desplegable Alumnos -->
+              <div class="nav-item dropdown">
                 <a
-                  onclick="abrirModal()"
-                  class="nav-item nav-link"
-                  style="cursor: pointer"
-                  >Docentes</a
-                >
-
-                <!--<a href="service.html" class="nav-item nav-link">otros</a>
-  <a href="team.html" class="nav-item nav-link">otros</a>-->
-                <div class="nav-item dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-toggle="dropdown"
-                    >Alumnos</a
-                  >
-                  <div class="dropdown-menu rounded-0 m-0">
-                    <a href="galeria.html" class="dropdown-item">Posteos</a>
-                    <a href="inscripciones.html" class="dropdown-item"
-                      >Inscripciones</a
-                    >
-                    <a href="egresados.html" class="dropdown-item">Egresados</a>
-                    <a href="calendario.html" class="dropdown-item"
-                      >Información Escolar</a
-                    >
-                  </div>
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >Alumnos</a>
+                <div class="dropdown-menu">
+                  <a href="galeria.html" class="dropdown-item">Posteos</a>
+                  <a href="inscripciones.html" class="dropdown-item">Inscripciones</a>
+                  <a href="egresados.html" class="dropdown-item">Egresados</a>
+                  <a href="calendario.html" class="dropdown-item">Información Escolar</a>
                 </div>
-                <a href="problems.html" class="nav-item nav-link">Nosotros</a>
               </div>
-              <!--Fecha-->
-              <div class="fecha-container"><span id="fecha"></span>📅</div>
+
+              <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
             </div>
-          </nav>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Header / Navbar End -->
+
+    <!-- Hero Section (Zona Principal) Start -->
+    <section class="hero-wrapper">
+      <div class="container">
+        <div class="hero-card">
+          <img
+            class="hero-bg-img"
+            src="img/frenteansl.png"
+            alt="Fachada Escuela Manuel Belgrano N°3"
+          />
+          <div class="hero-overlay"></div>
+          <div class="hero-content animate__animated animate__fadeIn">
+            <div class="hero-badge">
+              <i class="fa fa-graduation-cap mr-1"></i> Página Oficial
+            </div>
+            <h1 class="hero-title">
+              "Educar para la Paz"
+            </h1>
+            <p class="hero-subtitle">
+              Formación integral de excelencia en San Luis, construyendo valores, conocimiento y comunidad con más de 140 años de trayectoria.
+            </p>
+            <div>
+              <a class="btn-hero-location" href="nosotros.html">
+                <i class="fa fa-map-marker-alt"></i> San Luis
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Header End -->
+    </section>
+    <!-- Hero Section End -->
 
-    <!-- Carrusel de dos imagenes grandes -->
-    <div class="container-fluid p-0 mb-5 pb-5">
-      <div
-        id="header-carousel"
-        class="carousel slide carousel-fade"
-        data-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div
-            class="carousel-item position-relative active"
-            style="height: 100vh; min-height: 400px"
-          >
-            <img
-              class="position-absolute w-100 h-100"
-              src="img/frenteansl.png"
-              style="object-fit: cover"
-            />
-            <div
-              class="carousel-caption d-flex flex-column align-items-center justify-content-center"
-            >
-              <div class="p-3" style="max-width: 900px">
-                <h4
-                  class="text-white text-uppercase mb-4"
-                  style="letter-spacing: 3px"
-                >
-                  Página Oficial
-                </h4>
-                <h3 class="display-2 text-capitalize text-white mb-4">
-                  "Educar para la paz"
-                </h3>
-                <a class="btn btn-primary py-3 px-5 mt-2" href="#">San Luis</a>
-              </div>
-            </div>
-          </div>
-          <div
-            class="carousel-item position-relative"
-            style="height: 100vh; min-height: 400px"
-          >
-            <img
-              class="position-absolute w-100 h-100"
-              src="img/carrusel 2.jpg"
-              style="object-fit: cover"
-            />
-            <div
-              class="carousel-caption d-flex flex-column align-items-center justify-content-center"
-            >
-              <div class="p-3" style="max-width: 900px">
-                <h4
-                  class="text-white text-uppercase mb-4"
-                  style="letter-spacing: 3px"
-                >
-                  Página Oficial
-                </h4>
-                <h3 class="display-2 text-capitalize text-white mb-4">
-                  "Aprende sin límites."
-                </h3>
-                <a class="btn btn-primary py-3 px-5 mt-2">San Luis</a>
-              </div>
-            </div>
-          </div>
+
+    <!-- Sección Redes Sociales y Video Start -->
+    <section class="py-5 bg-white border-top border-bottom">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-tag">Comunidad</span>
+          <h2 class="section-heading">Redes Sociales y Video Institucional</h2>
         </div>
-        <a
-          class="carousel-control-prev"
-          href="#header-carousel"
-          data-slide="prev"
-        >
-          <div class="btn btn-lg btn-secondary btn-lg-square">
-            <span class="carousel-control-prev-icon"></span>
-          </div>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#header-carousel"
-          data-slide="next"
-        >
-          <div class="btn btn-lg btn-secondary btn-lg-square">
-            <span class="carousel-control-next-icon"></span>
-          </div>
-        </a>
-      </div>
-    </div>
-    <!-- Fin del carrusel-->
-    <!-- NOTICIAS DE LA ESCUELA  -->
-    <div class="text-center pb-2">
-      <h6 class="text-uppercase">Escuela</h6>
-      <h1 class="mb-4">Últimas noticias</h1>
-    </div>
-    <div class="container-fluid py-5">
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-12">
-            <div class="bg-primary rounded" style="height: 200px"></div>
-            <div
-              class="owl-carousel team-carousel position-relative"
-              style="margin-top: -97px; padding: 0 30px"
-            >
-              <div
-                class="team-item text-center bg-white rounded overflow-hidden pt-4"
-              >
-                <h5 class="mb-2 px-4">
-                  Continuamos con las reuniones de tutores
-                </h5>
-                <p class="mb-3 px-4">Secundario</p>
-                <div class="team-img position-relative">
-                  <img
-                    class="img-fluid"
-                    src="img/noticias/reunion de tutores.jpg"
-                    alt=""
-                    style="width: 100%; height: 200px; object-fit: cover"
-                  />
-                  <div class="team-social">
-                    <!--AQUI SE CAMBIA EL LINK DE FACEBOOK-->
-                    <a
-                      class="btn btn-outline-light btn-square mx-1"
-                      href="https://www.facebook.com/share/p/18nhQQCCPB"
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="team-item text-center bg-white rounded overflow-hidden pt-4"
-              >
-                <h5 class="mb-2 px-4">Gracias a todos los que colaboraron</h5>
-                <p class="mb-3 px-4">Nivel Inicial</p>
-                <div class="team-img position-relative">
-                  <img
-                    class="img-fluid"
-                    src="img/noticias/arenero.jpg"
-                    alt=""
-                    style="width: 100%; height: 200px; object-fit: cover"
-                  />
-                  <div class="team-social">
-                    <!--AQUI SE CAMBIA EL LINK DE FACEBOOK-->
-                    <a
-                      class="btn btn-outline-light btn-square mx-1"
-                      href="https://www.facebook.com/share/p/1Ad4wQttKL/"
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="team-item text-center bg-white rounded overflow-hidden pt-4"
-              >
-                <h5 class="mb-2 px-4">Acordando pautas</h5>
-                <p class="mb-3 px-4">Seguridad</p>
-                <div class="team-img position-relative">
-                  <img
-                    class="img-fluid"
-                    src="img/noticias/seguridad.jpg"
-                    alt=""
-                    style="width: 100%; height: 200px; object-fit: cover"
-                  />
-                  <div class="team-social">
-                    <!--AQUI SE CAMBIA EL LINK DE FACEBOOK-->
-                    <a
-                      class="btn btn-outline-light btn-square mx-1"
-                      href="https://www.facebook.com/share/p/1AHTqex43q/"
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="team-item text-center bg-white rounded overflow-hidden pt-4"
-              >
-                <h5 class="mb-2 px-4">Presentación promo 2025</h5>
-                <p class="mb-3 px-4">Primario</p>
-                <div class="team-img position-relative">
-                  <img
-                    class="img-fluid"
-                    src="img/noticias/presentacion.jpg"
-                    alt=""
-                    style="width: 100%; height: 200px; object-fit: cover"
-                  />
-                  <div class="team-social">
-                    <!--AQUI SE CAMBIA EL LINK DE FACEBOOK-->
-                    <a
-                      class="btn btn-outline-light btn-square mx-1"
-                      href="https://www.facebook.com/share/p/19a4XJk9dq/"
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="team-item text-center bg-white rounded overflow-hidden pt-4"
-              >
-                <h5 class="mb-2 px-4">Reunión de trabajo</h5>
-                <p class="mb-3 px-4">Maestranza</p>
-                <div class="team-img position-relative">
-                  <img
-                    class="img-fluid"
-                    src="img/noticias/trabajo.jpg"
-                    alt=""
-                    style="width: 100%; height: 200px; object-fit: cover"
-                  />
-                  <div class="team-social">
-                    <!--AQUI SE CAMBIA EL LINK DE FACEBOOK-->
-                    <a
-                      class="btn btn-outline-light btn-square mx-1"
-                      href="https://www.facebook.com/share/p/1ALu2ancMj/"
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
+
+        <div class="row align-items-center">
+          <!-- Widget Iframe Facebook -->
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="content-card">
+              <h4 class="font-weight-bold mb-3 text-primary">
+                <i class="fab fa-facebook mr-2"></i> Muro de Facebook
+              </h4>
+              <iframe
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100090941122310%26locale%3Des_LA&tabs=timeline&width=500&height=550&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+                width="100%"
+                height="550"
+                style="border: none; overflow: hidden; border-radius: 14px;"
+                scrolling="no"
+                frameborder="0"
+                allowfullscreen="true"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              ></iframe>
             </div>
           </div>
-        </div>
-        <br />
-        <!-- Página de Facebook (solo con iframe, no necesita SDK) -->
-        <div class="container-fluid py-5">
-          <div class="row">
-            <div class="col-lg-12 mb-4">
-              <h4 class="font-weight-semi-bold text-primary mb-4">Redes</h4>
-              <div class="card shadow-lg rounded-3">
-                <div class="card-body p-3">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <iframe
-                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100090941122310%26locale%3Des_LA&tabs=timeline&width=600&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-                        width="100%"
-                        height="700"
-                        style="
-                          border: none;
-                          overflow: hidden;
-                          border-radius: 12px;
-                        "
-                        scrolling="no"
-                        frameborder="0"
-                        allowfullscreen="true"
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                      ></iframe>
-                    </div>
-                    <div class="col-lg-6 d-flex align-items-center">
-                      <video
-                        src="vid/video principal.mp4"
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                        style="
-                          width: 100%;
-                          border-radius: 12px;
-                          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-                        "
-                      >
-                        Tu navegador no soporta la reproducción de video.
-                      </video>
-                    </div>
-                  </div>
-                </div>
+
+          <!-- Reproductor de Video Institucional -->
+          <div class="col-lg-6">
+            <div class="content-card">
+              <h4 class="font-weight-bold mb-3 text-primary">
+                <i class="fa fa-play-circle mr-2"></i> Conoce Nuestra Escuela
+              </h4>
+              <div class="video-wrapper">
+                <video
+                  src="vid/video principal.mp4"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  controls
+                >
+                  Tu navegador no soporta la reproducción de video.
+                </video>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!--Fin de publicaciones de facebook-->
-    <!-- Team End -->
+    </section>
+    <!-- Sección Redes Sociales y Video End -->
 
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-lg-5">
+    <!-- Sección Historia y Poema Start -->
+    <section class="history-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-4 mb-lg-0">
             <img
-              class="img-fluid rounded w-100 h-100 object-fit-cover"
+              class="history-img img-fluid"
               src="img/fotoportadaanimadamb.png"
-              alt="foto portada animada"
-              style="object-fit: cover"
+              alt="Escuela Manuel Belgrano N°3 Historia"
             />
           </div>
-          <div class="col-lg-7 mt-4 mt-lg-0">
-            <h2
-              class="position-relative text-center bg-white text-primary rounded p-3 mt-4 mb-4 d-none d-lg-block"
-              style="width: 350px; margin-left: -205px"
-            >
-              140 años enseñando
-            </h2>
-            <h6 class="text-uppercase">A través de los años</h6>
 
-            <div class="row">
-              <div class="col-md-4">
-                <pre
-                  style="
-                    white-space: pre-wrap;
-                    font-family: inherit;
-                    font-style: italic;
-                  "
-                >
+          <div class="col-lg-7">
+            <div class="pl-lg-3">
+              <span class="section-tag">A través de los años</span>
+              <h2 class="section-heading mb-4">140 años enseñando</h2>
+
+              <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <div class="poem-card">
+                    <pre class="poem-text">
 Hace muchos, muchos años
 tus puertas se abrieron de par en par.
 y a partir de ese momento
@@ -469,17 +286,13 @@ Manuel Belgrano se llama
 en honor del general
 que nuestra bandera creara
 a orillas del Paraná
-            </pre
-                >
-              </div>
-              <div class="col-md-4">
-                <pre
-                  style="
-                    white-space: pre-wrap;
-                    font-family: inherit;
-                    font-style: italic;
-                  "
-                >
+                    </pre>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <div class="poem-card">
+                    <pre class="poem-text">
 Fueron pasando los años.
 Y nuestra escuela creció.
 La matrícula día a día 
@@ -494,17 +307,13 @@ También llegó jardinicito.
 Que es hoy nivel inicial
 Y durante 30 años
 Sección Sordos supo estar
-            </pre
-                >
-              </div>
-              <div class="col-md-4">
-                <pre
-                  style="
-                    white-space: pre-wrap;
-                    font-family: inherit;
-                    font-style: italic;
-                  "
-                >
+                    </pre>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="poem-card">
+                    <pre class="poem-text">
 A fines del siglo XX
 3° ciclo llegaría
 Y después de mucho esfuerzo 
@@ -519,162 +328,156 @@ Ya pasaron ciento cuarenta años.
 De aquel día sin igual
 Que con orgullo y alegría
 Sus puertas se abrieron de par en par.
-            </pre
-                >
+                    </pre>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ex-Directora Autora -->
+              <div class="author-badge">
+                <img
+                  src="img/nilda.jpg"
+                  alt="Nilda Molinari"
+                  class="author-avatar"
+                />
+                <div class="author-info">
+                  MOLINARI, Nilda - Ex Directora
+                </div>
               </div>
             </div>
-
-            <div
-              class="d-flex align-items-center mt-4"
-              style="font-style: italic"
-            >
-              <img
-                src="img/nilda.jpg"
-                alt="Nilda Molinari"
-                class="rounded-circle mr-3"
-                style="
-                  width: 100px;
-                  height: 100px;
-                  object-fit: cover;
-                  margin-right: 10px;
-                "
-              />
-              <span>MOLINARI, Nilda - Ex Directora </span>
-            </div>
-
-            <!--<a href="problems.html" class="btn btn-primary mt-2">Historia</a> -->
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    <!-- Sección Historia y Poema End -->
 
-    <!-- About End -->
     <!-- Footer Start -->
-    <div
-      class="container-fluid bg-secondary text-white pt-5 px-sm-3 px-md-5"
-      style="margin-top: 90px"
-    >
-      <div class="row mt-5">
-        <div class="col-lg-4">
-          <div
-            class="d-flex justify-content-lg-center p-4"
-            style="background: rgba(256, 256, 256, 0.05)"
-          >
-            <i class="fa fa-2x fa-map-marker-alt text-primary"></i>
+    <footer class="footer-main">
+      <div class="container">
+        <!-- Contact Cards Row -->
+        <div class="row">
+          <div class="col-lg-4 mb-4">
             <a
               href="https://maps.google.com/?q=Pringles+319"
               target="_blank"
               style="text-decoration: none"
             >
-              <div class="ml-3">
-                <h5 class="text-white">¿Dónde estamos?</h5>
-                <p class="m-0">Pringles 319</p>
+              <div class="footer-card">
+                <i class="fa fa-map-marker-alt"></i>
+                <div>
+                  <h5>¿Dónde estamos?</h5>
+                  <p>Pringles 319, San Luis</p>
+                </div>
               </div>
             </a>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div
-            class="d-flex justify-content-lg-center p-4"
-            style="background: rgba(256, 256, 256, 0.05)"
-          >
-            <i class="fa fa-2x fa-envelope-open text-primary"></i>
+
+          <div class="col-lg-4 mb-4">
             <a
-              href="mailto:escuela@manuelbelgrano.edu.ar?subject=Consulta%20desde%20la%20web&body=Hola%2C%20quisiera%20saber%20m%C3%A1s%20sobre..."
+              href="mailto:secretariamanuelbelgrano3@gmail.com?subject=Consulta%20desde%20la%20web"
               style="text-decoration: none"
             >
-              <div class="ml-3">
-                <h5 class="text-white">¿Quieres escribirnos?</h5>
-                <p class="m-0">secretariamanuelbelgrano3@gmail.com</p>
+              <div class="footer-card">
+                <i class="fa fa-envelope"></i>
+                <div>
+                  <h5>¿Quieres escribirnos?</h5>
+                  <p>secretariamanuelbelgrano3@gmail.com</p>
+                </div>
               </div>
             </a>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div
-            class="d-flex justify-content-lg-center p-4"
-            style="background: rgba(256, 256, 256, 0.05)"
-          >
-            <i class="fa fa-2x fa-phone-alt text-primary"></i>
-            <div class="ml-3">
-              <h5 class="text-white">Puedes llamarnos</h5>
-              <p class="m-0">Interno: 8335</p>
+
+          <div class="col-lg-4 mb-4">
+            <div class="footer-card">
+              <i class="fa fa-phone-alt"></i>
+              <div>
+                <h5>Puedes llamarnos</h5>
+                <p>Interno: 8335</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row pt-5">
-        <div class="col-lg-6 mb-5">
-          <a href="index.html" class="navbar-brand">
-            <h1 class="m-0 mt-n2 display-4 text-primary text-uppercase">
+
+        <!-- Footer Columns Row -->
+        <div class="row pt-4">
+          <div class="col-lg-6 mb-5">
+            <h2 class="footer-brand-title">
               MB N°3
-            </h1>
-          </a>
-          <p>
-            Nuestra escuela ofrece formación en distintos niveles educativos,
-            con docentes comprometidos a enseñar y acompañar. Fomentamos un
-            ambiente de respeto, inclusión y aprendizaje activo. Creemos en una
-            educación que construye valores y saberes en comunidad.
-          </p>
-          <div class="d-flex justify-content-start mt-4">
-            <a
-              class="btn btn-lg btn-outline-light btn-lg-square mr-2"
-              href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a
-              class="btn btn-lg btn-outline-light btn-lg-square"
-              href="https://www.instagram.com/escuelamanuelbelgrano3/"
-              ><i class="fab fa-instagram"></i
-            ></a>
+            </h2>
+            <p style="line-height: 1.7; max-width: 500px">
+              Nuestra escuela ofrece formación en distintos niveles educativos,
+              con docentes comprometidos a enseñar y acompañar. Fomentamos un
+              ambiente de respeto, inclusión y aprendizaje activo. Creemos en una
+              educación que construye valores y saberes en comunidad.
+            </p>
+            <div class="social-links mt-4">
+              <a
+                class="social-icon"
+                href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA"
+                target="_blank"
+              ><i class="fab fa-facebook-f"></i></a>
+              <a
+                class="social-icon"
+                href="https://www.instagram.com/escuelamanuelbelgrano3/"
+                target="_blank"
+              ><i class="fab fa-instagram"></i></a>
+              <a
+                class="social-icon"
+                href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec"
+                target="_blank"
+              ><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-5">
+            <h5 class="text-white font-weight-bold mb-4">Links Populares</h5>
+            <div class="d-flex flex-column">
+              <a class="footer-link" href="index.html"
+                ><i class="fa fa-angle-right"></i> Inicio</a
+              >
+              <a class="footer-link" href="inscripciones.html"
+                ><i class="fa fa-angle-right"></i> Inscripciones</a
+              >
+              <a class="footer-link" href="galeria.html"
+                ><i class="fa fa-angle-right"></i> Posteos y Galería</a
+              >
+              <a class="footer-link" href="nosotros.html"
+                ><i class="fa fa-angle-right"></i> Nosotros</a
+              >
+            </div>
           </div>
         </div>
-        <div class="col-lg-6 mb-5">
-          <h4 class="font-weight-semi-bold text-primary mb-4">
-            Links populares
-          </h4>
-          <div class="d-flex flex-column justify-content-start">
-            <a class="text-white mb-2" href="index.html"
-              ><i class="fa fa-angle-right mr-2"></i>Inicio</a
-            >
-            <a class="text-white mb-2" href="inscripciones.html"
-              ><i class="fa fa-angle-right mr-2"></i>Inscripciones</a
-            >
-            <!--
-        <a class="text-white mb-2" href="#"
-          ><i class="fa fa-angle-right mr-2"></i>Egresados</a
-        >-->
-            <a class="text-white" href="nosotros.html"
-              ><i class="fa fa-angle-right mr-2"></i>Nosotros</a
-            >
-          </div>
-        </div>
-      </div>
-      <div
-        class="row p-4 mt-5 mx-0"
-        style="background: rgba(256, 256, 256, 0.05)"
-      >
-        <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
-          <p class="m-0 text-white">
-            &copy;
-            <a class="font-weight-bold" href="problems.html">Administración</a>.
-            Escuela Manuel Belgrano
+
+        <!-- Footer Copyright Row -->
+        <div class="footer-bottom text-center text-md-left d-md-flex justify-content-between align-items-center">
+          <p class="m-0 mb-2 mb-md-0">
+            &copy; Escuela Manuel Belgrano N°3. Todos los derechos reservados.
           </p>
-        </div>
-        <div class="col-md-6 text-center text-md-right">
-          <p class="m-0 text-white">
-            Desarrollado por
-            <a class="font-weight-bold" href="problems.html">EMGI</a>
+          <p class="m-0">
+            Desarrollado por <a href="nosotros.html">EMGI</a>
           </p>
         </div>
       </div>
-    </div>
+    </footer>
     <!-- Footer End -->
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary px-3 back-to-top"
-      ><i class="fa fa-angle-double-up"></i
-    ></a>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" title="Volver arriba">
+      <i class="fa fa-angle-double-up"></i>
+    </a>
+
+    <!-- Modal de Acceso a Docentes -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <h2>Acceso Docente</h2>
+        <input type="password" id="passwordInput" placeholder="Contraseña de acceso" />
+        <button onclick="checkPassword()">Entrar</button>
+        <button onclick="cerrarModal()">Cancelar</button>
+        <p id="errorMsg"></p>
+      </div>
+    </div>
+
+    <!-- Scripts de la Aplicación -->
     <script src="js/modal.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -694,25 +497,11 @@ Sus puertas se abrieron de par en par.
       src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v22.0"
     ></script>
 
-    <!-- Otros scripts -->
+    <!-- Scripts Principales -->
     <script src="js/main.js"></script>
 
-    <!-- Scripts de Firebase y Noticias Dinámicas -->
+    <!-- Firebase y Noticias Dinámicas -->
     <script type="module" src="js/firebase.js"></script>
     <script type="module" src="js/news.js"></script>
-
-    <!--Login a Docentes-->
-    <div id="loginModal" class="modal">
-      <div class="modal-content">
-        <h2>Acceso docente</h2>
-        <input type="password" id="passwordInput" placeholder="Contraseña" />
-        <button onclick="checkPassword()">Entrar</button>
-        <button onclick="cerrarModal()" style="margin-top: 10px">
-          Cancelar
-        </button>
-        <p id="errorMsg"></p>
-      </div>
-    </div>
-    <!-- Modal de video Aniversario -->
   </body>
 </html>

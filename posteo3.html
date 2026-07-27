@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>Manuel Belgrano N°3</title>
+    <title>Palabras Tetris - Escuela N°3 Manuel Belgrano</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="Pagina Oficial - Manuel Belgrano N°3" name="keywords" />
-    <meta content="Pagina Oficial - Manuel Belgrano N°3" name="description" />
+    <meta content="Palabras Tetris 6° Año Escuela N°3 Manuel Belgrano San Luis" name="keywords" />
+    <meta content="Proyecto Palabras Tetris realizado por alumnos de 6° año." name="description" />
 
-    <!-- Icono -->
+    <!-- Icono Institucional -->
     <link rel="icon" href="img/logo mb.png" sizes="32x32" type="image/png" />
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
@@ -27,497 +28,259 @@
       rel="stylesheet"
     />
 
-    <!-- Libraries Stylesheet -->
+    <!-- Component Libraries Stylesheets -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
     <link
       href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
       rel="stylesheet"
     />
-    <!--MOdal-->
+
+    <!-- Base Bootstrap & Modal -->
+    <link href="css/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/modal.css" />
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="css/style.min.css" rel="stylesheet" />
+    <!-- Rediseño Minimalista Escolar Moderno -->
+    <link href="css/minimal-style.css" rel="stylesheet" />
   </head>
 
   <body>
-    <!-- Header Start -->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-3 bg-secondary d-none d-lg-block">
-          <a
-            href="index.html"
-            class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center"
-          >
-            <img
-              src="img/logo mb.png"
-              alt="logo escuela"
-              width="150"
-              height="100"
-              class="img-fluid"
-            />
-          </a>
-        </div>
-        <div class="col-lg-9">
-          <div class="row bg-white border-bottom d-none d-lg-flex">
-            <div class="col-lg-7 text-left">
-              <div class="h-100 d-inline-flex align-items-center py-2 px-3">
-                <i class="fa fa-envelope text-primary mr-2"></i>
-                <small> secretariamanuelbelgrano3@gmail.com</small>
+    <!-- Top Bar Superior Start -->
+    <div class="top-bar d-none d-lg-block">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <div class="top-bar-info">
+              <div class="top-bar-item">
+                <i class="fa fa-envelope"></i>
+                <span>secretariamanuelbelgrano3@gmail.com</span>
               </div>
-              <div class="h-100 d-inline-flex align-items-center py-2 px-2">
-                <i class="fa fa-phone-alt text-primary mr-2"></i>
-                <small>Interno: 8335</small>
-              </div>
-            </div>
-            <div class="col-lg-5 text-right">
-              <div class="d-inline-flex align-items-center p-2">
-                <a
-                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
-                  href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA"
-                >
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-                <a
-                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
-                  href="https://www.instagram.com/escuelamanuelbelgrano3/"
-                >
-                  <i class="fab fa-instagram"></i>
-                </a>
-                <a
-                  class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
-                  href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec"
-                >
-                  <i class="fab fa-youtube"></i>
-                </a>
-                <!--otra clase
-                <a 
-                class="btn btn-sm btn-outline-primary btn-sm-square mr-2"
-                href="carga.html">
-                <i class="fas fa-file-alt"></i>
-              </a>-->
+              <div class="top-bar-item">
+                <i class="fa fa-phone-alt"></i>
+                <span>Interno: 8335</span>
               </div>
             </div>
           </div>
-          <nav class="navbar navbar-expand-lg bg-white navbar-light p-0">
-            <a href="index.html" class="navbar-brand d-block d-lg-none">
-              <img
-                src="img/logo mb.png"
-                alt="logo escuela"
-                width="50"
-                height="50"
-                class="img-fluid"
-              />
-            </a>
-            <button
-              type="button"
-              class="navbar-toggler"
-              data-toggle="collapse"
-              data-target="#navbarCollapse"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div
-              class="collapse navbar-collapse justify-content-between"
-              id="navbarCollapse"
-            >
-              <div class="navbar-nav mr-auto py-0">
-                <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                <a
-                  onclick="abrirModal()"
-                  class="nav-item nav-link"
-                  style="cursor: pointer"
-                  >Docentes</a
-                >
-
-                <!--<a href="service.html" class="nav-item nav-link">otros</a>
-                <a href="team.html" class="nav-item nav-link">otros</a>-->
-                <div class="nav-item dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-toggle="dropdown"
-                    >Alumnos</a
-                  >
-                  <div class="dropdown-menu rounded-0 m-0">
-                    <a href="galeria.html" class="dropdown-item">Posteos</a>
-                    <a href="inscripciones.html" class="dropdown-item"
-                      >Inscripciones</a
-                    >
-
-                    <a href="egresados.html" class="dropdown-item">Egresados</a>
-                    <a href="calendario.html" class="dropdown-item"
-                      >Información Escolar</a
-                    >
-                  </div>
-                </div>
-                <a href="problems.html" class="nav-item nav-link">Nosotros</a>
+          <div class="col-lg-5 text-right">
+            <div class="d-inline-flex align-items-center gap-3">
+              <div class="social-links mr-3">
+                <a class="social-icon" href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="social-icon" href="https://www.instagram.com/escuelamanuelbelgrano3/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a class="social-icon" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank"><i class="fab fa-youtube"></i></a>
               </div>
-              <!--Fecha-->
-              <div class="fecha-container"><span id="fecha"></span>📅</div>
+              <div class="fecha-badge">
+                <span id="fecha"></span> 📅
+              </div>
             </div>
-          </nav>
+          </div>
         </div>
       </div>
     </div>
-    <!-- Header End -->
+    <!-- Top Bar Superior End -->
 
-    <style>
-      .galeria-container {
-        max-width: 800px;
-        margin: 40px auto;
-        background: #ffffff;
-        padding: 30px;
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.6;
-      }
+    <!-- Header / Navbar Start -->
+    <header class="main-header">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+          <a href="index.html" class="brand-logo navbar-brand">
+            <img src="img/logo mb.png" alt="Logo Escuela N°3 Manuel Belgrano" class="img-fluid" />
+            <div class="brand-title d-none d-sm-flex">
+              <span class="title-main">Escuela N°3 Manuel Belgrano</span>
+              <span class="title-sub">San Luis - Argentina</span>
+            </div>
+          </a>
 
-      .galeria-container h1,
-      .galeria-container h2,
-      .galeria-container h3 {
-        font-weight: 600;
-        margin-top: 1.4em;
-        margin-bottom: 0.6em;
-      }
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-      .galeria-container h1 {
-        text-align: center;
-        margin-top: 0;
-      }
-
-      .galeria-container p {
-        margin: 0 0 1em;
-        text-align: justify;
-      }
-
-      .galeria-imagenes {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin: 15px 0 25px;
-        justify-content: center;
-      }
-
-      .galeria-imagenes img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      .bloque-autor {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        border-top: 1px solid #ddd;
-        padding-top: 20px;
-      }
-
-      .bloque-autor h2 {
-        margin-top: 0;
-      }
-
-      .etiqueta-autor {
-        font-weight: bold;
-      }
-
-      .nota-img {
-        font-size: 0.9em;
-        color: #666;
-        margin-top: -5px;
-        margin-bottom: 10px;
-      }
-    </style>
-
-    <div class="galeria-container">
-      <!-- Boton-->
-      <div class="text-center mb-4">
-        <a
-          href="galeria.html"
-          class="btn btn-primary btn-lg px-4 py-2 shadow-sm"
-          style="
-            font-size: 14px;
-            color: #ffffff;
-            border-radius: 50px;
-            background-color: #298cf7;
-            border-color: #007bff;
-          "
-        >
-          <i class="fas fa-images mr-2"></i>
-          MENU GALERIA
-        </a>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+            <div class="navbar-nav py-2 py-lg-0 align-items-lg-center">
+              <a href="index.html" class="nav-item nav-link">Inicio</a>
+              <a onclick="abrirModal()" class="nav-item nav-link" style="cursor: pointer">Docentes</a>
+              <div class="nav-item dropdown active">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Alumnos</a>
+                <div class="dropdown-menu">
+                  <a href="galeria.html" class="dropdown-item active">Posteos</a>
+                  <a href="inscripciones.html" class="dropdown-item">Inscripciones</a>
+                  <a href="egresados.html" class="dropdown-item">Egresados</a>
+                  <a href="calendario.html" class="dropdown-item">Información Escolar</a>
+                </div>
+              </div>
+              <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
+            </div>
+          </div>
+        </nav>
       </div>
+    </header>
+    <!-- Header / Navbar End -->
 
-      <!-- Título principal -->
-      <section class="posteo">
-        <h2>Palabras Tetris</h2>
-
-        <div class="galeria-imagenes">
-          <img
-            src="img/posteos/posteo3/Imagen%201.jpg"
-            alt="Trabajo Palabras Tetris"
-          />
+    <!-- Post Article Content Start -->
+    <section class="py-5">
+      <div class="container" style="max-width: 860px;">
+        <div class="mb-4">
+          <a href="galeria.html" class="btn-hero-location py-2 px-4" style="font-size: 0.85rem;">
+            <i class="fa fa-arrow-left"></i> Volver a Galería
+          </a>
         </div>
 
-        <p>
-          Los estudiantes de sexto año, en paralelo a la euforia del último año,
-          los festejos y la presión, se enfrentan a una situación dual: por un
-          lado, están en el final de un ciclo escolar de preparación, con lo que
-          abandonan, junto con la escuela y sus compañeros, la etapa de la
-          niñez-adolescencia; por otro, se encuentran al comienzo de un ciclo,
-          que es la juventud y la adultez, una etapa de estudio o de trabajo que
-          los coloca ineludiblemente del lado de las responsabilidades.
-        </p>
+        <div class="clean-card p-4 p-md-5">
+          <span class="section-tag">6° Año - Trabajo Final</span>
+          <h1 class="section-heading mt-2 mb-4">Palabras Tetris</h1>
 
-        <p>
-          ¿Cómo sintetizar esto desde una planificación por tópico y con qué
-          tipo de trabajo abordar esa reflexión y ese autoconocimiento?
-        </p>
+          <div class="mb-4 text-center">
+            <img src="img/posteos/posteo3/Imagen 1.jpg" alt="Palabras Tetris 1" class="img-fluid rounded shadow-sm" style="max-height: 420px;" />
+          </div>
 
-        <p>
-          <strong>Palabras Tetris</strong> es el trabajo final creativo de sexto
-          año, el último del ciclo secundario, y tiene el objetivo de mirar
-          hacia adentro, pensando en el futuro, en el presente y en el pasado.
-          El eje es la palabra, el lenguaje y su profunda capacidad metafórica.
-        </p>
+          <p class="text-muted leading-relaxed mb-4">
+            Los estudiantes de sexto año, en paralelo a la euforia del último año, los festejos y la presión, se enfrentan a una situación dual: por un lado, están en el final de un ciclo escolar de preparación; por otro, se encuentran al comienzo de una nueva etapa de estudio o trabajo.
+          </p>
 
-        <p>
-          Cada estudiante elabora cinco piezas (cinco fanzines-objeto)
-          inspiradas en las figuras del clásico juego nacido en la extinta URSS.
-          En cada pieza hay una palabra elegida, de profundo significado
-          personal.
-        </p>
+          <p class="text-muted leading-relaxed mb-4">
+            <strong>Palabras Tetris</strong> es el trabajo final creativo de sexto año, que tiene el objetivo de mirar hacia adentro, pensando en el futuro, en el presente y en el pasado. El eje es la palabra, el lenguaje y su profunda capacidad metafórica.
+          </p>
 
-        <div class="galeria-imagenes">
-          <img
-            src="img/posteos/posteo3/Imagen%202.jpg"
-            alt="Proceso de trabajo Palabras Tetris"
-          />
+          <div class="my-4 text-center">
+            <img src="img/posteos/posteo3/Imagen 2.jpg" alt="Palabras Tetris 2" class="img-fluid rounded shadow-sm" style="max-height: 420px;" />
+          </div>
+
+          <h3 class="font-weight-bold text-primary my-4">Palabras Tetris, el trabajo</h3>
+          <p class="text-muted leading-relaxed mb-4">
+            Crecer no es otra cosa que acumular palabras. Dotarlas de formas diferentes, encastrarlas, encajarlas unas sobre otras y tratar de que rimen y tengan sentido.
+          </p>
+
+          <div class="clean-card my-4 bg-light">
+            <h5 class="font-weight-bold text-secondary mb-2">1. La palabra que me trajo hasta acá</h5>
+            <p class="text-muted small mb-3">La palabra que marcó mi recorrido hasta hoy.</p>
+
+            <h5 class="font-weight-bold text-secondary mb-2">2. La palabra que nunca voy a escribir</h5>
+            <p class="text-muted small mb-3">La palabra que no me representa y elijo mantener lejos.</p>
+
+            <h5 class="font-weight-bold text-secondary mb-2">3. La palabra que me habita</h5>
+            <p class="text-muted small mb-3">La palabra que mejor define mi esencia.</p>
+
+            <h5 class="font-weight-bold text-secondary mb-2">4. Mi palabra nave</h5>
+            <p class="text-muted small mb-3">La palabra que elijo para acompañarme de ahora en adelante.</p>
+
+            <h5 class="font-weight-bold text-secondary mb-2">5. La palabra a la que voy</h5>
+            <p class="text-muted small m-0">La palabra que engloba mis sueños y anhelos futuros.</p>
+          </div>
+
+          <div class="my-4 text-center">
+            <img src="img/posteos/posteo3/Imagen 3.jpg" alt="Palabras Tetris 3" class="img-fluid rounded shadow-sm mb-4" style="max-height: 420px;" />
+          </div>
+
+          <p class="text-muted leading-relaxed mb-4">
+            Compartimos algunas de las producciones finales de los alumnos de 6° año:
+          </p>
+
+          <div class="row">
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 4.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 4" /></div>
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 5.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 5" /></div>
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 6.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 6" /></div>
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 7.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 7" /></div>
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 8.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 8" /></div>
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 9.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 9" /></div>
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 10.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 10" /></div>
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 11.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 11" /></div>
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 12.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 12" /></div>
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 13.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 13" /></div>
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 14.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 14" /></div>
+            <div class="col-6 col-md-3 mb-3"><img src="img/posteos/posteo3/Imagen 15.jpg" class="img-fluid rounded shadow-sm" alt="Tetris 15" /></div>
+          </div>
         </div>
-
-        <h3>Palabras Tetris, el trabajo</h3>
-
-        <p>
-          Crecer no es otra cosa que acumular palabras. Dotarlas de formas
-          diferentes, encastrarlas, encajarlas unas sobre otras y tratar, en lo
-          posible, de que no pesen. Que rimen. Que tengan sentido por separado y
-          juntas.
-        </p>
-
-        <p>
-          Algunas, las más pesadas, tienen una forma fija y caen al fondo de
-          nuestra vida. Las demás se van acomodando a su alrededor y la van
-          tapando. A veces, mientras más palabras las cubren, más pesadas se
-          vuelven: más grandes, luminosas, inspiradoras o insoportables.
-        </p>
-
-        <p>
-          Otras palabras, en cambio, livianas como una nave, llegan con una
-          forma y con el tiempo les damos otra. Les cambiamos el color, las
-          volvemos a pintar. Y si ellas se renuevan, nosotros también cambiamos.
-        </p>
-
-        <p>
-          Coleccionistas de palabras: eso es lo que somos. A mayor cantidad,
-          mejor.
-        </p>
-
-        <p>
-          ¿Cuáles son las tuyas? ¿Cuál llevás en el bolsillo? ¿Cuál está en la
-          llave de tu casa? ¿Cuál es la primera que cargás al iniciar un viaje?
-          ¿Cuál dejás para que se la lleven y aparece siempre en una caja?
-        </p>
-
-        <h4>La primera palabra: La palabra que me trajo hasta acá</h4>
-        <p>
-          Es la palabra que marcó mi recorrido hasta hoy. ¿Me facilitó el camino
-          o me lo dificultó? ¿La quiero dejar atrás o seguir llevándola conmigo?
-        </p>
-
-        <h4>La segunda palabra: La palabra que nunca voy a escribir</h4>
-        <p>
-          Es la palabra que no me representa y que elijo mantener lejos de mi
-          vida.
-        </p>
-
-        <h4>La tercera palabra: La palabra que me habita</h4>
-        <p>Es la palabra que mejor me define, mi esencia. ¿Qué palabra soy?</p>
-
-        <h4>La cuarta palabra: Mi palabra nave</h4>
-        <p>
-          Es la palabra que elijo para acompañarme de ahora en adelante en el
-          viaje de la vida.
-        </p>
-
-        <h4>La quinta palabra: La palabra a la que voy</h4>
-        <p>
-          En el camino que imagino para mi vida hay sueños, metas y anhelos.
-          ¿Qué palabra los engloba?
-        </p>
-
-        <div class="galeria-imagenes">
-          <img
-            src="img/posteos/posteo3/Imagen%203.jpg"
-            alt="Trabajos finales Palabras Tetris"
-          />
-        </div>
-
-        <p>
-          A continuación se presentan algunos de los trabajos realizados, en los
-          que se observa agradecimiento, apego familiar, ilusión por el futuro y
-          una gran sensibilidad.
-        </p>
-
-        <div class="galeria-imagenes">
-          <img src="img/posteos/posteo3/Imagen%204.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%205.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%206.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%207.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%208.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%209.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%2010.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%2011.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%2012.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%2013.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%2014.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%2015.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%2016.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%2017.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%2018.jpg" alt="" />
-          <img src="img/posteos/posteo3/Imagen%2019.jpg" alt="" />
-        </div>
-      </section>
-    </div>
-    <!-- Fin sección galería -->
+      </div>
+    </section>
+    <!-- Post Article Content End -->
 
     <!-- Footer Start -->
-    <div
-      class="container-fluid bg-secondary text-white pt-5 px-sm-3 px-md-5"
-      style="margin-top: 90px"
-    >
-      <div class="row mt-5">
-        <div class="col-lg-4">
-          <div
-            class="d-flex justify-content-lg-center p-4"
-            style="background: rgba(256, 256, 256, 0.05)"
-          >
-            <i class="fa fa-2x fa-map-marker-alt text-primary"></i>
-            <a
-              href="https://maps.google.com/?q=Pringles+319"
-              target="_blank"
-              style="text-decoration: none"
-            >
-              <div class="ml-3">
-                <h5 class="text-white">¿Dónde estamos?</h5>
-                <p class="m-0">Pringles 319</p>
+    <footer class="footer-main">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4">
+            <a href="https://maps.google.com/?q=Pringles+319" target="_blank" style="text-decoration: none">
+              <div class="footer-card">
+                <i class="fa fa-map-marker-alt"></i>
+                <div>
+                  <h5>¿Dónde estamos?</h5>
+                  <p>Pringles 319, San Luis</p>
+                </div>
               </div>
             </a>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div
-            class="d-flex justify-content-lg-center p-4"
-            style="background: rgba(256, 256, 256, 0.05)"
-          >
-            <i class="fa fa-2x fa-envelope-open text-primary"></i>
-            <a
-              href="mailto:escuela@manuelbelgrano.edu.ar?subject=Consulta%20desde%20la%20web&body=Hola%2C%20quisiera%20saber%20m%C3%A1s%20sobre..."
-              style="text-decoration: none"
-            >
-              <div class="ml-3">
-                <h5 class="text-white">¿Quieres escribirnos?</h5>
-                <p class="m-0">secretariamanuelbelgrano3@gmail.com</p>
+
+          <div class="col-lg-4 mb-4">
+            <a href="mailto:secretariamanuelbelgrano3@gmail.com?subject=Consulta%20desde%20la%20web" style="text-decoration: none">
+              <div class="footer-card">
+                <i class="fa fa-envelope"></i>
+                <div>
+                  <h5>¿Quieres escribirnos?</h5>
+                  <p>secretariamanuelbelgrano3@gmail.com</p>
+                </div>
               </div>
             </a>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div
-            class="d-flex justify-content-lg-center p-4"
-            style="background: rgba(256, 256, 256, 0.05)"
-          >
-            <i class="fa fa-2x fa-phone-alt text-primary"></i>
-            <div class="ml-3">
-              <h5 class="text-white">Puedes llamarnos</h5>
-              <p class="m-0">Interno: 8335</p>
+
+          <div class="col-lg-4 mb-4">
+            <div class="footer-card">
+              <i class="fa fa-phone-alt"></i>
+              <div>
+                <h5>Puedes llamarnos</h5>
+                <p>Interno: 8335</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row pt-5">
-        <div class="col-lg-6 mb-5">
-          <a href="index.html" class="navbar-brand">
-            <h1 class="m-0 mt-n2 display-4 text-primary text-uppercase">
-              MB N°3
-            </h1>
-          </a>
-          <p>
-            Nuestra escuela ofrece formación en distintos niveles educativos,
-            con docentes comprometidos a enseñar y acompañar. Fomentamos un
-            ambiente de respeto, inclusión y aprendizaje activo. Creemos en una
-            educación que construye valores y saberes en comunidad.
-          </p>
-          <div class="d-flex justify-content-start mt-4">
-            <a
-              class="btn btn-lg btn-outline-light btn-lg-square mr-2"
-              href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a
-              class="btn btn-lg btn-outline-light btn-lg-square"
-              href="https://www.instagram.com/escuelamanuelbelgrano3/"
-              ><i class="fab fa-instagram"></i
-            ></a>
+
+        <div class="row pt-4">
+          <div class="col-lg-6 mb-5">
+            <h2 class="footer-brand-title">MB N°3</h2>
+            <p style="line-height: 1.7; max-width: 500px">
+              Nuestra escuela ofrece formación en distintos niveles educativos, con docentes comprometidos a enseñar y acompañar.
+            </p>
+            <div class="social-links mt-4">
+              <a class="social-icon" href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a class="social-icon" href="https://www.instagram.com/escuelamanuelbelgrano3/" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a class="social-icon" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-5">
+            <h5 class="text-white font-weight-bold mb-4">Links Populares</h5>
+            <div class="d-flex flex-column">
+              <a class="footer-link" href="index.html"><i class="fa fa-angle-right"></i> Inicio</a>
+              <a class="footer-link" href="inscripciones.html"><i class="fa fa-angle-right"></i> Inscripciones</a>
+              <a class="footer-link" href="galeria.html"><i class="fa fa-angle-right"></i> Posteos y Galería</a>
+              <a class="footer-link" href="nosotros.html"><i class="fa fa-angle-right"></i> Nosotros</a>
+            </div>
           </div>
         </div>
-        <div class="col-lg-6 mb-5">
-          <h4 class="font-weight-semi-bold text-primary mb-4">
-            Links populares
-          </h4>
-          <div class="d-flex flex-column justify-content-start">
-            <a class="text-white mb-2" href="index.html"
-              ><i class="fa fa-angle-right mr-2"></i>Inicio</a
-            >
-            <a class="text-white mb-2" href="inscripciones.html"
-              ><i class="fa fa-angle-right mr-2"></i>Inscripciones</a
-            >
-            <!--
-        <a class="text-white mb-2" href="#"
-          ><i class="fa fa-angle-right mr-2"></i>Egresados</a
-        >-->
-            <a class="text-white" href="nosotros.html"
-              ><i class="fa fa-angle-right mr-2"></i>Nosotros</a
-            >
-          </div>
+
+        <div class="footer-bottom text-center text-md-left d-md-flex justify-content-between align-items-center">
+          <p class="m-0 mb-2 mb-md-0">&copy; Escuela Manuel Belgrano N°3. Todos los derechos reservados.</p>
+          <p class="m-0">Desarrollado por <a href="nosotros.html">EMGI</a></p>
         </div>
       </div>
-      <div
-        class="row p-4 mt-5 mx-0"
-        style="background: rgba(256, 256, 256, 0.05)"
-      >
-        <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
-          <p class="m-0 text-white">
-            &copy;
-            <a class="font-weight-bold" href="problems.html">Administración</a>.
-            Escuela Manuel Belgrano
-          </p>
-        </div>
-        <div class="col-md-6 text-center text-md-right">
-          <p class="m-0 text-white">
-            Desarrollado por
-            <a class="font-weight-bold" href="problems.html">EMGI</a>
-          </p>
-        </div>
-      </div>
-    </div>
+    </footer>
     <!-- Footer End -->
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-primary px-3 back-to-top"
-      ><i class="fa fa-angle-double-up"></i
-    ></a>
-    <script src="js/modal.js" defer></script>
+    <a href="#" class="back-to-top" title="Volver arriba">
+      <i class="fa fa-angle-double-up"></i>
+    </a>
 
+    <!-- Modal de Acceso Docente -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <h2>Acceso Docente</h2>
+        <input type="password" id="passwordInput" placeholder="Contraseña de acceso" />
+        <button onclick="checkPassword()">Entrar</button>
+        <button onclick="cerrarModal()">Cancelar</button>
+        <p id="errorMsg"></p>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/modal.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -526,31 +289,6 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Facebook SDK -->
-    <div id="fb-root"></div>
-    <script
-      async
-      defer
-      crossorigin="anonymous"
-      src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v22.0"
-    ></script>
-
-    <!-- Otros scripts -->
     <script src="js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!--Login a Docentes-->
-    <div id="loginModal" class="modal">
-      <div class="modal-content">
-        <h2>Acceso docente</h2>
-        <input type="password" id="passwordInput" placeholder="Contraseña" />
-        <button onclick="checkPassword()">Entrar</button>
-        <button onclick="cerrarModal()" style="margin-top: 10px">
-          Cancelar
-        </button>
-        <p id="errorMsg"></p>
-      </div>
-    </div>
   </body>
 </html>

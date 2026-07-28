@@ -1271,15 +1271,7 @@ a {
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 10px;
-}
-
-.news-title a {
   color: var(--dark);
-  text-decoration: none;
-}
-
-.news-title a:hover {
-  color: var(--primary);
 }
 
 .news-excerpt {

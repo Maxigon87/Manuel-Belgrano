@@ -1,106 +1,72 @@
 // js/news.js
-// Lógica para cargar y renderizar noticias en la página principal
+// Lógica para cargar y renderizar noticias y eventos en la página principal
 
 import { db } from "./firebase.js";
 import { collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// Función para cargar noticias de Firestore
+// 1. Cargar Noticias (Carrusel max 5 noticias)
 async function cargarNoticias() {
-    const carouselContainer = document.querySelector(".team-carousel");
-    if (!carouselContainer) return; // Si no estamos en una página con carrusel, salir
+    const carouselContainer = document.querySelector(".news-carousel, .team-carousel");
+    if (!carouselContainer) return;
 
     try {
-        // Consultar las últimas 10 noticias ordenadas por fecha descendente
-        const q = query(collection(db, "noticias"), orderBy("fecha", "desc"), limit(10));
+        // Consultar máximo 5 noticias ordenadas por fecha descendente
+        const q = query(collection(db, "noticias"), orderBy("fecha", "desc"), limit(5));
         const querySnapshot = await getDocs(q);
 
-        let html = "";
+        const carousel = $(carouselContainer);
         
         if (querySnapshot.empty) {
-            // Si no hay noticias, mostrar un mensaje premium
-            html = `
-                <div class="w-100 text-center py-5">
-                    <h5 class="text-muted">No hay noticias recientes en este momento.</h5>
-                </div>
-            `;
-            const carousel = $(".team-carousel");
-            if (carousel.data("owl.carousel")) {
-                carousel.owlCarousel("destroy");
-            }
-            carousel.html(html);
-            return;
+            return; // Si no hay noticias en la BD, mantener layout por defecto
         }
 
-        querySnapshot.forEach((doc) => {
-            const noticia = doc.data();
+        let html = "";
+        querySnapshot.forEach((docSnap) => {
+            const noticia = docSnap.data();
             const fechaFormateada = noticia.fecha ? new Date(noticia.fecha.seconds * 1000).toLocaleDateString() : "";
-            const fbLink = noticia.facebookLink || "#";
 
             html += `
-                <div class="team-item text-center bg-white rounded overflow-hidden pt-4" style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <h5 class="mb-2 px-4 font-weight-bold" style="font-size: 1.15rem; min-height: 54px; display: flex; align-items: center; justify-content: center;">
-                            ${noticia.titulo}
-                        </h5>
-                        <p class="mb-3 px-4 text-primary" style="font-size: 0.85rem; font-weight: 500;">
-                            ${noticia.categoria}
-                        </p>
+                <article class="news-card h-100 mb-0">
+                  <div class="news-img-wrapper">
+                    <img src="${noticia.imageUrl}" alt="${noticia.titulo}" class="news-img">
+                    <span class="news-category">${noticia.categoria || "Novedad"}</span>
+                  </div>
+                  <div class="news-content">
+                    <div class="news-meta">
+                      <i class="far fa-calendar-alt mr-1"></i> ${fechaFormateada || "Reciente"}
                     </div>
-                    <div class="team-img position-relative mt-auto">
-                        <img
-                            class="img-fluid"
-                            src="${noticia.imageUrl}"
-                            alt="${noticia.titulo}"
-                            style="width: 100%; height: 200px; object-fit: cover;"
-                        />
-                        <div class="team-social">
-                            <a class="btn btn-outline-light btn-square mx-1" href="${fbLink}" target="_blank">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                    <h3 class="news-title">${noticia.titulo}</h3>
+                    ${noticia.descripcion ? `<p class="news-excerpt mt-2 mb-0">${noticia.descripcion}</p>` : ''}
+                  </div>
+                </article>
             `;
         });
 
-        // Manipular Owl Carousel de forma segura
-        const carousel = $(".team-carousel");
-        
-        // Destruir carrusel actual si ya está inicializado para evitar duplicados/errores de renderizado
+        // Destruir carrusel previo si existe para re-renderizar
         if (carousel.data("owl.carousel")) {
             carousel.owlCarousel("destroy");
             carousel.removeClass("owl-loaded");
             carousel.find(".owl-stage-outer").children().unwrap();
         }
 
-        // Insertar nuevo contenido dinámico
+        // Insertar contenido dinámico
         carousel.html(html);
 
-        // Re-inicializar Owl Carousel con la misma configuración de diseño
+        // Re-inicializar Owl Carousel
         carousel.owlCarousel({
             autoplay: true,
-            smartSpeed: 1500,
-            margin: 30,
-            dots: false,
-            loop: querySnapshot.size > 1, // Habilitar loop solo si hay más de 1 noticia
+            smartSpeed: 1200,
+            margin: 20,
+            dots: true,
+            loop: querySnapshot.size > 1,
             nav: true,
             navText: [
                 '<i class="fa fa-angle-left" aria-hidden="true"></i>',
                 '<i class="fa fa-angle-right" aria-hidden="true"></i>',
             ],
             responsive: {
-                0: {
-                    items: 1,
-                },
-                576: {
-                    items: Math.min(2, querySnapshot.size),
-                },
-                768: {
-                    items: Math.min(3, querySnapshot.size),
-                },
-                992: {
-                    items: Math.min(4, querySnapshot.size),
-                },
+                0: { items: 1 },
+                768: { items: Math.min(2, querySnapshot.size) },
             },
         });
 
@@ -109,10 +75,106 @@ async function cargarNoticias() {
     }
 }
 
-// Ejecutar al cargar el DOM de forma segura
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", cargarNoticias);
-} else {
-    cargarNoticias();
+// 2. Cargar Próximos Eventos (Lista de arriba hacia abajo, más reciente arriba)
+async function cargarEventos() {
+    const eventsContainer = document.getElementById("eventsList");
+    if (!eventsContainer) return;
+
+    try {
+        const q = query(collection(db, "eventos"), orderBy("fecha", "desc"), limit(10));
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+            let html = "";
+            querySnapshot.forEach((docSnap) => {
+                const ev = docSnap.data();
+                const esPasado = ev.estado === "Realizado";
+
+                const infoAdicional = [ev.detalle, ev.categoria].filter(Boolean).join(" | ");
+
+                html += `
+                    <div class="agenda-item ${esPasado ? 'past-event' : ''}">
+                      <div class="agenda-date">
+                        <span class="day">${ev.dia || '01'}</span>
+                        <span class="month">${(ev.mes || 'ENE').toUpperCase()}</span>
+                      </div>
+                      <div class="agenda-info">
+                        <h4 class="event-title" title="${ev.titulo}">
+                          ${ev.titulo} 
+                          ${esPasado ? '<span class="badge-past">Realizado</span>' : ''}
+                        </h4>
+                        <p class="event-detail">
+                          <i class="${esPasado ? 'fa fa-check-circle text-secondary' : 'far fa-clock text-primary'} mr-1"></i> 
+                          ${infoAdicional || 'Todos los niveles'}
+                        </p>
+                      </div>
+                    </div>
+                `;
+            });
+
+            eventsContainer.innerHTML = html;
+            return;
+        }
+    } catch (error) {
+        console.warn("Firestore SDK eventos falló en portada, intentando REST API:", error);
+    }
+
+    // Fallback REST API para la portada
+    try {
+        const res = await fetch(`https://firestore.googleapis.com/v1/projects/manuel-belgrano-web-1d164/databases/(default)/documents/eventos`);
+        if (res.ok) {
+            const data = await res.json();
+            if (data.documents && data.documents.length > 0) {
+                let html = "";
+                data.documents.forEach(d => {
+                    const fields = d.fields || {};
+                    const titulo = fields.titulo ? fields.titulo.stringValue : '';
+                    const dia = fields.dia ? fields.dia.stringValue : '01';
+                    const mes = fields.mes ? fields.mes.stringValue : 'ENE';
+                    const detalle = fields.detalle ? fields.detalle.stringValue : '';
+                    const categoria = fields.categoria ? fields.categoria.stringValue : '';
+                    const estado = fields.estado ? fields.estado.stringValue : 'Próximo';
+                    const esPasado = estado === "Realizado";
+
+                    const infoAdicional = [detalle, categoria].filter(Boolean).join(" | ");
+
+                    html += `
+                        <div class="agenda-item ${esPasado ? 'past-event' : ''}">
+                          <div class="agenda-date">
+                            <span class="day">${dia}</span>
+                            <span class="month">${mes.toUpperCase()}</span>
+                          </div>
+                          <div class="agenda-info">
+                            <h4 class="event-title" title="${titulo}">
+                              ${titulo} 
+                              ${esPasado ? '<span class="badge-past">Realizado</span>' : ''}
+                            </h4>
+                            <p class="event-detail">
+                              <i class="${esPasado ? 'fa fa-check-circle text-secondary' : 'far fa-clock text-primary'} mr-1"></i> 
+                              ${infoAdicional || 'Todos los niveles'}
+                            </p>
+                          </div>
+                        </div>
+                    `;
+                });
+                eventsContainer.innerHTML = html;
+            }
+        }
+    } catch (restErr) {
+        console.error("Error al cargar eventos en portada vía REST:", restErr);
+    }
 }
-export { cargarNoticias };
+
+// Inicialización general
+function initNewsAndEvents() {
+    cargarNoticias();
+    cargarEventos();
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initNewsAndEvents);
+} else {
+    initNewsAndEvents();
+}
+
+export { cargarNoticias, cargarEventos };

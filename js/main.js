@@ -140,7 +140,7 @@ async function verificarClave() {
     const input = clave.trim();
 
     try {
-        const response = await fetch(`https://firestore.googleapis.com/v1/projects/manuel-belgrano-web/databases/(default)/documents/accesos/${input}`);
+        const response = await fetch(`https://firestore.googleapis.com/v1/projects/manuel-belgrano-web-1d164/databases/(default)/documents/accesos/${input}`);
         
         if (response.ok) {
             const data = await response.json();

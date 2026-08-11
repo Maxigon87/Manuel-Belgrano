@@ -1,8 +1,8 @@
 // js/admin-news.js
-// Lógica para la administración de noticias desde docentes.html
+// Lógica para la administración de noticias y eventos desde carga.html / docentes.html
 
 import { db, storage, auth } from "./firebase.js";
-import { cargarNoticias } from "./news.js";
+import { cargarNoticias, cargarEventos } from "./news.js";
 import { signInAnonymously } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { 
     collection, 
@@ -22,21 +22,13 @@ import {
     deleteObject 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 
-console.log("admin-news.js: El script se ha cargado.");
-
-// Las contraseñas ya no se guardan en el código, se verifican en la nube usando la colección 'accesos' en Firestore
-
-// Variables locales
 let isAuthorized = false;
 
-// Elementos del DOM
-let btnSubirNoticia;
+// Elementos del DOM - Noticias
 let adminAuthModal;
 let adminPasswordInput;
 let btnSubmitAdminPass;
-let btnCancelAdminPass;
 let adminAuthError;
-let newsCreateModal;
 let newsCreateForm;
 let newsTitle;
 let newsCategory;
@@ -47,28 +39,43 @@ let btnRemovePreview;
 let adminNewsProgress;
 let adminNewsProgressBar;
 let adminNewsStatus;
-let btnCancelNews;
 let adminNewsList;
 
-// Inicializar elementos y listeners al cargar la página
-function inicializarAdminNews() {
-    console.log("admin-news.js: inicializarAdminNews se está ejecutando...");
-    // Si no estamos en docentes.html con el botón de subir noticias, salir
-    btnSubirNoticia = document.getElementById("btnSubirNoticia");
-    if (!btnSubirNoticia) {
-        console.warn("admin-news.js: No se encontró el botón con ID 'btnSubirNoticia'.");
-        return;
-    }
-    console.log("admin-news.js: Botón 'btnSubirNoticia' encontrado. Inicializando referencias de elementos y configurando listeners...");
+// Elementos del DOM - Eventos
+let eventCreateForm;
+let eventTitle;
+let eventDay;
+let eventMonth;
+let eventDetail;
+let eventStatusSelect;
+let adminEventsStatus;
+let adminEventsList;
 
-    // Obtener referencias de elementos
+function inicializarAdminNews() {
+    console.log("admin-news.js: Inicializando módulo administrativo...");
+
+    // Referencias autenticación
     adminAuthModal = document.getElementById("adminAuthModal");
     adminPasswordInput = document.getElementById("adminPasswordInput");
     btnSubmitAdminPass = document.getElementById("btnSubmitAdminPass");
-    btnCancelAdminPass = document.getElementById("btnCancelAdminPass");
     adminAuthError = document.getElementById("adminAuthError");
 
-    newsCreateModal = document.getElementById("newsCreateModal");
+    const adminAuthForm = document.getElementById("adminAuthForm");
+    if (adminAuthForm) {
+        adminAuthForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            procesarValidacionAdmin();
+        });
+    }
+
+    if (btnSubmitAdminPass) {
+        btnSubmitAdminPass.addEventListener("click", (e) => {
+            e.preventDefault();
+            procesarValidacionAdmin();
+        });
+    }
+
+    // Referencias Noticias
     newsCreateForm = document.getElementById("newsCreateForm");
     newsTitle = document.getElementById("newsTitle");
     newsCategory = document.getElementById("newsCategory");
@@ -79,122 +86,141 @@ function inicializarAdminNews() {
     adminNewsProgress = document.getElementById("adminNewsProgress");
     adminNewsProgressBar = document.getElementById("adminNewsProgressBar");
     adminNewsStatus = document.getElementById("adminNewsStatus");
-    btnCancelNews = document.getElementById("btnCancelNews");
     adminNewsList = document.getElementById("adminNewsList");
 
-    // Configurar listeners
-    btnSubirNoticia.addEventListener("click", () => abrirModal(adminAuthModal));
-    btnCancelAdminPass.addEventListener("click", () => cerrarModal(adminAuthModal));
-    btnSubmitAdminPass.addEventListener("click", procesarValidacionAdmin);
-    adminPasswordInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") procesarValidacionAdmin();
-    });
-
-    // Crear noticia listeners
-    btnCancelNews.addEventListener("click", () => cerrarModal(newsCreateModal));
-    newsCreateForm.addEventListener("submit", procesarSubidaNoticia);
-
-    // Previsualización de imagen
-    newsImage.addEventListener("change", (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                imagePreview.src = e.target.result;
-                imagePreviewContainer.style.display = "block";
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    btnRemovePreview.addEventListener("click", () => {
-        newsImage.value = "";
-        imagePreview.src = "";
-        imagePreviewContainer.style.display = "none";
-    });
-}
-
-// Ejecutar inicialización de forma segura
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", inicializarAdminNews);
-} else {
-    inicializarAdminNews();
-}
-
-// Funciones de utilidad para modales
-function abrirModal(modal) {
-    modal.style.display = "flex";
-    if (modal === adminAuthModal) {
-        adminPasswordInput.value = "";
-        adminPasswordInput.focus();
-        adminAuthError.textContent = "";
+    if (newsCreateForm) {
+        newsCreateForm.addEventListener("submit", procesarSubidaNoticia);
     }
-}
 
-function cerrarModal(modal) {
-    modal.style.display = "none";
-    if (modal === newsCreateModal) {
-        resetForm();
+    if (newsImage) {
+        newsImage.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    if (imagePreview) imagePreview.src = e.target.result;
+                    if (imagePreviewContainer) imagePreviewContainer.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
     }
+
+    if (btnRemovePreview) {
+        btnRemovePreview.addEventListener("click", () => {
+            if (newsImage) newsImage.value = "";
+            if (imagePreview) imagePreview.src = "";
+            if (imagePreviewContainer) imagePreviewContainer.style.display = "none";
+        });
+    }
+
+    // Referencias Eventos
+    eventCreateForm = document.getElementById("eventCreateForm");
+    eventTitle = document.getElementById("eventTitle");
+    eventDay = document.getElementById("eventDay");
+    eventMonth = document.getElementById("eventMonth");
+    eventDetail = document.getElementById("eventDetail");
+    eventStatusSelect = document.getElementById("eventStatusSelect");
+    adminEventsStatus = document.getElementById("adminEventsStatus");
+    adminEventsList = document.getElementById("adminEventsList");
+
+    if (eventCreateForm) {
+        eventCreateForm.addEventListener("submit", procesarSubidaEvento);
+    }
+
+    // Cargar listas iniciales en el panel
+    cargarNoticiasAdmin();
+    cargarEventosAdmin();
 }
 
-function resetForm() {
-    newsCreateForm.reset();
-    imagePreview.src = "";
-    imagePreviewContainer.style.display = "none";
-    adminNewsProgress.style.display = "none";
-    adminNewsProgressBar.style.width = "0%";
-    adminNewsProgressBar.textContent = "0%";
-    adminNewsStatus.style.display = "none";
-    adminNewsStatus.textContent = "";
-}
-
-// 1. Validar contraseña admin en la nube
+// Validar clave en Firestore (colección 'accesos')
 async function procesarValidacionAdmin() {
+    if (!adminPasswordInput) adminPasswordInput = document.getElementById("adminPasswordInput");
+    if (!adminAuthError) adminAuthError = document.getElementById("adminAuthError");
+    if (!btnSubmitAdminPass) btnSubmitAdminPass = document.getElementById("btnSubmitAdminPass");
+
+    if (!adminPasswordInput) {
+        console.error("adminPasswordInput no encontrado en el DOM");
+        return;
+    }
     const password = adminPasswordInput.value.trim();
     
     if (password === "") {
-        adminAuthError.textContent = "Ingrese la contraseña.";
-        adminAuthError.style.color = "red";
+        if (adminAuthError) adminAuthError.textContent = "Ingrese la contraseña.";
         return;
     }
 
-    btnSubmitAdminPass.disabled = true;
-    adminAuthError.textContent = "Verificando...";
-    adminAuthError.style.color = "#FFD700";
+    if (btnSubmitAdminPass) btnSubmitAdminPass.disabled = true;
+    if (adminAuthError) {
+        adminAuthError.textContent = "Verificando...";
+        adminAuthError.style.color = "#FFD700";
+    }
 
     try {
-        const isAuthorizedDb = await validarContraseñaAdmin(password);
-        if (isAuthorizedDb) {
+        const isAuth = await validarContraseñaAdmin(password);
+        if (isAuth) {
             isAuthorized = true;
-            cerrarModal(adminAuthModal);
-            abrirModal(newsCreateModal);
-            cargarNoticiasAdmin(); // Cargar la lista para que puedan borrar
+            if (adminAuthModal) adminAuthModal.style.display = "none";
+            const panel = document.getElementById("adminDashboardPanel");
+            if (panel) panel.style.display = "block";
+            const authCard = document.getElementById("adminAuthCard");
+            if (authCard) authCard.style.display = "none";
+            cargarNoticiasAdmin();
+            cargarEventosAdmin();
         } else {
-            adminAuthError.textContent = "Contraseña incorrecta. Por favor, reintente.";
-            adminAuthError.style.color = "red";
+            if (adminAuthError) {
+                adminAuthError.textContent = "Contraseña incorrecta.";
+                adminAuthError.style.color = "red";
+            }
         }
     } catch (err) {
-        console.error("Error al validar contraseña admin:", err);
-        adminAuthError.textContent = "Error al conectar con la base de datos.";
-        adminAuthError.style.color = "red";
+        console.error("Error al validar admin:", err);
+        if (adminAuthError) {
+            adminAuthError.textContent = "Error al conectar con la base de datos.";
+            adminAuthError.style.color = "red";
+        }
     } finally {
-        btnSubmitAdminPass.disabled = false;
+        if (btnSubmitAdminPass) btnSubmitAdminPass.disabled = false;
     }
 }
+window.procesarValidacionAdmin = procesarValidacionAdmin;
 
 async function validarContraseñaAdmin(password) {
+    // 1. Intentar vía Firebase SDK (con inicio anónimo previo si es necesario)
     try {
+        try {
+            await autenticarAnonimamente();
+        } catch (authErr) {
+            console.warn("Autenticación anónima previa falló o no fue requerida:", authErr);
+        }
+
         const docRef = doc(db, "accesos", password);
         const docSnap = await getDoc(docRef);
-        return docSnap.exists() && docSnap.data().rol === "admin";
-    } catch (err) {
-        console.error("Error al buscar clave en Firestore:", err);
-        throw err;
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+            if (data.rol === "admin") return true;
+        }
+    } catch (sdkErr) {
+        console.warn("Consulta vía Firestore SDK falló, intentando con API REST:", sdkErr);
     }
+
+    // 2. Respaldo directo vía API REST de Firestore
+    try {
+        const response = await fetch(`https://firestore.googleapis.com/v1/projects/manuel-belgrano-web-1d164/databases/(default)/documents/accesos/${encodeURIComponent(password)}`);
+        if (response.ok) {
+            const data = await response.json();
+            if (data.fields && data.fields.rol) {
+                const rolVal = data.fields.rol.stringValue;
+                return rolVal === "admin";
+            }
+        }
+    } catch (restErr) {
+        console.error("Error también en API REST:", restErr);
+    }
+
+    return false;
 }
 
-// 2. Autenticación Anónima de Firebase
 async function autenticarAnonimamente() {
     if (auth.currentUser) return auth.currentUser;
     try {
@@ -202,11 +228,11 @@ async function autenticarAnonimamente() {
         return userCredential.user;
     } catch (error) {
         console.error("Error en Autenticación Anónima:", error);
-        throw new Error("No se pudo iniciar sesión de forma segura.");
+        throw new Error("No se pudo iniciar sesión de forma segura en Firebase.");
     }
 }
 
-// 3. Subir imagen a Firebase Storage con progreso
+// Subir imagen a Firebase Storage
 function subirImagen(file) {
     return new Promise((resolve, reject) => {
         const uniqueName = `${Date.now()}_${file.name}`;
@@ -215,14 +241,16 @@ function subirImagen(file) {
 
         const uploadTask = uploadBytesResumable(storageRef, file);
 
-        adminNewsProgress.style.display = "block";
+        if (adminNewsProgress) adminNewsProgress.style.display = "block";
 
         uploadTask.on(
             "state_changed",
             (snapshot) => {
                 const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-                adminNewsProgressBar.style.width = `${progress}%`;
-                adminNewsProgressBar.textContent = `${progress}%`;
+                if (adminNewsProgressBar) {
+                    adminNewsProgressBar.style.width = `${progress}%`;
+                    adminNewsProgressBar.textContent = `${progress}%`;
+                }
             },
             (error) => {
                 console.error("Error al subir imagen:", error);
@@ -240,7 +268,6 @@ function subirImagen(file) {
     });
 }
 
-// Función auxiliar para redimensionar y convertir imagen a Base64 (si no hay Storage configurado)
 function fileToBase64Resized(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -248,10 +275,9 @@ function fileToBase64Resized(file) {
             const image = new Image();
             image.onload = () => {
                 const canvas = document.createElement("canvas");
-                const max_size = 400; // tamaño máximo estético
+                const max_size = 600;
                 let width = image.width;
                 let height = image.height;
-                
                 if (width > height) {
                     if (width > max_size) {
                         height *= max_size / width;
@@ -263,14 +289,11 @@ function fileToBase64Resized(file) {
                         height = max_size;
                     }
                 }
-                
                 canvas.width = width;
                 canvas.height = height;
                 const ctx = canvas.getContext("2d");
                 ctx.drawImage(image, 0, 0, width, height);
-                
-                // Comprimir como JPEG al 70% de calidad
-                const dataUrl = canvas.toDataURL("image/jpeg", 0.7);
+                const dataUrl = canvas.toDataURL("image/jpeg", 0.75);
                 resolve(dataUrl);
             };
             image.onerror = (err) => reject(err);
@@ -281,200 +304,314 @@ function fileToBase64Resized(file) {
     });
 }
 
-// 4. Crear noticia en Firestore
-async function crearNoticia(titulo, categoria, imageUrl, imagePath) {
+// 1. Crear Noticia con límite estricto de 5 (borrando la más vieja si hay 5)
+async function crearNoticia(titulo, categoria, descripcion, imageUrl, imagePath) {
     const noticiasCol = collection(db, "noticias");
-    
-    // Primero, hacemos espacio si hay más de 10 noticias
-    await eliminarNoticiaAntigua();
 
-    // Agregar nuevo documento
+    // Limpiar si ya hay 5 noticias
+    await mantenerLimiteNoticias(5);
+
+    // Agregar la nueva
     await addDoc(noticiasCol, {
         titulo,
         categoria,
+        descripcion: descripcion || "",
         imageUrl,
-        imagePath,
+        imagePath: imagePath || "",
         fecha: serverTimestamp()
     });
 }
 
-// 5. Eliminar noticia antigua automáticamente (límite de 10 noticias)
-async function eliminarNoticiaAntigua() {
+async function mantenerLimiteNoticias(maxPermitido = 5) {
     const noticiasCol = collection(db, "noticias");
-    const q = query(noticiasCol, orderBy("fecha", "asc")); // Trae las más viejas primero
+    const q = query(noticiasCol, orderBy("fecha", "asc")); // Las más viejas primero
     const querySnapshot = await getDocs(q);
 
-    // Si ya hay 10 o más noticias, eliminamos las más antiguas para dejar espacio
-    if (querySnapshot.size >= 10) {
-        const numNoticiasABorrar = querySnapshot.size - 9; // Dejar exactamente 9 noticias libres para la nueva
-        
-        for (let i = 0; i < numNoticiasABorrar; i++) {
-            const docSnapshot = querySnapshot.docs[i];
-            const data = docSnapshot.data();
-            
-            // Borrar archivo de Storage
+    if (querySnapshot.size >= maxPermitido) {
+        const aBorrarCount = querySnapshot.size - (maxPermitido - 1); // Dejar espacio para 1 nueva
+        for (let i = 0; i < aBorrarCount; i++) {
+            const docSnap = querySnapshot.docs[i];
+            const data = docSnap.data();
             if (data.imagePath) {
                 try {
-                    const imgRef = ref(storage, data.imagePath);
-                    await deleteObject(imgRef);
-                } catch (err) {
-                    console.warn("No se pudo eliminar la imagen de Storage o ya no existe:", err);
+                    await deleteObject(ref(storage, data.imagePath));
+                } catch (e) {
+                    console.warn("Storage delete skip/error:", e);
                 }
             }
-            
-            // Borrar registro de Firestore
-            await deleteDoc(docSnapshot.ref);
-            console.log("Noticia antigua eliminada automáticamente para mantener límite de 10:", docSnapshot.id);
+            await deleteDoc(docSnap.ref);
+            console.log("Noticia antigua eliminada automáticamente (límite 5):", docSnap.id);
         }
     }
 }
 
-// 6. Cargar y renderizar noticias para el panel de administración
-async function cargarNoticiasAdmin() {
-    if (!adminNewsList) return;
-    adminNewsList.innerHTML = `<p class="text-muted text-center font-italic my-3">Cargando noticias...</p>`;
-
-    try {
-        const q = query(collection(db, "noticias"), orderBy("fecha", "desc"));
-        const querySnapshot = await getDocs(q);
-
-        renderizarNoticiasAdmin(querySnapshot);
-    } catch (error) {
-        console.error("Error al cargar noticias de administración:", error);
-        adminNewsList.innerHTML = `<p class="text-danger text-center my-3">Error al cargar noticias.</p>`;
-    }
-}
-
-function renderizarNoticiasAdmin(querySnapshot) {
-    if (querySnapshot.empty) {
-        adminNewsList.innerHTML = `<p class="text-muted text-center font-italic my-3">No hay noticias creadas.</p>`;
-        return;
-    }
-
-    let html = "";
-    querySnapshot.forEach((docSnap) => {
-        const data = docSnap.data();
-        const id = docSnap.id;
-        
-        html += `
-            <div class="list-group-item d-flex align-items-center justify-content-between p-3 mb-2 border rounded">
-                <div class="d-flex align-items-center" style="max-width: 80%;">
-                    <img src="${data.imageUrl}" alt="${data.titulo}" class="rounded mr-3" style="width: 50px; height: 50px; object-fit: cover;" />
-                    <div>
-                        <h6 class="mb-0 text-truncate font-weight-bold" style="max-width: 320px;">${data.titulo}</h6>
-                        <small class="text-muted">${data.categoria}</small>
-                    </div>
-                </div>
-                <button class="btn btn-outline-danger btn-sm rounded-circle btn-delete-news" data-id="${id}" data-imagepath="${data.imagePath || ''}" style="width: 32px; height: 32px; padding: 0;">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </div>
-        `;
-    });
-
-    adminNewsList.innerHTML = html;
-
-    // Configurar listeners de eliminación
-    const deleteButtons = adminNewsList.querySelectorAll(".btn-delete-news");
-    deleteButtons.forEach(btn => {
-        btn.addEventListener("click", async (e) => {
-            const button = e.currentTarget;
-            const docId = button.getAttribute("data-id");
-            const imagePath = button.getAttribute("data-imagepath");
-            
-            if (confirm("¿Estás seguro de que quieres eliminar esta noticia?")) {
-                button.disabled = true;
-                button.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`;
-                
-                try {
-                    // Validar permisos
-                    await autenticarAnonimamente();
-                    
-                    // Borrar de Storage si tiene ruta
-                    if (imagePath) {
-                        try {
-                            const imgRef = ref(storage, imagePath);
-                            await deleteObject(imgRef);
-                        } catch (err) {
-                            console.warn("Error al borrar imagen de Storage:", err);
-                        }
-                    }
-                    
-                    // Borrar de Firestore
-                    await deleteDoc(doc(db, "noticias", docId));
-                    
-                    // Recargar lista
-                    await cargarNoticiasAdmin();
-                } catch (err) {
-                    console.error("Error al borrar la noticia:", err);
-                    alert("Error al intentar eliminar la noticia.");
-                    button.disabled = false;
-                    button.innerHTML = `<i class="fas fa-trash-alt"></i>`;
-                }
-            }
-        });
-    });
-}
-
-// 7. Lógica principal para subir la noticia al enviar el formulario
 async function procesarSubidaNoticia(e) {
     e.preventDefault();
     if (!isAuthorized) {
-        alert("No autorizado.");
+        alert("Debe validar su contraseña de administrador primero.");
         return;
     }
 
-    const file = newsImage.files[0];
-    const titulo = newsTitle.value.trim();
-    const categoria = newsCategory.value;
+    const file = newsImage ? newsImage.files[0] : null;
+    const titulo = newsTitle ? newsTitle.value.trim() : "";
+    const categoria = newsCategory ? newsCategory.value : "";
+    const newsDescElem = document.getElementById("newsDescription");
+    const descripcion = newsDescElem ? newsDescElem.value.trim() : "";
 
     if (!file || !titulo || !categoria) {
-        mostrarStatus("Por favor complete todos los campos.", "danger");
+        mostrarStatusNews("Por favor complete todos los campos requeridos.", "danger");
         return;
     }
 
     const btnSubmit = document.getElementById("btnSubmitNews");
-    btnSubmit.disabled = true;
+    if (btnSubmit) btnSubmit.disabled = true;
 
     try {
-        mostrarStatus("Iniciando sesión segura...", "info");
+        mostrarStatusNews("Autenticando servicio...", "info");
         await autenticarAnonimamente();
 
         let downloadURL;
         let imagePath = "";
 
         try {
-            mostrarStatus("Subiendo imagen...", "info");
+            mostrarStatusNews("Subiendo imagen a Firebase Storage...", "info");
             const uploadResult = await subirImagen(file);
             downloadURL = uploadResult.downloadURL;
             imagePath = uploadResult.imagePath;
-        } catch (storageError) {
-            console.warn("Storage falló o no está configurado, usando Base64 local:", storageError);
-            mostrarStatus("Firebase Storage no disponible. Guardando imagen en la base de datos...", "info");
+        } catch (storageErr) {
+            console.warn("Firebase Storage no disponible, usando Base64:", storageErr);
+            mostrarStatusNews("Procesando imagen localmente...", "info");
             downloadURL = await fileToBase64Resized(file);
         }
 
-        mostrarStatus("Creando noticia en el servidor...", "info");
-        await crearNoticia(titulo, categoria, downloadURL, imagePath);
+        mostrarStatusNews("Publicando en el carrusel de novedades...", "info");
+        await crearNoticia(titulo, categoria, descripcion, downloadURL, imagePath);
 
-        mostrarStatus("¡Noticia subida con éxito!", "success");
-        setTimeout(async () => {
-            cerrarModal(newsCreateModal);
-            // Recargar carrusel dinámico inmediatamente
-            if (typeof cargarNoticias === "function") {
-                await cargarNoticias();
-            }
-        }, 1500);
+        mostrarStatusNews("¡Noticia publicada con éxito en el carrusel!", "success");
+        
+        // Reset form
+        if (newsCreateForm) newsCreateForm.reset();
+        if (imagePreviewContainer) imagePreviewContainer.style.display = "none";
+        if (adminNewsProgress) adminNewsProgress.style.display = "none";
+
+        await cargarNoticiasAdmin();
+        if (typeof cargarNoticias === "function") await cargarNoticias();
 
     } catch (error) {
-        console.error("Error durante la subida de noticia:", error);
-        mostrarStatus(`Error: ${error.message || "Ocurrió un error inesperado."}`, "danger");
-        btnSubmit.disabled = false;
+        console.error("Error al publicar noticia:", error);
+        mostrarStatusNews(`Error: ${error.message || "No se pudo guardar la noticia."}`, "danger");
+    } finally {
+        if (btnSubmit) btnSubmit.disabled = false;
     }
 }
 
-function mostrarStatus(mensaje, tipo) {
-    adminNewsStatus.textContent = mensaje;
-    adminNewsStatus.className = `alert alert-${tipo} text-center font-weight-bold mb-3`;
+function mostrarStatusNews(msg, type) {
+    if (!adminNewsStatus) return;
+    adminNewsStatus.textContent = msg;
+    adminNewsStatus.className = `alert alert-${type} text-center font-weight-bold mb-3`;
     adminNewsStatus.style.display = "block";
 }
+
+async function cargarNoticiasAdmin() {
+    if (!adminNewsList) return;
+    adminNewsList.innerHTML = `<p class="text-muted text-center font-italic my-3">Cargando publicaciones...</p>`;
+
+    try {
+        const q = query(collection(db, "noticias"), orderBy("fecha", "desc"));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+            adminNewsList.innerHTML = `<p class="text-muted text-center font-italic my-3">No hay noticias publicadas en el carrusel (Máx. 5).</p>`;
+            return;
+        }
+
+        let html = "";
+        querySnapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            const id = docSnap.id;
+            html += `
+                <div class="list-group-item d-flex align-items-center justify-content-between p-3 mb-2 border rounded shadow-sm">
+                    <div class="d-flex align-items-center" style="max-width: 80%;">
+                        <img src="${data.imageUrl}" alt="${data.titulo}" class="rounded mr-3" style="width: 50px; height: 50px; object-fit: cover;" />
+                        <div>
+                            <h6 class="mb-0 font-weight-bold text-dark text-truncate" style="max-width: 320px;">${data.titulo}</h6>
+                            <small class="text-primary font-weight-bold">${data.categoria || 'Novedad'}</small>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-danger btn-sm rounded-circle btn-delete-news" data-id="${id}" data-imagepath="${data.imagePath || ''}" style="width: 34px; height: 34px; padding: 0;" title="Eliminar noticia">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            `;
+        });
+
+        adminNewsList.innerHTML = html;
+
+        adminNewsList.querySelectorAll(".btn-delete-news").forEach(btn => {
+            btn.addEventListener("click", async (e) => {
+                const button = e.currentTarget;
+                const docId = button.getAttribute("data-id");
+                const imagePath = button.getAttribute("data-imagepath");
+
+                if (confirm("¿Desea eliminar esta noticia del carrusel?")) {
+                    button.disabled = true;
+                    button.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`;
+                    try {
+                        await autenticarAnonimamente();
+                        if (imagePath) {
+                            try {
+                                await deleteObject(ref(storage, imagePath));
+                            } catch (e) {}
+                        }
+                        await deleteDoc(doc(db, "noticias", docId));
+                        await cargarNoticiasAdmin();
+                        if (typeof cargarNoticias === "function") await cargarNoticias();
+                    } catch (err) {
+                        console.error("Error al borrar noticia:", err);
+                        alert("Error al borrar la noticia.");
+                    }
+                }
+            });
+        });
+
+    } catch (err) {
+        console.error("Error al cargar noticias en admin:", err);
+        adminNewsList.innerHTML = `<p class="text-danger text-center my-3">Error al conectar con la base de datos.</p>`;
+    }
+}
+
+// 2. Crear y Gestionar Próximos Eventos
+async function procesarSubidaEvento(e) {
+    e.preventDefault();
+    if (!isAuthorized) {
+        alert("Debe validar su contraseña de administrador primero.");
+        return;
+    }
+
+    const titulo = eventTitle ? eventTitle.value.trim() : "";
+    const dia = eventDay ? eventDay.value.trim() : "";
+    const mes = eventMonth ? eventMonth.value.trim() : "";
+    const detalle = eventDetail ? eventDetail.value.trim() : "";
+    const eventCategoryElem = document.getElementById("eventCategory");
+    const categoria = eventCategoryElem ? eventCategoryElem.value : "Todos los niveles";
+    const estado = eventStatusSelect ? eventStatusSelect.value : "Próximo";
+
+    if (!titulo || !dia || !mes) {
+        mostrarStatusEvent("Por favor complete los campos obligatorios del evento.", "danger");
+        return;
+    }
+
+    const btnSubmit = document.getElementById("btnSubmitEvent");
+    if (btnSubmit) btnSubmit.disabled = true;
+
+    try {
+        mostrarStatusEvent("Guardando evento...", "info");
+        await autenticarAnonimamente();
+
+        await addDoc(collection(db, "eventos"), {
+            titulo,
+            dia,
+            mes,
+            detalle,
+            categoria,
+            estado,
+            fecha: serverTimestamp()
+        });
+
+        mostrarStatusEvent("¡Evento agregado correctamente a la agenda!", "success");
+        if (eventCreateForm) eventCreateForm.reset();
+
+        await cargarEventosAdmin();
+        if (typeof cargarEventos === "function") await cargarEventos();
+
+    } catch (error) {
+        console.error("Error al publicar evento:", error);
+        mostrarStatusEvent(`Error: ${error.message || "No se pudo guardar el evento."}`, "danger");
+    } finally {
+        if (btnSubmit) btnSubmit.disabled = false;
+    }
+}
+
+function mostrarStatusEvent(msg, type) {
+    if (!adminEventsStatus) return;
+    adminEventsStatus.textContent = msg;
+    adminEventsStatus.className = `alert alert-${type} text-center font-weight-bold mb-3`;
+    adminEventsStatus.style.display = "block";
+}
+
+async function cargarEventosAdmin() {
+    if (!adminEventsList) return;
+    adminEventsList.innerHTML = `<p class="text-muted text-center font-italic my-3">Cargando eventos...</p>`;
+
+    try {
+        try {
+            await autenticarAnonimamente();
+        } catch (e) {}
+
+        const q = query(collection(db, "eventos"), orderBy("fecha", "desc"));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+            adminEventsList.innerHTML = `<p class="text-muted text-center font-italic my-3">No hay eventos en la agenda.</p>`;
+            return;
+        }
+
+        let html = "";
+        querySnapshot.forEach((docSnap) => {
+            const ev = docSnap.data();
+            const id = docSnap.id;
+            html += `
+                <div class="list-group-item d-flex align-items-center justify-content-between p-3 mb-2 border rounded shadow-sm">
+                    <div class="d-flex align-items-center" style="max-width: 80%;">
+                        <div class="badge badge-primary p-2 mr-3 text-uppercase font-weight-bold" style="min-width: 55px; text-align: center;">
+                            <div style="font-size: 1.1rem; line-height: 1;">${ev.dia}</div>
+                            <div style="font-size: 0.75rem;">${ev.mes}</div>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 font-weight-bold text-dark">${ev.titulo}</h6>
+                            <small class="text-muted">${ev.detalle || ''} - <strong class="${ev.estado === 'Realizado' ? 'text-secondary' : 'text-success'}">${ev.estado || 'Próximo'}</strong></small>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-danger btn-sm rounded-circle btn-delete-event" data-id="${id}" style="width: 34px; height: 34px; padding: 0;" title="Eliminar evento">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            `;
+        });
+
+        adminEventsList.innerHTML = html;
+
+        adminEventsList.querySelectorAll(".btn-delete-event").forEach(btn => {
+            btn.addEventListener("click", async (e) => {
+                const button = e.currentTarget;
+                const docId = button.getAttribute("data-id");
+
+                if (confirm("¿Desea eliminar este evento de la agenda?")) {
+                    button.disabled = true;
+                    button.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`;
+                    try {
+                        await autenticarAnonimamente();
+                        await deleteDoc(doc(db, "eventos", docId));
+                        await cargarEventosAdmin();
+                        if (typeof cargarEventos === "function") await cargarEventos();
+                    } catch (err) {
+                        console.error("Error al borrar evento:", err);
+                        alert("Error al eliminar el evento.");
+                    }
+                }
+            });
+        });
+
+    } catch (err) {
+        console.error("Error al cargar eventos en admin:", err);
+        adminEventsList.innerHTML = `<p class="text-danger text-center my-3">Error al conectar con la base de datos.</p>`;
+    }
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", inicializarAdminNews);
+} else {
+    inicializarAdminNews();
+}
+
+export { inicializarAdminNews };

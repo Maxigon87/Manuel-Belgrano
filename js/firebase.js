@@ -8,12 +8,12 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth
 
 // REEMPLAZAR esta configuración por las credenciales de tu proyecto Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyCiokSgOy8qluTfWLR2n88Xz4fx4wqZ6Co",
-  authDomain: "manuel-belgrano-web.firebaseapp.com",
-  projectId: "manuel-belgrano-web",
-  storageBucket: "manuel-belgrano-web.firebasestorage.app",
-  messagingSenderId: "755776572609",
-  appId: "1:755776572609:web:ce637b04910b28c1025840"
+  apiKey: "AIzaSyCIyz10jlI_M6RrBQn8OF5l7NM4NNTpg3Y",
+  authDomain: "manuel-belgrano-web-1d164.firebaseapp.com",
+  projectId: "manuel-belgrano-web-1d164",
+  storageBucket: "manuel-belgrano-web-1d164.firebasestorage.app",
+  messagingSenderId: "863044823769",
+  appId: "1:863044823769:web:8c87fdf4bff5fd2cc9acc8"
 };
 
 // Inicializar Firebase

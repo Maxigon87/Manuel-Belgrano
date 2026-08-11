@@ -2,10 +2,10 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>Carga de Noticias - Escuela N°3 Manuel Belgrano</title>
+    <title>Panel Administrador - Escuela N°3 Manuel Belgrano</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="Administración Carga Noticias Escuela N°3 Manuel Belgrano" name="keywords" />
-    <meta content="Portal de carga de publicaciones de la Escuela N°3 Manuel Belgrano." name="description" />
+    <meta content="Portal de administración y gestión de publicaciones de la Escuela N°3 Manuel Belgrano." name="description" />
 
     <!-- Icono Institucional -->
     <link rel="icon" href="img/logo mb.png" sizes="32x32" type="image/png" />
@@ -107,6 +107,7 @@
                 </div>
               </div>
               <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
+              <a href="carga.html" class="nav-item nav-link active">Administración</a>
             </div>
           </div>
         </nav>
@@ -118,38 +119,197 @@
     <section class="container">
       <div class="subpage-header-card">
         <div class="subpage-header-content">
-          <h1 class="subpage-header-title">Carga de Novedades</h1>
+          <h1 class="subpage-header-title">Portal de Administración</h1>
           <div class="subpage-breadcrumbs">
             <a href="index.html">Inicio</a>
             <i class="fa fa-angle-right"></i>
             <span>Administración</span>
-            <i class="fa fa-angle-right"></i>
-            <span>Carga</span>
           </div>
         </div>
       </div>
     </section>
     <!-- Subpage Banner Header End -->
 
-    <!-- Admin Panel Container Start -->
-    <section class="py-5">
+    <!-- Admin Content Section Start -->
+    <section class="py-5 bg-light">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="clean-card text-center p-5">
-              <span class="section-tag">Panel Administrativo</span>
-              <h2 class="section-heading mb-4">Gestión de Contenido</h2>
-              <p class="text-muted mb-4">Acceso a la plataforma de gestión y publicación de novedades escolares.</p>
+
+        <!-- Card de Autenticación de Administrador -->
+        <div id="adminAuthCard" class="row justify-content-center">
+          <div class="col-lg-6 col-md-8">
+            <div class="clean-card text-center p-5 shadow-sm bg-white rounded-lg">
+              <div class="portal-icon mx-auto mb-3" style="width: 70px; height: 70px; background: rgba(0,74,173,0.1); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                <i class="fa fa-user-shield"></i>
+              </div>
+              <span class="section-tag mb-2 d-inline-block">Acceso Privado</span>
+              <h3 class="section-heading mb-3" style="font-size: 1.6rem;">Validación de Administrador</h3>
+              <p class="text-muted mb-4">Ingrese la clave de administrador para gestionar las Novedades del carrusel y los Próximos Eventos de la portada.</p>
               
-              <div class="p-4 bg-light rounded text-muted">
-                <i class="fa fa-lock fa-3x text-primary mb-3"></i>
-                <p class="m-0">Utilice las credenciales docentes autorizadas para publicar novedades institucionales en el portal principal.</p>
+              <form id="adminAuthForm" onsubmit="event.preventDefault(); if(window.procesarValidacionAdmin) window.procesarValidacionAdmin();">
+                <div class="form-group mb-4">
+                  <input type="password" id="adminPasswordInput" class="form-control form-control-lg text-center border-2 rounded-pill p-3" placeholder="Contraseña de Administrador" style="font-size: 1.05rem;" required />
+                </div>
+                
+                <button type="submit" id="btnSubmitAdminPass" class="btn btn-primary-custom w-100 py-3 rounded-pill font-weight-bold" style="font-size: 1.1rem;">
+                  Acceder al Panel <i class="fa fa-arrow-right ml-2"></i>
+                </button>
+              </form>
+              
+              <p id="adminAuthError" class="text-danger mt-3 font-weight-bold mb-0" style="min-height: 24px;"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel de Administración (Desbloqueado tras validar clave) -->
+        <div id="adminDashboardPanel" style="display: none;">
+          <div class="text-center mb-5">
+            <span class="section-tag">Panel Administrativo</span>
+            <h2 class="section-heading">Gestión de Novedades y Eventos</h2>
+            <p class="section-subheading">Publicá novedades para el carrusel principal (máximo 5) y administra la agenda institucional.</p>
+          </div>
+
+          <div class="row">
+            <!-- BLOQUE 1: Novedades para el Carrusel -->
+            <div class="col-lg-6 mb-4">
+              <div class="bg-white p-4 rounded-lg shadow-sm border h-100">
+                <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                  <div class="bg-primary text-white rounded-circle p-3 mr-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
+                    <i class="fa fa-newspaper"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-weight-bold text-dark mb-0" style="font-size: 1.25rem;">Novedades (Carrusel principal)</h4>
+                    <small class="text-muted">Se mostrarán máximo 5. Al subir una 6ª, se elimina la más antigua automáticamente.</small>
+                  </div>
+                </div>
+
+                <form id="newsCreateForm">
+                  <div class="form-group mb-3">
+                    <label class="font-weight-bold text-dark">Título de la Noticia *</label>
+                    <input type="text" id="newsTitle" class="form-control p-3 border rounded" placeholder="Ej: Celebración del 9 de Julio en la Escuela" required />
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label class="font-weight-bold text-dark">Categoría *</label>
+                    <select id="newsCategory" class="custom-select p-2 border rounded" style="height: 48px; width: 100%; display: block;" required>
+                      <option value="" disabled selected>Seleccione categoría</option>
+                      <option value="Acto Patrio">Acto Patrio</option>
+                      <option value="Institucional">Institucional</option>
+                      <option value="Nivel Primario">Nivel Primario</option>
+                      <option value="Nivel Secundario">Nivel Secundario</option>
+                      <option value="Nivel Inicial">Nivel Inicial</option>
+                      <option value="Comunidad">Comunidad</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label class="font-weight-bold text-dark">Breve Descripción / Resumen</label>
+                    <textarea id="newsDescription" class="form-control p-3 border rounded" rows="2" placeholder="Ej: Esta mañana la escuela compartió junta el acto patrio..."></textarea>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <label class="font-weight-bold text-dark">Imagen destacada *</label>
+                    <input type="file" id="newsImage" class="form-control-file" accept="image/*" required />
+                    
+                    <div id="imagePreviewContainer" class="mt-3 border rounded text-center p-3 bg-light" style="display:none; position:relative;">
+                      <img id="imagePreview" src="" alt="Vista previa" style="max-height: 150px; max-width: 100%; object-fit: contain; border-radius: 8px;" />
+                      <button type="button" id="btnRemovePreview" class="btn btn-danger btn-sm" style="position: absolute; top: 10px; right: 10px; border-radius: 50%; width: 28px; height: 28px; padding: 0; line-height: 1;">&times;</button>
+                    </div>
+                  </div>
+
+                  <div id="adminNewsProgress" class="progress mb-3" style="display:none; height: 20px;">
+                    <div id="adminNewsProgressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%">0%</div>
+                  </div>
+
+                  <div id="adminNewsStatus" class="alert alert-info text-center font-weight-bold mb-3" style="display:none;"></div>
+
+                  <button type="submit" id="btnSubmitNews" class="btn btn-primary-custom w-100 py-3 rounded font-weight-bold mb-4">
+                    <i class="fa fa-cloud-upload-alt mr-2"></i> Publicar en Carrusel
+                  </button>
+                </form>
+
+                <hr class="my-4">
+                <h5 class="font-weight-bold text-secondary mb-3"><i class="fas fa-list mr-2"></i> Noticias en Carrusel (Máx. 5)</h5>
+                <div id="adminNewsList" class="list-group overflow-auto" style="max-height: 280px;">
+                  <p class="text-muted text-center font-italic my-3">Cargando publicaciones...</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- BLOQUE 2: Próximos Eventos (Agenda) -->
+            <div class="col-lg-6 mb-4">
+              <div class="bg-white p-4 rounded-lg shadow-sm border h-100">
+                <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                  <div class="bg-success text-white rounded-circle p-3 mr-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
+                    <i class="fa fa-calendar-alt"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-weight-bold text-dark mb-0" style="font-size: 1.25rem;">Próximos Eventos</h4>
+                    <small class="text-muted">Lista vertical de eventos en portada (el más reciente arriba).</small>
+                  </div>
+                </div>
+
+                <form id="eventCreateForm">
+                  <div class="form-group mb-3">
+                    <label class="font-weight-bold text-dark">Título del Evento *</label>
+                    <input type="text" id="eventTitle" class="form-control p-3 border rounded" placeholder="Ej: Acto Homenaje Gral. San Martín" required />
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-6">
+                      <label class="font-weight-bold text-dark">Día *</label>
+                      <input type="text" id="eventDay" class="form-control p-2 border rounded text-center" placeholder="Ej: 17" required />
+                    </div>
+                    <div class="col-6">
+                      <label class="font-weight-bold text-dark">Mes *</label>
+                      <input type="text" id="eventMonth" class="form-control p-2 border rounded text-center" placeholder="Ej: AGO" required />
+                    </div>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label class="font-weight-bold text-dark">Hora y Detalle</label>
+                    <input type="text" id="eventDetail" class="form-control p-3 border rounded" placeholder="Ej: 16:30 hs" />
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label class="font-weight-bold text-dark">Categoría / Nivel</label>
+                    <select id="eventCategory" class="custom-select p-2 border rounded" style="height: 48px; width: 100%; display: block;">
+                      <option value="Todos los niveles" selected>Todos los niveles</option>
+                      <option value="Nivel Primario">Nivel Primario</option>
+                      <option value="Nivel Secundario">Nivel Secundario</option>
+                      <option value="Nivel Inicial">Nivel Inicial</option>
+                      <option value="Acto Patrio">Acto Patrio</option>
+                      <option value="Institucional">Institucional</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <label class="font-weight-bold text-dark">Estado del Evento</label>
+                    <select id="eventStatusSelect" class="custom-select p-2 border rounded" style="height: 48px; width: 100%; display: block;">
+                      <option value="Próximo" selected>Próximo</option>
+                      <option value="Realizado">Realizado</option>
+                    </select>
+                  </div>
+
+                  <div id="adminEventsStatus" class="alert alert-info text-center font-weight-bold mb-3" style="display:none;"></div>
+
+                  <button type="submit" id="btnSubmitEvent" class="btn btn-action-custom w-100 py-3 rounded font-weight-bold mb-4">
+                    <i class="fa fa-calendar-plus mr-2"></i> Agregar a Agenda
+                  </button>
+                </form>
+
+                <hr class="my-4">
+                <h5 class="font-weight-bold text-secondary mb-3"><i class="fas fa-list-ol mr-2"></i> Agenda Activa</h5>
+                <div id="adminEventsList" class="list-group overflow-auto" style="max-height: 280px;">
+                  <p class="text-muted text-center font-italic my-3">Cargando agenda...</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
+    <!-- Admin Content Section End -->
 
     <!-- Footer Start -->
     <footer class="footer-main">
@@ -210,6 +370,7 @@
               <a class="footer-link" href="inscripciones.html"><i class="fa fa-angle-right"></i> Inscripciones</a>
               <a class="footer-link" href="galeria.html"><i class="fa fa-angle-right"></i> Posteos y Galería</a>
               <a class="footer-link" href="nosotros.html"><i class="fa fa-angle-right"></i> Nosotros</a>
+              <a class="footer-link" href="carga.html"><i class="fa fa-angle-right"></i> Administrador</a>
             </div>
           </div>
         </div>
@@ -248,7 +409,7 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     <script src="js/main.js"></script>
+    <script type="module" src="js/admin-news.js"></script>
   </body>
 </html>

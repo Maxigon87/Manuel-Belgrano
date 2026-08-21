@@ -332,17 +332,32 @@ a {
 
 .hero-bg-img {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
   object-fit: cover;
   object-position: center;
-  transition: transform 8s ease;
+  transition: transform 0.3s cubic-bezier(0.1, 1, 0.1, 1);
+  animation: heroSlowZoom 25s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes heroSlowZoom {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.06) translateY(-12px);
+  }
+  100% {
+    transform: scale(1.12) translateY(6px);
+  }
 }
 
 .hero-card:hover .hero-bg-img {
-  transform: scale(1.04);
+  animation-play-state: paused;
+  transform: scale(1.08);
 }
 
 .hero-overlay {
@@ -1120,36 +1135,82 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 20px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  border-radius: var(--radius-sm);
+  padding: 13px 22px;
+  font-weight: 700;
+  font-size: 0.925rem;
+  border-radius: var(--radius-md);
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   border: none;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.01em;
+  z-index: 1;
 }
 
+/* Destello sutil (Shimmer sweep) en hover */
+.portal-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  z-index: 2;
+}
+
+.portal-btn:hover::after {
+  left: 140%;
+}
+
+.portal-btn i {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portal-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* Micro-interacción: Botón Primario (Celeste Institucional) */
 .btn-primary-custom {
   background-color: var(--primary);
   color: var(--white);
+  box-shadow: 0 4px 14px var(--primary-glow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary-custom:hover {
   background-color: var(--primary-hover);
   color: var(--white);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 24px var(--primary-glow), 0 0 16px rgba(2, 132, 199, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
+/* Micro-interacción: Botón Delineado (Azul Marino) */
 .btn-outline-custom {
   background-color: transparent;
   color: var(--secondary);
   border: 1.5px solid var(--secondary);
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.05);
 }
 
 .btn-outline-custom:hover {
   background-color: var(--secondary);
   color: var(--white);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 22px rgba(30, 58, 138, 0.25), 0 0 14px rgba(30, 58, 138, 0.35);
+  border-color: var(--secondary);
 }
 
 .portal-card-featured {
@@ -1171,16 +1232,20 @@ a {
   letter-spacing: 0.05em;
 }
 
+/* Micro-interacción: Botón Acción Destacado (Inscripciones 2027) */
 .btn-action-custom {
-  background-color: var(--secondary);
+  background: linear-gradient(135deg, var(--secondary) 0%, #1e40af 100%);
   color: var(--white);
-  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
+  box-shadow: 0 4px 16px rgba(30, 58, 138, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-action-custom:hover {
-  background-color: #172554;
+  background: linear-gradient(135deg, #172554 0%, var(--secondary) 100%);
   color: var(--white);
-  transform: translateY(-1px);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 28px rgba(30, 58, 138, 0.45), 0 0 18px rgba(2, 132, 199, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* --------------------------------------------------------------------------
@@ -1546,3 +1611,100 @@ a {
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.75);
 }
+
+/* ==========================================================================
+   ANIMACIONES DE SCROLL (INTERSECTION OBSERVER NATIVO)
+   ========================================================================== */
+[data-animate] {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+[data-animate="fade-up"] {
+  transform: translateY(40px);
+}
+
+[data-animate="fade-in"] {
+  transform: scale(0.95);
+}
+
+[data-animate="fade-left"] {
+  transform: translateX(-40px);
+}
+
+[data-animate="fade-right"] {
+  transform: translateX(40px);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* Soporte para usuarios con preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   TRANSICIONES ENTRE PÁGINAS (VIEW TRANSITIONS API NATIVO & FALLBACK)
+   ========================================================================== */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: pageFadeOut 0.28s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+::view-transition-new(root) {
+  animation: pageFadeIn 0.28s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes pageFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.995);
+  }
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Fallback de salida para navegadores legacy */
+body {
+  opacity: 1;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.page-exit {
+  opacity: 0;
+}
+
+/* Bloqueo de scroll cuando el modal de docentes está abierto */
+html.modal-open,
+body.modal-open {
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
+
+

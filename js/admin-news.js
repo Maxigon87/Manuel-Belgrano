@@ -128,10 +128,57 @@ function inicializarAdminNews() {
         eventCreateForm.addEventListener("submit", procesarSubidaEvento);
     }
 
+    // Configurar navegación entre vistas del panel admin (Íconos gigantes & pestañas)
+    const btnSelectNewsHub = document.getElementById("btnSelectNewsHub");
+    const btnSelectEventsHub = document.getElementById("btnSelectEventsHub");
+    const btnBackFromNews = document.getElementById("btnBackFromNews");
+    const btnBackFromEvents = document.getElementById("btnBackFromEvents");
+    const tabNewsFromNews = document.getElementById("tabNewsFromNews");
+    const tabEventsFromNews = document.getElementById("tabEventsFromNews");
+    const tabNewsFromEvents = document.getElementById("tabNewsFromEvents");
+    const tabEventsFromEvents = document.getElementById("tabEventsFromEvents");
+
+    if (btnSelectNewsHub) btnSelectNewsHub.addEventListener("click", () => mostrarVistaAdmin("news"));
+    if (btnSelectEventsHub) btnSelectEventsHub.addEventListener("click", () => mostrarVistaAdmin("events"));
+    
+    if (btnBackFromNews) btnBackFromNews.addEventListener("click", () => mostrarVistaAdmin("hub"));
+    if (btnBackFromEvents) btnBackFromEvents.addEventListener("click", () => mostrarVistaAdmin("hub"));
+
+    if (tabNewsFromNews) tabNewsFromNews.addEventListener("click", () => mostrarVistaAdmin("news"));
+    if (tabEventsFromNews) tabEventsFromNews.addEventListener("click", () => mostrarVistaAdmin("events"));
+    if (tabNewsFromEvents) tabNewsFromEvents.addEventListener("click", () => mostrarVistaAdmin("news"));
+    if (tabEventsFromEvents) tabEventsFromEvents.addEventListener("click", () => mostrarVistaAdmin("events"));
+
     // Cargar listas iniciales en el panel
     cargarNoticiasAdmin();
     cargarEventosAdmin();
 }
+
+function mostrarVistaAdmin(vista) {
+    const hub = document.getElementById("adminSelectionHub");
+    const newsView = document.getElementById("adminNewsView");
+    const eventsView = document.getElementById("adminEventsView");
+
+    if (!hub || !newsView || !eventsView) return;
+
+    if (vista === "news") {
+        hub.style.display = "none";
+        newsView.style.display = "block";
+        eventsView.style.display = "none";
+        window.scrollTo({ top: hub.offsetTop - 50, behavior: 'smooth' });
+    } else if (vista === "events") {
+        hub.style.display = "none";
+        newsView.style.display = "none";
+        eventsView.style.display = "block";
+        window.scrollTo({ top: hub.offsetTop - 50, behavior: 'smooth' });
+    } else {
+        hub.style.display = "flex";
+        newsView.style.display = "none";
+        eventsView.style.display = "none";
+        window.scrollTo({ top: hub.offsetTop - 50, behavior: 'smooth' });
+    }
+}
+window.mostrarVistaAdmin = mostrarVistaAdmin;
 
 // Validar clave en Firestore (colección 'accesos')
 async function procesarValidacionAdmin() {
@@ -165,6 +212,8 @@ async function procesarValidacionAdmin() {
             if (panel) panel.style.display = "block";
             const authCard = document.getElementById("adminAuthCard");
             if (authCard) authCard.style.display = "none";
+
+            mostrarVistaAdmin("hub");
             cargarNoticiasAdmin();
             cargarEventosAdmin();
         } else {

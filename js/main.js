@@ -212,6 +212,173 @@ if (climaElement) {
     }
 }
 
+/* ==========================================================================
+   ANIMACIONES AL HACER SCROLL Y CONTADORES ANIMADOS (INTERSECTION OBSERVER)
+   ========================================================================== */
+(function () {
+    function initScrollAnimations() {
+        // 1. Configuración de Observer para animaciones de aparición con stagger
+        const animatedElements = document.querySelectorAll("[data-animate]");
+
+        if (animatedElements.length > 0) {
+            if (!("IntersectionObserver" in window)) {
+                // Fallback para navegadores sin IntersectionObserver
+                animatedElements.forEach(function (el) {
+                    el.classList.add("is-visible");
+                });
+            } else {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: "0px 0px -40px 0px",
+                    threshold: 0.15
+                };
+
+                const scrollObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            const target = entry.target;
+                            const delay = parseInt(target.getAttribute("data-delay") || "0", 10);
+
+                            if (delay > 0) {
+                                setTimeout(function () {
+                                    target.classList.add("is-visible");
+                                }, delay);
+                            } else {
+                                target.classList.add("is-visible");
+                            }
+
+                            observer.unobserve(target);
+                        }
+                    });
+                }, observerOptions);
+
+                animatedElements.forEach(function (el) {
+                    scrollObserver.observe(el);
+                });
+            }
+        }
+
+        // 2. Contador animado para las estadísticas (+140 Años, 60+ Docentes, 800+ Alumnos)
+        const statNumbers = document.querySelectorAll(".stat-number");
+
+        if (statNumbers.length > 0) {
+            function animateCounter(el) {
+                const targetVal = parseInt(el.getAttribute("data-target"), 10);
+                if (isNaN(targetVal)) return;
+
+                const prefix = el.getAttribute("data-prefix") || "";
+                const suffix = el.getAttribute("data-suffix") || "";
+                const duration = 2000; // 2 segundos
+                const startTimestamp = performance.now();
+
+                function step(now) {
+                    const elapsed = now - startTimestamp;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Función de suavizado (easeOutCubic)
+                    const easeProgress = 1 - Math.pow(1 - progress, 3);
+                    const currentVal = Math.floor(easeProgress * targetVal);
+
+                    el.textContent = `${prefix}${currentVal}${suffix}`;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        el.textContent = `${prefix}${targetVal}${suffix}`;
+                    }
+                }
+
+                requestAnimationFrame(step);
+            }
+
+            if (!("IntersectionObserver" in window)) {
+                statNumbers.forEach(function (el) {
+                    const targetVal = el.getAttribute("data-target");
+                    if (targetVal) {
+                        const prefix = el.getAttribute("data-prefix") || "";
+                        const suffix = el.getAttribute("data-suffix") || "";
+                        el.textContent = `${prefix}${targetVal}${suffix}`;
+                    }
+                });
+            } else {
+                const statsObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            animateCounter(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.25
+                });
+
+                statNumbers.forEach(function (el) {
+                    statsObserver.observe(el);
+                });
+            }
+        }
+        // 3. Parallax suave en la imagen del Hero (.hero-bg-img) al hacer scroll
+        const heroBg = document.querySelector(".hero-bg-img");
+        if (heroBg && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            window.addEventListener("scroll", function () {
+                const scrolled = window.scrollY;
+                if (scrolled < 750) {
+                    heroBg.style.transform = `translateY(${scrolled * 0.22}px)`;
+                }
+            }, { passive: true });
+        }
+
+        // 4. Transición suave entre páginas HTML (Navegación fluida sin salto en blanco)
+        document.addEventListener("click", function (e) {
+            const link = e.target.closest("a");
+            if (!link) return;
+
+            const href = link.getAttribute("href");
+            if (
+                !href ||
+                href.startsWith("#") ||
+                href.startsWith("javascript:") ||
+                href.startsWith("mailto:") ||
+                href.startsWith("tel:") ||
+                link.getAttribute("target") === "_blank" ||
+                link.hasAttribute("onclick")
+            ) {
+                return;
+            }
+
+            const isInternal = link.hostname === window.location.hostname || !link.hostname;
+            if (isInternal && href.indexOf(".html") !== -1) {
+                // Si el navegador soporta View Transitions nativas cross-document (@view-transition en CSS), se maneja automáticamente
+                if (CSS.supports && (CSS.supports("view-transition-name", "root") || CSS.supports("navigation", "auto"))) {
+                    return;
+                }
+
+                // Fallback JS para navegadores legacy
+                e.preventDefault();
+                document.body.classList.add("page-exit");
+
+                setTimeout(function () {
+                    window.location.href = href;
+                }, 240);
+            }
+        });
+
+        // Limpieza de estado de salida al retroceder/avanzar en el historial (bfcache)
+        window.addEventListener("pageshow", function (event) {
+            if (event.persisted) {
+                document.body.classList.remove("page-exit");
+            }
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initScrollAnimations);
+    } else {
+        initScrollAnimations();
+    }
+})();
+
+
 
 
 

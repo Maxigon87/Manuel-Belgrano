@@ -1,13 +1,31 @@
-//Login para entrar a Docentes: 
+// Login para entrar a Docentes: 
 
 window.abrirModal = function () {
-    document.getElementById("loginModal").style.display = "flex"; // 👈 CAMBIADO
+    const modal = document.getElementById("loginModal");
+    if (modal) {
+        modal.style.display = "flex";
+        document.documentElement.classList.add("modal-open");
+        document.body.classList.add("modal-open");
+        document.body.style.overflow = "hidden";
+        setTimeout(function () {
+            const input = document.getElementById("passwordInput");
+            if (input) input.focus();
+        }, 50);
+    }
 };
 
 window.cerrarModal = function () {
-    document.getElementById("loginModal").style.display = "none";
-    document.getElementById("passwordInput").value = "";
-    document.getElementById("errorMsg").textContent = "";
+    const modal = document.getElementById("loginModal");
+    if (modal) {
+        modal.style.display = "none";
+        document.documentElement.classList.remove("modal-open");
+        document.body.classList.remove("modal-open");
+        document.body.style.overflow = "";
+    }
+    const input = document.getElementById("passwordInput");
+    if (input) input.value = "";
+    const errorMsg = document.getElementById("errorMsg");
+    if (errorMsg) errorMsg.textContent = "";
 };
 
 window.checkPassword = async function () {
@@ -16,11 +34,12 @@ window.checkPassword = async function () {
 
     if (input === "") {
         errorMsg.textContent = "Ingrese una contraseña.";
+        errorMsg.style.color = "red";
         return;
     }
 
     errorMsg.textContent = "Verificando...";
-    errorMsg.style.color = "#FFD700"; // Color dorado temporal
+    errorMsg.style.color = "#0284c7"; // Azul institucional sutil
 
     try {
         const response = await fetch(`https://firestore.googleapis.com/v1/projects/manuel-belgrano-web-1d164/databases/(default)/documents/accesos/${input}`);
@@ -48,4 +67,19 @@ window.checkPassword = async function () {
         errorMsg.style.color = "red";
     }
 };
+
+// Cerrar el modal al hacer clic en el fondo o presionar Escape
+document.addEventListener("click", function (e) {
+    const modal = document.getElementById("loginModal");
+    if (modal && e.target === modal) {
+        window.cerrarModal();
+    }
+});
+
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+        window.cerrarModal();
+    }
+});
+
 

@@ -6,6 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="Página Oficial - Escuela N°3 Manuel Belgrano - San Luis" name="keywords" />
     <meta content="Sitio oficial de la Escuela N°3 Manuel Belgrano. Información escolar, docentes, alumnos y noticias." name="description" />
+    <meta name="view-transition" content="same-origin" />
 
     <!-- Icono Institucional -->
     <link rel="icon" href="img/logo mb.png" sizes="32x32" type="image/png" />
@@ -143,7 +144,7 @@
               <!-- Menú Desplegable Alumnos -->
               <div class="nav-item dropdown">
                 <a
-                  href="#"
+                  href="alum.html"
                   class="nav-link dropdown-toggle"
                   data-toggle="dropdown"
                   role="button"
@@ -202,14 +203,14 @@
     <!-- SECTION 1: Zona de Accesos Directos (Portales Privados) Start -->
     <section class="quick-access-section py-5">
       <div class="container">
-        <div class="section-header text-center mb-5">
+        <div class="section-header text-center mb-5" data-animate="fade-up">
           <span class="section-tag">Portales & Servicios</span>
           <h2 class="section-heading">Accesos Directos</h2>
           <p class="section-subheading">Plataformas digitales diseñadas para toda nuestra comunidad educativa.</p>
         </div>
         <div class="row">
           <!-- Card 1: Portal Alumnos -->
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4" data-animate="fade-up" data-delay="0">
             <div class="portal-card">
               <div class="portal-icon">
                 <i class="fa fa-user-graduate"></i>
@@ -225,7 +226,7 @@
           </div>
 
           <!-- Card 2: Portal Docentes -->
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4" data-animate="fade-up" data-delay="150">
             <div class="portal-card">
               <div class="portal-icon">
                 <i class="fa fa-chalkboard-teacher"></i>
@@ -241,7 +242,7 @@
           </div>
 
           <!-- Card 3: Inscripciones 2027 -->
-          <div class="col-lg-4 col-md-12 mb-4">
+          <div class="col-lg-4 col-md-12 mb-4" data-animate="fade-up" data-delay="300">
             <div class="portal-card portal-card-featured">
               <div class="badge-featured">Ciclo Lectivo 2027</div>
               <div class="portal-icon">
@@ -264,7 +265,7 @@
     <!-- SECTION 2: Novedades y Agenda Institucional Start -->
     <section class="news-agenda-section py-5 bg-white">
       <div class="container">
-        <div class="row align-items-center mb-4">
+        <div class="row align-items-center mb-4" data-animate="fade-up">
           <div class="col-md-8">
             <span class="section-tag">La Web Viva</span>
             <h2 class="section-heading mb-0">Novedades y Agenda Institucional</h2>
@@ -275,7 +276,7 @@
 
         <div class="row">
           <!-- Columna 1 & 2: Noticias (Carrusel dinámico máx 5 noticias) -->
-          <div class="col-lg-8 mb-4">
+          <div class="col-lg-8 mb-4" data-animate="fade-up" data-delay="100">
             <div class="owl-carousel news-carousel">
               <!-- Noticia 1 por defecto -->
               <article class="news-card h-100">
@@ -314,7 +315,7 @@
           </div>
 
           <!-- Columna 3: Widget de Próximos Eventos / Agenda (Lista vertical ordenada) -->
-          <div class="col-lg-4 mb-4">
+          <div class="col-lg-4 mb-4" data-animate="fade-up" data-delay="200">
             <div class="agenda-widget">
               <div class="agenda-header d-flex justify-content-between align-items-center mb-4">
                 <h3 class="agenda-title mb-0">Próximos Eventos</h3>
@@ -374,7 +375,7 @@
     <!-- SECTION 3: Propuesta Educativa y Pilares Institucionales Start -->
     <section class="pillars-section py-5">
       <div class="container">
-        <div class="section-header text-center mb-5">
+        <div class="section-header text-center mb-5" data-animate="fade-up">
           <span class="section-tag">Nuestra Identidad</span>
           <h2 class="section-heading">Propuesta Educativa y Pilares Institucionales</h2>
           <p class="section-subheading">Valores fundamentales que fundamentan nuestra excelencia académica y formación humana.</p>
@@ -382,7 +383,7 @@
 
         <div class="row">
           <!-- Pilar 1: Formación en Valores -->
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4" data-animate="fade-up" data-delay="0">
             <div class="pillar-card">
               <div class="pillar-icon">
                 <i class="fa fa-heart"></i>
@@ -396,7 +397,7 @@
           </div>
 
           <!-- Pilar 2: Innovación Académica -->
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4" data-animate="fade-up" data-delay="150">
             <div class="pillar-card">
               <div class="pillar-icon">
                 <i class="fa fa-lightbulb"></i>
@@ -410,7 +411,7 @@
           </div>
 
           <!-- Pilar 3: Trayectoria con Orgullo -->
-          <div class="col-lg-4 col-md-12 mb-4">
+          <div class="col-lg-4 col-md-12 mb-4" data-animate="fade-up" data-delay="300">
             <div class="pillar-card">
               <div class="pillar-icon">
                 <i class="fa fa-landmark"></i>
@@ -430,28 +431,28 @@
     <!-- SECTION 4: Cifras que Hablan (Estadísticas de Orgullo) Start -->
     <section class="stats-section py-5">
       <div class="container">
-        <div class="stats-banner">
+        <div class="stats-banner" data-animate="fade-up">
           <div class="row text-center align-items-center">
             <!-- Stat 1 -->
-            <div class="col-md-4 mb-4 mb-md-0">
+            <div class="col-md-4 mb-4 mb-md-0" data-animate="fade-up" data-delay="0">
               <div class="stat-item">
-                <div class="stat-number">+140</div>
+                <div class="stat-number" data-target="140" data-prefix="+" data-suffix="">+140</div>
                 <div class="stat-label">Años de Trayectoria</div>
               </div>
             </div>
 
             <!-- Stat 2 -->
-            <div class="col-md-4 mb-4 mb-md-0">
+            <div class="col-md-4 mb-4 mb-md-0" data-animate="fade-up" data-delay="150">
               <div class="stat-item stat-border-x">
-                <div class="stat-number">60+</div>
+                <div class="stat-number" data-target="60" data-prefix="" data-suffix="+">60+</div>
                 <div class="stat-label">Docentes Comprometidos</div>
               </div>
             </div>
 
             <!-- Stat 3 -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-animate="fade-up" data-delay="300">
               <div class="stat-item">
-                <div class="stat-number">800+</div>
+                <div class="stat-number" data-target="800" data-prefix="" data-suffix="+">800+</div>
                 <div class="stat-label">Alumnos en Actividad</div>
               </div>
             </div>
@@ -461,102 +462,124 @@
     </section>
     <!-- SECTION 4 End -->
 
-      <!-- Sección Historia y Poema Start -->
-    <section class="history-section">
+    <!-- Sección Historia y Poema Start -->
+    <section class="history-section py-5 bg-white" data-animate="fade-up">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-5 mb-4 mb-lg-0">
-            <img
-              class="history-img img-fluid"
-              src="img/fotoportadaanimadamb.png"
-              alt="Escuela Manuel Belgrano N°3 Historia"
-            />
-          </div>
+        
+        <!-- Encabezado de Sección -->
+        <div class="section-header text-center mb-5">
+          <span class="section-tag">A través de los años</span>
+          <h2 class="section-heading mb-2">140 Años Enseñando</h2>
+          <p class="section-subheading">Poema conmemorativo a la historia, valores y legado de nuestra querida institución.</p>
+        </div>
 
-          <div class="col-lg-7">
-            <div class="pl-lg-3">
-              <span class="section-tag">A través de los años</span>
-              <h2 class="section-heading mb-4">140 años enseñando</h2>
-
-              <div class="row">
-                <div class="col-md-4 mb-3 mb-md-0">
-                  <div class="poem-card">
-                    <pre class="poem-text">
-Hace muchos, muchos años
-tus puertas se abrieron de par en par.
-y a partir de ese momento
-no dejaste de educar.
-
-Elemental del Este 
-fue tu nombre inicial.
-pero unos años más tarde
-Tu nombre iba a cambiar. 
-
-Manuel Belgrano se llama
-en honor del general
-que nuestra bandera creara
-a orillas del Paraná
-                    </pre>
-                  </div>
-                </div>
-
-                <div class="col-md-4 mb-3 mb-md-0">
-                  <div class="poem-card">
-                    <pre class="poem-text">
-Fueron pasando los años.
-Y nuestra escuela creció.
-La matrícula día a día 
-Se hizo cada vez más grande.
-
-San Luis estaba creciendo.
-Más niños para educar
-Y ella agrandó sus puertas.
-Para enseñar mucho más 
-
-También llegó jardinicito. 
-Que es hoy nivel inicial
-Y durante 30 años
-Sección Sordos supo estar
-                    </pre>
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="poem-card">
-                    <pre class="poem-text">
-A fines del siglo XX
-3° ciclo llegaría
-Y después de mucho esfuerzo 
-El ciclo superior se incorporaría.
-
-Ahora ya es un centro. 
-Sus aulas llenas están.
-De alumnos de todos los ciclos
-Y sus estudios poder terminar
-
-Ya pasaron ciento cuarenta años.
-De aquel día sin igual
-Que con orgullo y alegría
-Sus puertas se abrieron de par en par.
-                    </pre>
-                  </div>
-                </div>
+        <div class="row align-items-stretch">
+          <!-- Columna Izquierda: Imagen de Historia -->
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="history-banner-card h-100 d-flex flex-column justify-content-between p-3" style="background: linear-gradient(145deg, #fbf7ee 0%, #f4ead7 100%); border: 1px solid #d8c6a5; box-shadow: 0 8px 20px rgba(90, 65, 35, 0.12);">
+              <div class="history-banner-img-wrapper flex-grow-1 mb-3" style="max-height: none;">
+                <img src="img/fotoportadaanimadamb.png" alt="Escuela Manuel Belgrano N°3 Historia" class="history-banner-img" style="height: 100%; min-height: 320px; object-fit: cover; border-radius: var(--radius-md);">
               </div>
-
-              <!-- Ex-Directora Autora -->
-              <div class="author-badge">
-                <img
-                  src="img/nilda.jpg"
-                  alt="Nilda Molinari"
-                  class="author-avatar"
-                />
-                <div class="author-info">
-                  MOLINARI, Nilda - Ex Directora
-                </div>
+              <div class="text-center pt-2">
+                <span class="badge-history-year mb-2 d-inline-block"><i class="fa fa-award mr-1"></i> 1884 - 2024</span>
+                <h4 class="font-weight-bold text-dark mb-1" style="font-size: 1.1rem;">140° Aniversario Institucional</h4>
+                <p class="text-muted small mb-0">Nuestra Historia hecha Poesía</p>
               </div>
             </div>
           </div>
+
+          <!-- Columna Derecha: Poesía (9 Estrofas en 3 Papeles Viejos entreunidos) -->
+          <div class="col-lg-8">
+            <div class="h-100 d-flex flex-column justify-content-between">
+              <div class="row vintage-paper-container">
+                <!-- Papel 1 (Estrofas 1, 2, 3) -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                  <div class="vintage-paper-sheet paper-sheet-1 h-100">
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">Hace muchos, muchos años</p>
+                      <p class="poem-verse">tus puertas se abrieron de par en par,</p>
+                      <p class="poem-verse">y a partir de ese momento</p>
+                      <p class="poem-verse">no dejaste de educar.</p>
+                    </div>
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">Elemental del Este</p>
+                      <p class="poem-verse">fue tu nombre inicial,</p>
+                      <p class="poem-verse">pero unos años más tarde</p>
+                      <p class="poem-verse">tu nombre iba a cambiar.</p>
+                    </div>
+                    <div class="poem-stanza mb-0">
+                      <p class="poem-verse">Manuel Belgrano se llama</p>
+                      <p class="poem-verse">en honor del general</p>
+                      <p class="poem-verse">que nuestra bandera creara</p>
+                      <p class="poem-verse">a orillas del Paraná.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Papel 2 (Estrofas 4, 5, 6) -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                  <div class="vintage-paper-sheet paper-sheet-2 h-100">
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">Fueron pasando los años</p>
+                      <p class="poem-verse">y nuestra escuela creció.</p>
+                      <p class="poem-verse">La matrícula día a día</p>
+                      <p class="poem-verse">se hizo cada vez más grande.</p>
+                    </div>
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">San Luis estaba creciendo,</p>
+                      <p class="poem-verse">más niños para educar,</p>
+                      <p class="poem-verse">y ella agrandó sus puertas</p>
+                      <p class="poem-verse">para enseñar mucho más.</p>
+                    </div>
+                    <div class="poem-stanza mb-0">
+                      <p class="poem-verse">También llegó jardincito,</p>
+                      <p class="poem-verse">que es hoy nivel inicial,</p>
+                      <p class="poem-verse">y durante 30 años</p>
+                      <p class="poem-verse">Sección Sordos supo estar.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Papel 3 (Estrofas 7, 8, 9) -->
+                <div class="col-md-4">
+                  <div class="vintage-paper-sheet paper-sheet-3 h-100">
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">A fines del siglo XX</p>
+                      <p class="poem-verse">3° ciclo llegaría,</p>
+                      <p class="poem-verse">y después de mucho esfuerzo</p>
+                      <p class="poem-verse">el ciclo superior se incorporaría.</p>
+                    </div>
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">Ahora ya es un centro,</p>
+                      <p class="poem-verse">sus aulas llenas están</p>
+                      <p class="poem-verse">de alumnos de todos los ciclos</p>
+                      <p class="poem-verse">y sus estudios poder terminar.</p>
+                    </div>
+                    <div class="poem-stanza mb-0">
+                      <p class="poem-verse">Ya pasaron ciento cuarenta años</p>
+                      <p class="poem-verse">de aquel día sin igual,</p>
+                      <p class="poem-verse">que con orgullo y alegría</p>
+                      <p class="poem-verse">sus puertas se abrieron de par en par.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Badge de Autora -->
+              <div class="d-flex justify-content-end mt-4 pt-2">
+                <div class="author-badge shadow-sm mt-0" style="background: #fdfbf7; border-color: #d8c6a5;">
+                  <img src="img/nilda.jpg" alt="Nilda Molinari" class="author-avatar" />
+                  <div class="author-info">
+                    <span class="d-block font-weight-bold text-dark" style="font-style: normal; font-size: 0.95rem;">MOLINARI, Nilda</span>
+                    <small class="text-primary font-weight-bold" style="font-style: normal;">Ex Directora y Autora</small>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
     <!-- Sección Historia y Poema End -->
@@ -687,6 +710,19 @@ Sus puertas se abrieron de par en par.
         <button onclick="checkPassword()">Entrar</button>
         <button onclick="cerrarModal()">Cancelar</button>
         <p id="errorMsg"></p>
+    <!-- Modal Flotante para Lectura de Noticias en Grande -->
+    <div id="newsDetailModal" class="news-modal-backdrop">
+      <div class="news-detail-modal-content">
+        <button type="button" class="news-modal-close" id="btnCloseNewsModal" aria-label="Cerrar modal">&times;</button>
+        <img id="modalNewsImg" src="" alt="Noticia en grande" class="news-modal-img" />
+        <div class="p-4 p-md-5">
+          <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap">
+            <span id="modalNewsCategory" class="badge badge-primary px-3 py-2 text-uppercase font-weight-bold" style="font-size: 0.8rem; letter-spacing: 0.05em;"></span>
+            <span id="modalNewsDate" class="text-muted font-weight-bold small"><i class="far fa-calendar-alt mr-1 text-primary"></i> <span id="modalNewsDateText"></span></span>
+          </div>
+          <h2 id="modalNewsTitle" class="font-weight-bold text-dark mb-3" style="font-size: 1.6rem; line-height: 1.3;"></h2>
+          <p id="modalNewsDesc" class="text-secondary mb-0" style="font-size: 1.05rem; line-height: 1.75; white-space: pre-wrap;"></p>
+        </div>
       </div>
     </div>
 

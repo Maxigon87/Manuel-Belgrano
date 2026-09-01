@@ -388,33 +388,34 @@ a {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 8px 20px;
+  padding: 6px 16px;
   border-radius: var(--radius-full);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--white);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .hero-title {
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-size: clamp(1.75rem, 3.8vw, 2.75rem);
   font-weight: 800;
   color: var(--white);
-  line-height: 1.15;
-  margin-bottom: 20px;
+  line-height: 1.2;
+  margin-bottom: 16px;
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   font-weight: 400;
-  max-width: 600px;
+  max-width: 540px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
 .btn-hero-location {
@@ -788,6 +789,90 @@ a {
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
   border-color: rgba(2, 132, 199, 0.3);
+}
+
+/* ==========================================================================
+   VINTAGE PARCHMENT POEM STYLES (Papeles viejos entreunidos)
+   ========================================================================== */
+.vintage-paper-container {
+  position: relative;
+  padding: 10px 0;
+}
+
+.vintage-paper-sheet {
+  position: relative;
+  background: linear-gradient(145deg, #fdfaf3 0%, #f4ead7 50%, #e9dcc5 100%);
+  border: 1px solid #d8c6a5;
+  border-radius: 4px 14px 6px 10px;
+  padding: 2rem 1.4rem 1.6rem 1.4rem;
+  box-shadow: 0 8px 20px rgba(90, 65, 35, 0.15), inset 0 0 35px rgba(160, 120, 60, 0.12);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+}
+
+/* Worn tape / paper clip accent at top */
+.vintage-paper-sheet::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 20px;
+  background: rgba(225, 210, 180, 0.65);
+  border: 1px dashed rgba(160, 135, 95, 0.45);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(2px);
+  z-index: 5;
+  border-radius: 2px;
+}
+
+.paper-sheet-1 {
+  transform: rotate(-1.8deg) translateY(4px);
+  z-index: 1;
+}
+
+.paper-sheet-2 {
+  transform: rotate(0.6deg) translateY(-3px);
+  z-index: 2;
+}
+
+.paper-sheet-3 {
+  transform: rotate(1.8deg) translateY(5px);
+  z-index: 1;
+}
+
+/* Hover state: elevates, aligns straight, expands, and turns bright white-parchment for maximum legibility */
+.vintage-paper-sheet:hover {
+  transform: translateY(-10px) rotate(0deg) scale(1.04) !important;
+  z-index: 30 !important;
+  background: linear-gradient(145deg, #ffffff 0%, #fffdf8 100%) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 22px 45px rgba(70, 45, 15, 0.25), inset 0 0 15px rgba(2, 132, 199, 0.05) !important;
+}
+
+.vintage-paper-sheet .poem-verse {
+  font-family: 'Plus Jakarta Sans', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #4a3e2e;
+  line-height: 1.65;
+  margin-bottom: 0.35rem;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.vintage-paper-sheet:hover .poem-verse {
+  color: #0f172a;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .paper-sheet-1,
+  .paper-sheet-2,
+  .paper-sheet-3 {
+    transform: none !important;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .poem-stanza {

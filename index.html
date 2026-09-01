@@ -144,7 +144,7 @@
               <!-- Menú Desplegable Alumnos -->
               <div class="nav-item dropdown">
                 <a
-                  href="#"
+                  href="alum.html"
                   class="nav-link dropdown-toggle"
                   data-toggle="dropdown"
                   role="button"
@@ -473,126 +473,109 @@
           <p class="section-subheading">Poema conmemorativo a la historia, valores y legado de nuestra querida institución.</p>
         </div>
 
-        <!-- Banner Institucional Superior -->
-        <div class="history-banner-card mb-5">
-          <div class="row align-items-center">
-            <div class="col-lg-4 col-md-5 mb-3 mb-md-0">
-              <div class="history-banner-img-wrapper">
-                <img src="img/fotoportadaanimadamb.png" alt="Escuela Manuel Belgrano N°3 Historia" class="history-banner-img">
+        <div class="row align-items-stretch">
+          <!-- Columna Izquierda: Imagen de Historia -->
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="history-banner-card h-100 d-flex flex-column justify-content-between p-3" style="background: linear-gradient(145deg, #fbf7ee 0%, #f4ead7 100%); border: 1px solid #d8c6a5; box-shadow: 0 8px 20px rgba(90, 65, 35, 0.12);">
+              <div class="history-banner-img-wrapper flex-grow-1 mb-3" style="max-height: none;">
+                <img src="img/fotoportadaanimadamb.png" alt="Escuela Manuel Belgrano N°3 Historia" class="history-banner-img" style="height: 100%; min-height: 320px; object-fit: cover; border-radius: var(--radius-md);">
+              </div>
+              <div class="text-center pt-2">
+                <span class="badge-history-year mb-2 d-inline-block"><i class="fa fa-award mr-1"></i> 1884 - 2024</span>
+                <h4 class="font-weight-bold text-dark mb-1" style="font-size: 1.1rem;">140° Aniversario Institucional</h4>
+                <p class="text-muted small mb-0">Nuestra Historia hecha Poesía</p>
               </div>
             </div>
-            <div class="col-lg-8 col-md-7">
-              <div class="p-2 p-md-3">
-                <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
-                  <span class="badge-history-year"><i class="fa fa-award mr-1"></i> 1884 - 2024</span>
-                  <span class="text-primary font-weight-bold ml-2">140° Aniversario Institucional</span>
+          </div>
+
+          <!-- Columna Derecha: Poesía (9 Estrofas en 3 Papeles Viejos entreunidos) -->
+          <div class="col-lg-8">
+            <div class="h-100 d-flex flex-column justify-content-between">
+              <div class="row vintage-paper-container">
+                <!-- Papel 1 (Estrofas 1, 2, 3) -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                  <div class="vintage-paper-sheet paper-sheet-1 h-100">
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">Hace muchos, muchos años</p>
+                      <p class="poem-verse">tus puertas se abrieron de par en par,</p>
+                      <p class="poem-verse">y a partir de ese momento</p>
+                      <p class="poem-verse">no dejaste de educar.</p>
+                    </div>
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">Elemental del Este</p>
+                      <p class="poem-verse">fue tu nombre inicial,</p>
+                      <p class="poem-verse">pero unos años más tarde</p>
+                      <p class="poem-verse">tu nombre iba a cambiar.</p>
+                    </div>
+                    <div class="poem-stanza mb-0">
+                      <p class="poem-verse">Manuel Belgrano se llama</p>
+                      <p class="poem-verse">en honor del general</p>
+                      <p class="poem-verse">que nuestra bandera creara</p>
+                      <p class="poem-verse">a orillas del Paraná.</p>
+                    </div>
+                  </div>
                 </div>
-                <h3 class="font-weight-bold text-dark mb-2" style="font-size: 1.4rem;">Nuestra Historia hecha Poesía</h3>
-                <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.6;">
-                  Un homenaje poético que recorre los inicios de la Escuela Elemental del Este hasta convertirse en el destacado centro educativo que abre sus puertas a toda la comunidad de San Luis.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Grid de 3 Columnas Amplias para el Poema (3 estrofas por columna) -->
-        <div class="row">
-          <!-- Columna 1 (Estrofas I, II, III) -->
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="poem-column-card h-100">
-              <div class="poem-stanza mb-4">
-                <span class="stanza-number">I</span>
-                <p class="poem-verse">Hace muchos, muchos años</p>
-                <p class="poem-verse">tus puertas se abrieron de par en par,</p>
-                <p class="poem-verse">y a partir de ese momento</p>
-                <p class="poem-verse">no dejaste de educar.</p>
-              </div>
-              <hr class="stanza-divider" />
-              <div class="poem-stanza mb-4">
-                <span class="stanza-number">II</span>
-                <p class="poem-verse">Elemental del Este</p>
-                <p class="poem-verse">fue tu nombre inicial,</p>
-                <p class="poem-verse">pero unos años más tarde</p>
-                <p class="poem-verse">tu nombre iba a cambiar.</p>
-              </div>
-              <hr class="stanza-divider" />
-              <div class="poem-stanza">
-                <span class="stanza-number">III</span>
-                <p class="poem-verse">Manuel Belgrano se llama</p>
-                <p class="poem-verse">en honor del general</p>
-                <p class="poem-verse">que nuestra bandera creara</p>
-                <p class="poem-verse">a orillas del Paraná.</p>
-              </div>
-            </div>
-          </div>
+                <!-- Papel 2 (Estrofas 4, 5, 6) -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                  <div class="vintage-paper-sheet paper-sheet-2 h-100">
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">Fueron pasando los años</p>
+                      <p class="poem-verse">y nuestra escuela creció.</p>
+                      <p class="poem-verse">La matrícula día a día</p>
+                      <p class="poem-verse">se hizo cada vez más grande.</p>
+                    </div>
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">San Luis estaba creciendo,</p>
+                      <p class="poem-verse">más niños para educar,</p>
+                      <p class="poem-verse">y ella agrandó sus puertas</p>
+                      <p class="poem-verse">para enseñar mucho más.</p>
+                    </div>
+                    <div class="poem-stanza mb-0">
+                      <p class="poem-verse">También llegó jardincito,</p>
+                      <p class="poem-verse">que es hoy nivel inicial,</p>
+                      <p class="poem-verse">y durante 30 años</p>
+                      <p class="poem-verse">Sección Sordos supo estar.</p>
+                    </div>
+                  </div>
+                </div>
 
-          <!-- Columna 2 (Estrofas IV, V, VI) -->
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="poem-column-card h-100">
-              <div class="poem-stanza mb-4">
-                <span class="stanza-number">IV</span>
-                <p class="poem-verse">Fueron pasando los años</p>
-                <p class="poem-verse">y nuestra escuela creció.</p>
-                <p class="poem-verse">La matrícula día a día</p>
-                <p class="poem-verse">se hizo cada vez más grande.</p>
+                <!-- Papel 3 (Estrofas 7, 8, 9) -->
+                <div class="col-md-4">
+                  <div class="vintage-paper-sheet paper-sheet-3 h-100">
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">A fines del siglo XX</p>
+                      <p class="poem-verse">3° ciclo llegaría,</p>
+                      <p class="poem-verse">y después de mucho esfuerzo</p>
+                      <p class="poem-verse">el ciclo superior se incorporaría.</p>
+                    </div>
+                    <div class="poem-stanza mb-4">
+                      <p class="poem-verse">Ahora ya es un centro,</p>
+                      <p class="poem-verse">sus aulas llenas están</p>
+                      <p class="poem-verse">de alumnos de todos los ciclos</p>
+                      <p class="poem-verse">y sus estudios poder terminar.</p>
+                    </div>
+                    <div class="poem-stanza mb-0">
+                      <p class="poem-verse">Ya pasaron ciento cuarenta años</p>
+                      <p class="poem-verse">de aquel día sin igual,</p>
+                      <p class="poem-verse">que con orgullo y alegría</p>
+                      <p class="poem-verse">sus puertas se abrieron de par en par.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <hr class="stanza-divider" />
-              <div class="poem-stanza mb-4">
-                <span class="stanza-number">V</span>
-                <p class="poem-verse">San Luis estaba creciendo,</p>
-                <p class="poem-verse">más niños para educar,</p>
-                <p class="poem-verse">y ella agrandó sus puertas</p>
-                <p class="poem-verse">para enseñar mucho más.</p>
-              </div>
-              <hr class="stanza-divider" />
-              <div class="poem-stanza">
-                <span class="stanza-number">VI</span>
-                <p class="poem-verse">También llegó jardincito,</p>
-                <p class="poem-verse">que es hoy nivel inicial,</p>
-                <p class="poem-verse">y durante 30 años</p>
-                <p class="poem-verse">Sección Sordos supo estar.</p>
-              </div>
-            </div>
-          </div>
 
-          <!-- Columna 3 (Estrofas VII, VIII, IX) -->
-          <div class="col-lg-4 col-md-12 mb-4">
-            <div class="poem-column-card h-100">
-              <div class="poem-stanza mb-4">
-                <span class="stanza-number">VII</span>
-                <p class="poem-verse">A fines del siglo XX</p>
-                <p class="poem-verse">3° ciclo llegaría,</p>
-                <p class="poem-verse">y después de mucho esfuerzo</p>
-                <p class="poem-verse">el ciclo superior se incorporaría.</p>
+              <!-- Badge de Autora -->
+              <div class="d-flex justify-content-end mt-4 pt-2">
+                <div class="author-badge shadow-sm mt-0" style="background: #fdfbf7; border-color: #d8c6a5;">
+                  <img src="img/nilda.jpg" alt="Nilda Molinari" class="author-avatar" />
+                  <div class="author-info">
+                    <span class="d-block font-weight-bold text-dark" style="font-style: normal; font-size: 0.95rem;">MOLINARI, Nilda</span>
+                    <small class="text-primary font-weight-bold" style="font-style: normal;">Ex Directora y Autora</small>
+                  </div>
+                </div>
               </div>
-              <hr class="stanza-divider" />
-              <div class="poem-stanza mb-4">
-                <span class="stanza-number">VIII</span>
-                <p class="poem-verse">Ahora ya es un centro,</p>
-                <p class="poem-verse">sus aulas llenas están</p>
-                <p class="poem-verse">de alumnos de todos los ciclos</p>
-                <p class="poem-verse">y sus estudios poder terminar.</p>
-              </div>
-              <hr class="stanza-divider" />
-              <div class="poem-stanza">
-                <span class="stanza-number">IX</span>
-                <p class="poem-verse">Ya pasaron ciento cuarenta años</p>
-                <p class="poem-verse">de aquel día sin igual,</p>
-                <p class="poem-verse">que con orgullo y alegría</p>
-                <p class="poem-verse">sus puertas se abrieron de par en par.</p>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Badge de Autora Centrado -->
-        <div class="d-flex justify-content-center mt-3">
-          <div class="author-badge shadow-sm">
-            <img src="img/nilda.jpg" alt="Nilda Molinari" class="author-avatar" />
-            <div class="author-info">
-              <span class="d-block font-weight-bold text-dark" style="font-style: normal; font-size: 0.95rem;">MOLINARI, Nilda</span>
-              <small class="text-primary font-weight-bold" style="font-style: normal;">Ex Directora y Autora</small>
             </div>
           </div>
         </div>

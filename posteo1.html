@@ -1,318 +1,448 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Aquello otro - Escuela N°3 Manuel Belgrano</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="Producción estudiantil 4° Año Escuela N°3 Manuel Belgrano San Luis" name="keywords" />
-    <meta content="Proyecto Aquello otro realizado por alumnos de 4° año." name="description" />
+<head>
+  <meta charset="utf-8" />
+  <title>Aquello otro - Escuela N°3 Manuel Belgrano</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="Producción estudiantil 4° Año Escuela N°3 Manuel Belgrano San Luis" name="keywords" />
+  <meta content="Proyecto Aquello otro realizado por alumnos de 4° año." name="description" />
+  <meta name="view-transition" content="same-origin" />
 
-    <!-- Icono Institucional -->
-    <link rel="icon" href="img/logo mb.png" sizes="32x32" type="image/png" />
+  <!-- Icono Institucional -->
+  <link rel="icon" href="img/logo mb.png" sizes="32x32" type="image/png" />
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
 
-    <!-- Font Awesome Icons -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-      rel="stylesheet"
-    />
+  <!-- Owl Carousel & Base Modal Styles -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/modal.css" />
 
-    <!-- Component Libraries Stylesheets -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link
-      href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
-      rel="stylesheet"
-    />
+  <style>
+    /* Baseline typography sizing to prevent FOUT layout jumps without altering font families */
+    .font-body-sm, .text-body-sm { font-size: 13px; line-height: 20px; }
+    .font-body-md, .text-body-md { font-size: 15px; line-height: 24px; }
+    .font-body-lg, .text-body-lg { font-size: 18px; line-height: 28px; }
+    .font-headline-sm, .text-headline-sm { font-size: 18px; line-height: 26px; }
+    .font-headline-md, .text-headline-md { font-size: 22px; line-height: 30px; }
+    .font-headline-lg, .text-headline-lg { font-size: 28px; line-height: 36px; }
+    .font-headline-xl, .text-headline-xl { font-size: 40px; line-height: 48px; }
+    .font-display-hero, .text-display-hero { font-size: 56px; line-height: 64px; }
+    .font-stat-metric, .text-stat-metric { font-size: 48px; line-height: 52px; }
+    .font-label-md, .text-label-md { font-size: 12px; line-height: 16px; }
+    .font-label-lg, .text-label-lg { font-size: 14px; line-height: 20px; }
 
-    <!-- Base Bootstrap & Modal -->
-    <link href="css/style.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/modal.css" />
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
 
-    <!-- Rediseño Minimalista Escolar Moderno -->
-    <link href="css/minimal-style.css" rel="stylesheet" />
-  </head>
-
-  <body>
-    <!-- Top Bar Superior Start -->
-    <div class="top-bar d-none d-lg-block">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-7">
-            <div class="top-bar-info">
-              <div class="top-bar-item">
-                <i class="fa fa-envelope"></i>
-                <span>secretariamanuelbelgrano3@gmail.com</span>
-              </div>
-              <div class="top-bar-item">
-                <i class="fa fa-phone-alt"></i>
-                <span>Interno: 8335</span>
-              </div>
-            </div>
+  <!-- Tailwind CSS CDN -->
+  <script>
+    (function() {
+      const _w = console.warn;
+      console.warn = function(...a) {
+        if (typeof a[0] === 'string' && a[0].includes('cdn.tailwindcss.com')) return;
+        _w.apply(console, a);
+      };
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "argentina-blue": "#0079c1",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#dae2fd",
+            "surface-tint": "#515f78",
+            "inverse-primary": "#b9c7e4",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-background": "#131b2e",
+            "surface-variant": "#dae2fd",
+            "tertiary-container": "#2a1700",
+            "sun-gold-glow": "#fbbf24",
+            "primary-fixed-dim": "#b9c7e4",
+            "secondary-fixed-dim": "#93ccff",
+            "tertiary": "#000000",
+            "surface-container": "#eaedff",
+            "outline-variant": "#c5c6cd",
+            "inverse-surface": "#283044",
+            "parchment-warm": "#f4ebd7",
+            "on-tertiary-fixed-variant": "#653e00",
+            "surface-container-low": "#f2f3ff",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#2a1700",
+            "surface-card": "#ffffff",
+            "on-surface": "#131b2e",
+            "error": "#ba1a1a",
+            "primary-fixed": "#d6e3ff",
+            "surface-dim": "#d2d9f4",
+            "secondary-fixed": "#cce5ff",
+            "surface-canvas": "#f8fafc",
+            "on-secondary-fixed": "#001d31",
+            "outline": "#75777e",
+            "surface-container-high": "#e2e7ff",
+            "sky-light": "#38bdf8",
+            "on-secondary-container": "#00476e",
+            "on-primary-fixed": "#0d1c32",
+            "secondary-container": "#5bb8fe",
+            "on-primary-fixed-variant": "#39475f",
+            "on-primary": "#ffffff",
+            "background": "#faf8ff",
+            "secondary": "#006398",
+            "tertiary-fixed-dim": "#ffb95f",
+            "on-secondary-fixed-variant": "#004b73",
+            "inverse-on-surface": "#eef0ff",
+            "primary-container": "#0d1c32",
+            "on-primary-container": "#76849f",
+            "surface-ice": "#f0f9ff",
+            "on-tertiary-container": "#b87500",
+            "surface": "#faf8ff",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#ffddb8",
+            "primary": "#000000",
+            "surface-bright": "#faf8ff",
+            "institutional-indigo": "#21469b"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-md": "1rem",
+            "space-3xl": "4rem",
+            "space-3xs": "0.125rem",
+            "gutter-desktop": "2rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.75rem",
+            "space-2xs": "0.25rem",
+            "space-xs": "0.5rem",
+            "space-xl": "2rem",
+            "space-4xl": "6rem",
+            "space-lg": "1.5rem",
+            "container-max": "80rem",
+            "space-2xl": "3rem"
+          },
+          fontFamily: {
+            "stat-metric": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "stat-metric": ["48px", { lineHeight: "52px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "body-sm": ["13px", { lineHeight: "20px", letterSpacing: "0.005em", fontWeight: "400" }],
+            "display-hero-mobile": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "0em", fontWeight: "600" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "-0.005em", fontWeight: "400" }],
+            "body-md": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            "display-hero": ["56px", { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-xl-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "700" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+  
+  <!-- HEADER & NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.06)]">
+    <!-- Topbar Superior -->
+    <div class="bg-primary-container text-on-primary hidden lg:block">
+      <div class="max-w-container-max mx-auto px-gutter-desktop h-10 flex items-center justify-between font-body-sm text-body-sm">
+        <div class="flex items-center gap-space-lg text-primary-fixed">
+          <span class="flex items-center gap-space-2xs">
+            <span class="material-symbols-outlined text-[16px] text-sky-light">mail</span>
+            secretariamanuelbelgrano3@gmail.com
+          </span>
+          <span class="flex items-center gap-space-2xs">
+            <span class="material-symbols-outlined text-[16px] text-sky-light">call</span>
+            Interno: 8335
+          </span>
+          <span class="flex items-center gap-space-2xs">
+            <span class="material-symbols-outlined text-[16px] text-sky-light">location_on</span>
+            San Luis, Argentina
+          </span>
+        </div>
+        <div class="flex items-center gap-space-md">
+          <div class="inline-flex items-center gap-space-2xs px-space-xs py-space-3xs rounded-full bg-secondary-fixed/20 text-secondary-fixed font-label-md text-label-md">
+            <span class="material-symbols-outlined text-[14px]">calendar_month</span>
+            <span id="fecha"></span> 📅
           </div>
-          <div class="col-lg-5 text-right">
-            <div class="d-inline-flex align-items-center gap-3">
-              <div class="social-links mr-3">
-                <a class="social-icon" href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a class="social-icon" href="https://www.instagram.com/escuelamanuelbelgrano3/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a class="social-icon" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank"><i class="fab fa-youtube"></i></a>
-              </div>
-              <div class="fecha-badge">
-                <span id="fecha"></span> 📅
-              </div>
-            </div>
+          <div class="flex items-center gap-space-xs text-primary-fixed ml-space-xs">
+            <a aria-label="Facebook" class="hover:text-sky-light transition-colors" href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">public</span>
+            </a>
+            <a aria-label="Instagram" class="hover:text-sky-light transition-colors" href="https://www.instagram.com/escuelamanuelbelgrano3/" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+            </a>
+            <a aria-label="YouTube" class="hover:text-sky-light transition-colors" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">smart_display</span>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <!-- Top Bar Superior End -->
 
-    <!-- Header / Navbar Start -->
-    <header class="main-header">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light p-0">
-          <a href="index.html" class="brand-logo navbar-brand">
-            <img src="img/logo mb.png" alt="Logo Escuela N°3 Manuel Belgrano" class="img-fluid" />
-            <div class="brand-title d-none d-sm-flex">
-              <span class="title-main">Escuela N°3 Manuel Belgrano</span>
-              <span class="title-sub">San Luis - Argentina</span>
-            </div>
-          </a>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-            <div class="navbar-nav py-2 py-lg-0 align-items-lg-center">
-              <a href="index.html" class="nav-item nav-link">Inicio</a>
-              <a onclick="abrirModal()" class="nav-item nav-link" style="cursor: pointer">Docentes</a>
-              <div class="nav-item dropdown active">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Alumnos</a>
-                <div class="dropdown-menu">
-                  <a href="galeria.html" class="dropdown-item active">Posteos</a>
-                  <a href="inscripciones.html" class="dropdown-item">Inscripciones</a>
-                  <a href="egresados.html" class="dropdown-item">Egresados</a>
-                  <a href="calendario.html" class="dropdown-item">Información Escolar</a>
-                </div>
-              </div>
-              <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- Header / Navbar End -->
-
-    <!-- Post Article Content Start -->
-    <section class="py-5">
-      <div class="container" style="max-width: 860px;">
-        <div class="mb-4">
-          <a href="galeria.html" class="btn-hero-location py-2 px-4" style="font-size: 0.85rem;">
-            <i class="fa fa-arrow-left"></i> Volver a Galería
-          </a>
+    <!-- Main Navigation Bar -->
+    <div class="h-20 max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop flex items-center justify-between gap-space-md">
+      <a href="index.html" class="flex items-center gap-space-md no-underline text-inherit">
+        <img alt="Logo Escuela N°3 Manuel Belgrano" class="h-10 w-auto object-contain" src="img/logo mb.png" />
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none font-bold">Escuela N°3 Manuel Belgrano</span>
+          <span class="font-label-md text-label-md text-secondary font-medium tracking-wide mt-space-3xs">San Luis · Fundada en 1884</span>
         </div>
+      </a>
 
-        <div class="clean-card p-4 p-md-5">
-          <span class="section-tag">4° Año - Lengua y Literatura</span>
-          <h1 class="section-heading mt-2 mb-4">Aquello otro</h1>
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden xl:flex items-center gap-space-xs">
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="index.html">Inicio</a>
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="nosotros.html">Nosotros</a>
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="nosotros.html#propuesta">Propuesta</a>
+        <a class="px-space-sm py-space-xs transition-colors bg-surface-container-high text-on-surface font-label-lg rounded-lg font-semibold" href="galeria.html">Novedades</a>
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="index.html#portales">Portales</a>
+      </nav>
 
-          <p class="text-muted leading-relaxed mb-4">
-            Desde una planificación por tópico nos preguntamos cómo abordar nuestra visión, reacción, nuestro concepto sobre lo otro, lo distinto. En un mundo libre como jamás lo ha sido, tolerante como estado natural, seguimos interrogándonos sobre temas cruciales como el respeto, la democracia, los derechos a ser.
-          </p>
-
-          <p class="text-muted leading-relaxed mb-4">
-            Desde el área de lengua y literatura, cuarto año, planteamos este tópico y lo desarrollamos inicialmente desde dos textos: <em>El planeta loco</em>, del autor Van Hageland, y una de las Cartas de Cristóbal Colón.
-          </p>
-
-          <div class="row my-4">
-            <div class="col-md-6 mb-3">
-              <img src="img/posteos/posteo1/Imagen 1.jpg" alt="Aquello otro 1" class="img-fluid rounded shadow-sm w-100" />
-            </div>
-            <div class="col-md-6 mb-3">
-              <img src="img/posteos/posteo1/Imagen 2.jpg" alt="Aquello otro 2" class="img-fluid rounded shadow-sm w-100" />
-            </div>
-          </div>
-
-          <p class="text-muted leading-relaxed mb-4">
-            Para cerrar con el tópico, apelamos a la creatividad y al arte con la elaboración de un fanzine-objeto...
-          </p>
-
-          <div class="my-4 text-center">
-            <img src="img/posteos/posteo1/Imagen 3.jpg" alt="Aquello otro 3" class="img-fluid rounded shadow-sm" style="max-height: 400px;" />
-          </div>
-
-          <p class="text-muted leading-relaxed mb-4">
-            El resultado de este trabajo es sensacional. Compartimos algunos de los trabajos presentados por los estudiantes:
-          </p>
-
-          <div class="row my-4">
-            <div class="col-6 col-md-3 mb-3">
-              <img src="img/posteos/posteo1/Imagen 4.jpg" alt="Trabajo 4" class="img-fluid rounded shadow-sm" />
-            </div>
-            <div class="col-6 col-md-3 mb-3">
-              <img src="img/posteos/posteo1/Imagen 5.jpg" alt="Trabajo 5" class="img-fluid rounded shadow-sm" />
-            </div>
-            <div class="col-6 col-md-3 mb-3">
-              <img src="img/posteos/posteo1/Imagen 6.jpg" alt="Trabajo 6" class="img-fluid rounded shadow-sm" />
-            </div>
-            <div class="col-6 col-md-3 mb-3">
-              <img src="img/posteos/posteo1/Imagen 7.jpg" alt="Trabajo 7" class="img-fluid rounded shadow-sm" />
-            </div>
-          </div>
-
-          <!-- Muestra de Autores -->
-          <div class="mt-5 border-top pt-4">
-            <div class="clean-card mb-4 bg-light">
-              <h4 class="font-weight-bold text-primary mb-3">Ignacio <span class="text-muted" style="font-size: 0.9rem;">(sorpresa)</span></h4>
-              <p class="font-italic text-dark">"Las sorpresas no se esperan, ni se piensan, se imagina una idea..."</p>
-              <div class="row mt-3">
-                <div class="col-4"><img src="img/posteos/posteo1/Ignacio 1.jpg" class="img-fluid rounded" alt="Ignacio 1" /></div>
-                <div class="col-4"><img src="img/posteos/posteo1/Ignacio 2.jpg" class="img-fluid rounded" alt="Ignacio 2" /></div>
-                <div class="col-4"><img src="img/posteos/posteo1/Ignacio 3.jpg" class="img-fluid rounded" alt="Ignacio 3" /></div>
-              </div>
-            </div>
-
-            <div class="clean-card mb-4 bg-light">
-              <h4 class="font-weight-bold text-primary mb-3">Ana <span class="text-muted" style="font-size: 0.9rem;">(Confusión)</span></h4>
-              <div class="row mt-3">
-                <div class="col-4"><img src="img/posteos/posteo1/Ana 1.jpg" class="img-fluid rounded" alt="Ana 1" /></div>
-                <div class="col-4"><img src="img/posteos/posteo1/Ana 2.jpg" class="img-fluid rounded" alt="Ana 2" /></div>
-                <div class="col-4"><img src="img/posteos/posteo1/Ana 3.jpg" class="img-fluid rounded" alt="Ana 3" /></div>
-              </div>
-            </div>
-
-            <div class="clean-card mb-4 bg-light">
-              <h4 class="font-weight-bold text-primary mb-3">Guadalupe <span class="text-muted" style="font-size: 0.9rem;">(Inocente de más - terror)</span></h4>
-              <div class="row mt-3">
-                <div class="col-4"><img src="img/posteos/posteo1/Guadalupe 1.jpg" class="img-fluid rounded" alt="Guadalupe 1" /></div>
-                <div class="col-4"><img src="img/posteos/posteo1/Guadalupe 2.jpg" class="img-fluid rounded" alt="Guadalupe 2" /></div>
-                <div class="col-4"><img src="img/posteos/posteo1/Guadalupe 3.jpg" class="img-fluid rounded" alt="Guadalupe 3" /></div>
-              </div>
-            </div>
-
-            <div class="clean-card bg-light">
-              <h4 class="font-weight-bold text-primary mb-3">Jennie <span class="text-muted" style="font-size: 0.9rem;">(La angustia en la que respiro)</span></h4>
-              <div class="row mt-3">
-                <div class="col-4"><img src="img/posteos/posteo1/Jennie 1.jpg" class="img-fluid rounded" alt="Jennie 1" /></div>
-                <div class="col-4"><img src="img/posteos/posteo1/Jennie 2.jpg" class="img-fluid rounded" alt="Jennie 2" /></div>
-                <div class="col-4"><img src="img/posteos/posteo1/Jennie 3.jpg" class="img-fluid rounded" alt="Jennie 3" /></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Post Article Content End -->
-
-    <!-- Footer Start -->
-    <footer class="footer-main">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 mb-4">
-            <a href="https://maps.google.com/?q=Pringles+319" target="_blank" style="text-decoration: none">
-              <div class="footer-card">
-                <i class="fa fa-map-marker-alt"></i>
-                <div>
-                  <h5>¿Dónde estamos?</h5>
-                  <p>Pringles 319, San Luis</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 mb-4">
-            <a href="mailto:secretariamanuelbelgrano3@gmail.com?subject=Consulta%20desde%20la%20web" style="text-decoration: none">
-              <div class="footer-card">
-                <i class="fa fa-envelope"></i>
-                <div>
-                  <h5>¿Quieres escribirnos?</h5>
-                  <p>secretariamanuelbelgrano3@gmail.com</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 mb-4">
-            <div class="footer-card">
-              <i class="fa fa-phone-alt"></i>
-              <div>
-                <h5>Puedes llamarnos</h5>
-                <p>Interno: 8335</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row pt-4">
-          <div class="col-lg-6 mb-5">
-            <h2 class="footer-brand-title">MB N°3</h2>
-            <p style="line-height: 1.7; max-width: 500px">
-              Nuestra escuela ofrece formación en distintos niveles educativos, con docentes comprometidos a enseñar y acompañar.
-            </p>
-            <div class="social-links mt-4">
-              <a class="social-icon" href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a class="social-icon" href="https://www.instagram.com/escuelamanuelbelgrano3/" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a class="social-icon" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-6 mb-5">
-            <h5 class="text-white font-weight-bold mb-4">Links Populares</h5>
-            <div class="d-flex flex-column">
-              <a class="footer-link" href="index.html"><i class="fa fa-angle-right"></i> Inicio</a>
-              <a class="footer-link" href="inscripciones.html"><i class="fa fa-angle-right"></i> Inscripciones</a>
-              <a class="footer-link" href="galeria.html"><i class="fa fa-angle-right"></i> Posteos y Galería</a>
-              <a class="footer-link" href="nosotros.html"><i class="fa fa-angle-right"></i> Nosotros</a>
-              <a class="footer-link" href="carga.html"><i class="fa fa-angle-right"></i> Administrador</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-bottom text-center text-md-left d-md-flex justify-content-between align-items-center">
-          <p class="m-0 mb-2 mb-md-0">&copy; Escuela Manuel Belgrano N°3. Todos los derechos reservados.</p>
-          <p class="m-0">Desarrollado por <a href="nosotros.html">EMGI</a></p>
-        </div>
-      </div>
-    </footer>
-    <!-- Footer End -->
-
-    <!-- Back to Top -->
-    <a href="#" class="back-to-top" title="Volver arriba">
-      <i class="fa fa-angle-double-up"></i>
-    </a>
-
-    <!-- Modal de Acceso Docente -->
-    <div id="loginModal" class="modal">
-      <div class="modal-content">
-        <h2>Acceso Docente</h2>
-        <input type="password" id="passwordInput" placeholder="Contraseña de acceso" />
-        <button onclick="checkPassword()">Entrar</button>
-        <button onclick="cerrarModal()">Cancelar</button>
-        <p id="errorMsg"></p>
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-space-xs sm:gap-space-sm">
+        <a class="hidden sm:inline-flex items-center px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-argentina-blue hover:bg-surface-container-high hover:text-on-surface transition-colors" href="alum.html">Portal Alumnos</a>
+        <button class="hidden md:inline-flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg bg-surface-container-low text-institutional-indigo hover:bg-surface-container hover:text-on-surface transition-colors cursor-pointer" onclick="abrirModal()">
+          <span class="material-symbols-outlined text-[16px]">lock</span>Acceso Docente
+        </button>
+        <a class="inline-flex items-center px-space-md py-space-xs rounded-lg font-label-lg text-label-lg bg-argentina-blue text-on-primary hover:bg-secondary transition-all shadow-[0_4px_14px_rgba(0,121,193,0.3)]" href="inscripciones.html">Inscripciones 2027</a>
       </div>
     </div>
+  </header>
 
-    <!-- Scripts -->
-    <script src="js/modal.js" defer></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+  <!-- MAIN CONTENT AREA -->
+  <main id="main-content" class="w-full pt-20 lg:pt-[7.5rem] bg-surface min-h-screen">
+    
+    <div class="max-w-4xl mx-auto px-gutter-mobile lg:px-gutter-desktop py-space-2xl">
+      <div class="mb-space-lg">
+        <a href="galeria.html" class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-xl font-label-lg text-label-lg bg-surface-container-high text-on-surface hover:bg-surface-container transition-colors no-underline">
+          <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+          <span>Volver a Galería</span>
+        </a>
+      </div>
+
+      <article class="bg-surface-card p-space-xl lg:p-space-2xl rounded-2xl border border-surface-container-high/40 shadow-sm">
+        <span class="inline-block px-space-xs py-space-3xs rounded-md bg-surface-ice text-argentina-blue font-label-md text-xs font-bold mb-space-xs">
+          4° Año - Lengua y Literatura
+        </span>
+        <h1 class="font-display-hero text-headline-xl lg:text-display-hero text-on-surface font-extrabold mb-space-md tracking-tight">
+          Aquello otro
+        </h1>
+
+        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-space-md">
+          Desde una planificación por tópico nos preguntamos cómo abordar nuestra visión, reacción, nuestro concepto sobre lo otro, lo distinto. En un mundo libre como jamás lo ha sido, tolerante como estado natural, seguimos interrogándonos sobre temas cruciales como el respeto, la democracia, los derechos a ser.
+        </p>
+
+        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-space-lg">
+          Desde el área de lengua y literatura, cuarto año, planteamos este tópico y lo desarrollamos inicialmente desde dos textos: <em>El planeta loco</em>, del autor Van Hageland, y una de las Cartas de Cristóbal Colón.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md my-space-lg">
+          <img src="img/posteos/posteo1/Imagen 1.jpg" alt="Aquello otro 1" class="w-full h-auto rounded-xl shadow-sm border border-surface-container-high/40 object-cover" />
+          <img src="img/posteos/posteo1/Imagen 2.jpg" alt="Aquello otro 2" class="w-full h-auto rounded-xl shadow-sm border border-surface-container-high/40 object-cover" />
+        </div>
+
+        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-space-lg">
+          Para cerrar con el tópico, apelamos a la creatividad y al arte con la elaboración de un fanzine-objeto...
+        </p>
+
+        <div class="my-space-lg text-center">
+          <img src="img/posteos/posteo1/Imagen 3.jpg" alt="Aquello otro 3" class="max-h-96 w-auto mx-auto rounded-xl shadow-sm border border-surface-container-high/40 object-contain" />
+        </div>
+
+        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-space-lg">
+          El resultado de este trabajo es sensacional. Compartimos algunos de los trabajos presentados por los estudiantes:
+        </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm my-space-lg">
+          <img src="img/posteos/posteo1/Imagen 4.jpg" alt="Trabajo 4" class="w-full h-auto rounded-xl shadow-sm border border-surface-container-high/40 object-cover" />
+          <img src="img/posteos/posteo1/Imagen 5.jpg" alt="Trabajo 5" class="w-full h-auto rounded-xl shadow-sm border border-surface-container-high/40 object-cover" />
+          <img src="img/posteos/posteo1/Imagen 6.jpg" alt="Trabajo 6" class="w-full h-auto rounded-xl shadow-sm border border-surface-container-high/40 object-cover" />
+          <img src="img/posteos/posteo1/Imagen 7.jpg" alt="Trabajo 7" class="w-full h-auto rounded-xl shadow-sm border border-surface-container-high/40 object-cover" />
+        </div>
+
+        <!-- Muestra de Autores -->
+        <div class="mt-space-2xl border-t border-surface-container-high/40 pt-space-lg flex flex-col gap-space-lg">
+          
+          <div class="bg-surface-container-low p-space-lg rounded-xl">
+            <h3 class="font-headline-sm text-headline-sm text-argentina-blue font-bold mb-space-2xs">Ignacio <span class="text-on-surface-variant font-normal text-body-sm">(sorpresa)</span></h3>
+            <p class="font-body-md text-body-md italic text-on-surface-variant mb-space-sm">"Las sorpresas no se esperan, ni se piensan, se imagina una idea..."</p>
+            <div class="grid grid-cols-3 gap-space-xs">
+              <img src="img/posteos/posteo1/Ignacio 1.jpg" class="w-full h-auto rounded-lg object-cover" alt="Ignacio 1" />
+              <img src="img/posteos/posteo1/Ignacio 2.jpg" class="w-full h-auto rounded-lg object-cover" alt="Ignacio 2" />
+              <img src="img/posteos/posteo1/Ignacio 3.jpg" class="w-full h-auto rounded-lg object-cover" alt="Ignacio 3" />
+            </div>
+          </div>
+
+          <div class="bg-surface-container-low p-space-lg rounded-xl">
+            <h3 class="font-headline-sm text-headline-sm text-argentina-blue font-bold mb-space-sm">Ana <span class="text-on-surface-variant font-normal text-body-sm">(Confusión)</span></h3>
+            <div class="grid grid-cols-3 gap-space-xs">
+              <img src="img/posteos/posteo1/Ana 1.jpg" class="w-full h-auto rounded-lg object-cover" alt="Ana 1" />
+              <img src="img/posteos/posteo1/Ana 2.jpg" class="w-full h-auto rounded-lg object-cover" alt="Ana 2" />
+              <img src="img/posteos/posteo1/Ana 3.jpg" class="w-full h-auto rounded-lg object-cover" alt="Ana 3" />
+            </div>
+          </div>
+
+          <div class="bg-surface-container-low p-space-lg rounded-xl">
+            <h3 class="font-headline-sm text-headline-sm text-argentina-blue font-bold mb-space-sm">Guadalupe <span class="text-on-surface-variant font-normal text-body-sm">(Inocente de más - terror)</span></h3>
+            <div class="grid grid-cols-3 gap-space-xs">
+              <img src="img/posteos/posteo1/Guadalupe 1.jpg" class="w-full h-auto rounded-lg object-cover" alt="Guadalupe 1" />
+              <img src="img/posteos/posteo1/Guadalupe 2.jpg" class="w-full h-auto rounded-lg object-cover" alt="Guadalupe 2" />
+              <img src="img/posteos/posteo1/Guadalupe 3.jpg" class="w-full h-auto rounded-lg object-cover" alt="Guadalupe 3" />
+            </div>
+          </div>
+
+          <div class="bg-surface-container-low p-space-lg rounded-xl">
+            <h3 class="font-headline-sm text-headline-sm text-argentina-blue font-bold mb-space-sm">Jennie <span class="text-on-surface-variant font-normal text-body-sm">(La angustia en la que respiro)</span></h3>
+            <div class="grid grid-cols-3 gap-space-xs">
+              <img src="img/posteos/posteo1/Jennie 1.jpg" class="w-full h-auto rounded-lg object-cover" alt="Jennie 1" />
+              <img src="img/posteos/posteo1/Jennie 2.jpg" class="w-full h-auto rounded-lg object-cover" alt="Jennie 2" />
+              <img src="img/posteos/posteo1/Jennie 3.jpg" class="w-full h-auto rounded-lg object-cover" alt="Jennie 3" />
+            </div>
+          </div>
+
+        </div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- MODAL DE ACCESO A DOCENTES (#loginModal) -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Acceso Docente</h2>
+      <p class="text-sm text-gray-600 mb-4">Ingrese su clave institucional de docente para acceder al panel de gestión.</p>
+      <input type="password" id="passwordInput" placeholder="Contraseña de acceso" />
+      <button onclick="checkPassword()">Entrar</button>
+      <button onclick="cerrarModal()">Cancelar</button>
+      <p id="errorMsg"></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-primary-container text-on-primary pt-space-3xl pb-space-xl">
+    <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-xl pb-space-2xl border-b border-surface-container-high/10">
+        
+        <div class="lg:col-span-4 flex flex-col items-start">
+          <div class="flex items-center gap-space-sm mb-space-md">
+            <img alt="Logo Escuela N°3 Manuel Belgrano" class="h-10 w-auto object-contain" src="img/logo mb.png" />
+            <span class="font-headline-sm text-headline-sm text-on-primary font-bold">Escuela N°3 Manuel Belgrano</span>
+          </div>
+          <p class="font-body-md text-body-md text-on-primary-container mb-space-lg leading-relaxed">
+            Más de 140 años formando generaciones comprometidas con los valores patrióticos, la excelencia académica y la innovación comunitaria en el corazón de San Luis.
+          </p>
+          <div class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-secondary-fixed/20 text-secondary-fixed font-label-md text-label-md">
+            <span class="material-symbols-outlined text-[16px] text-sun-gold-glow">verified</span>
+            Institución Histórica Oficial
+          </div>
+        </div>
+
+        <div class="lg:col-span-3 flex flex-col">
+          <h3 class="font-headline-sm text-headline-sm text-on-primary mb-space-md font-bold">Información Académica</h3>
+          <ul class="flex flex-col gap-space-sm font-body-md text-body-md text-on-primary-container p-0 m-0 list-none">
+            <li class="hover:text-sky-light transition-colors"><a href="nosotros.html" class="no-underline text-inherit">Educación Primaria Integral</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="calendario.html" class="no-underline text-inherit">Calendario y Exámenes</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="alum.html" class="no-underline text-inherit">Comunidad Estudiantil</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="javascript:void(0)" onclick="abrirModal()" class="no-underline text-inherit">Acceso Docentes</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="inscripciones.html" class="no-underline text-inherit">Matrícula y Requisitos 2027</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3 flex flex-col">
+          <h3 class="font-headline-sm text-headline-sm text-on-primary mb-space-md font-bold">Sede Institucional</h3>
+          <div class="flex flex-col gap-space-sm font-body-md text-body-md text-on-primary-container">
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">pin_drop</span>
+              <span>Pringles 319, D5700 San Luis, Argentina</span>
+            </div>
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">schedule</span>
+              <span>Lunes a Viernes: 07:30 - 18:30 hs</span>
+            </div>
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">call</span>
+              <span>Interno Administrativo: 8335</span>
+            </div>
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">mail</span>
+              <span>secretariamanuelbelgrano3@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 flex flex-col">
+          <h3 class="font-headline-sm text-headline-sm text-on-primary mb-space-md font-bold">Canales Oficiales</h3>
+          <p class="font-body-sm text-body-sm text-on-primary-container mb-space-md">Siga nuestras actividades y comunicados oficiales en redes sociales.</p>
+          <div class="flex items-center gap-space-sm">
+            <a class="w-9 h-9 rounded-lg bg-surface-container-high/20 flex items-center justify-center text-primary-fixed hover:bg-secondary hover:text-on-secondary transition-all no-underline" href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">public</span>
+            </a>
+            <a class="w-9 h-9 rounded-lg bg-surface-container-high/20 flex items-center justify-center text-primary-fixed hover:bg-secondary hover:text-on-secondary transition-all no-underline" href="https://www.instagram.com/escuelamanuelbelgrano3/" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+            </a>
+            <a class="w-9 h-9 rounded-lg bg-surface-container-high/20 flex items-center justify-center text-primary-fixed hover:bg-secondary hover:text-on-secondary transition-all no-underline" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">smart_display</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-space-lg flex flex-col md:flex-row items-center justify-between font-body-sm text-body-sm text-on-primary-container gap-space-sm">
+        <p class="m-0">&copy; Escuela Manuel Belgrano N°3. Todos los derechos reservados.</p>
+        <p class="m-0">Desarrollado por <a href="nosotros.html" class="text-sky-light hover:underline">EMGI</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top fixed bottom-6 right-6 w-12 h-12 rounded-full bg-argentina-blue text-white flex items-center justify-center shadow-lg hover:bg-secondary transition-all z-40" title="Volver arriba">
+    <i class="fa fa-angle-double-up text-[18px]"></i>
+  </a>
+
+  <!-- SCRIPTS -->
+  <script src="js/modal.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/spa-router.js"></script>
+</body>
 </html>

@@ -23,6 +23,19 @@
   <link rel="stylesheet" href="css/modal.css" />
 
   <style>
+    /* Baseline typography sizing to prevent FOUT layout jumps without altering font families */
+    .font-body-sm, .text-body-sm { font-size: 13px; line-height: 20px; }
+    .font-body-md, .text-body-md { font-size: 15px; line-height: 24px; }
+    .font-body-lg, .text-body-lg { font-size: 18px; line-height: 28px; }
+    .font-headline-sm, .text-headline-sm { font-size: 18px; line-height: 26px; }
+    .font-headline-md, .text-headline-md { font-size: 22px; line-height: 30px; }
+    .font-headline-lg, .text-headline-lg { font-size: 28px; line-height: 36px; }
+    .font-headline-xl, .text-headline-xl { font-size: 40px; line-height: 48px; }
+    .font-display-hero, .text-display-hero { font-size: 56px; line-height: 64px; }
+    .font-stat-metric, .text-stat-metric { font-size: 48px; line-height: 52px; }
+    .font-label-md, .text-label-md { font-size: 12px; line-height: 16px; }
+    .font-label-lg, .text-label-lg { font-size: 14px; line-height: 20px; }
+
     @layer base {
       html, body { margin: 0; padding: 0; }
       body { overscroll-behavior: none; }
@@ -33,6 +46,15 @@
   </style>
 
   <!-- Tailwind CSS CDN -->
+  <script>
+    (function() {
+      const _w = console.warn;
+      console.warn = function(...a) {
+        if (typeof a[0] === 'string' && a[0].includes('cdn.tailwindcss.com')) return;
+        _w.apply(console, a);
+      };
+    })();
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
     tailwind.config = {
@@ -223,7 +245,7 @@
   </header>
 
   <!-- MAIN CONTENT AREA -->
-  <main class="w-full pt-20 lg:pt-[7.5rem] bg-surface min-h-screen">
+  <main id="main-content" class="w-full pt-20 lg:pt-[7.5rem] bg-surface min-h-screen">
     <div class="flex flex-col w-full overflow-hidden">
       
       <!-- HERO SECTION -->
@@ -877,11 +899,12 @@
   <!-- SCRIPTS -->
   <script src="js/modal.js" defer></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="lib/easing/easing.min.js"></script>
   <script src="lib/waypoints/waypoints.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/spa-router.js"></script>
   <script type="module" src="js/firebase.js"></script>
   <script type="module" src="js/news.js"></script>
 </body>

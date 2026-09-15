@@ -39,92 +39,104 @@
     });
 
     // Date and time picker
-    $("#date").datetimepicker({
-        format: "L",
-    });
-    $("#time").datetimepicker({
-        format: "LT",
-    });
+    if (typeof $.fn.datetimepicker !== "undefined") {
+        if ($("#date").length) {
+            $("#date").datetimepicker({
+                format: "L",
+            });
+        }
+        if ($("#time").length) {
+            $("#time").datetimepicker({
+                format: "LT",
+            });
+        }
+    }
 
     // Service carousel
-    $(".service-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        margin: 30,
-        dots: false,
-        loop: true,
-        nav: true,
-        navText: [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>',
-        ],
-        responsive: {
-            0: {
-                items: 1,
+    if ($.fn.owlCarousel && $(".service-carousel").length) {
+        $(".service-carousel").owlCarousel({
+            autoplay: true,
+            smartSpeed: 1500,
+            margin: 30,
+            dots: false,
+            loop: true,
+            nav: true,
+            navText: [
+                '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+                '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+            ],
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                576: {
+                    items: 1,
+                },
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 3,
+                },
             },
-            576: {
-                items: 1,
-            },
-            768: {
-                items: 2,
-            },
-            992: {
-                items: 3,
-            },
-        },
-    });
+        });
+    }
 
     // Team carousel
-    $(".team-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        margin: 30,
-        dots: false,
-        loop: true,
-        nav: true,
-        navText: [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>',
-        ],
-        responsive: {
-            0: {
-                items: 1,
+    if ($.fn.owlCarousel && $(".team-carousel").length) {
+        $(".team-carousel").owlCarousel({
+            autoplay: true,
+            smartSpeed: 1500,
+            margin: 30,
+            dots: false,
+            loop: true,
+            nav: true,
+            navText: [
+                '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+                '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+            ],
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                576: {
+                    items: 2,
+                },
+                768: {
+                    items: 3,
+                },
+                992: {
+                    items: 4,
+                },
             },
-            576: {
-                items: 2,
-            },
-            768: {
-                items: 3,
-            },
-            992: {
-                items: 4,
-            },
-        },
-    });
+        });
+    }
 
     // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        center: true,
-        autoplay: true,
-        smartSpeed: 1000,
-        margin: 30,
-        dots: true,
-        loop: true,
-        responsive: {
-            0: {
-                items: 1,
+    if ($.fn.owlCarousel && $(".testimonial-carousel").length) {
+        $(".testimonial-carousel").owlCarousel({
+            center: true,
+            autoplay: true,
+            smartSpeed: 1000,
+            margin: 30,
+            dots: true,
+            loop: true,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                576: {
+                    items: 1,
+                },
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 3,
+                },
             },
-            576: {
-                items: 1,
-            },
-            768: {
-                items: 2,
-            },
-            992: {
-                items: 3,
-            },
-        },
-    });
+        });
+    }
 })(jQuery);
 
 //Contraseña para ingresar a docentes
@@ -327,41 +339,6 @@ if (climaElement) {
                 }
             }, { passive: true });
         }
-
-        // 4. Transición suave entre páginas HTML (Navegación fluida sin salto en blanco)
-        document.addEventListener("click", function (e) {
-            const link = e.target.closest("a");
-            if (!link) return;
-
-            const href = link.getAttribute("href");
-            if (
-                !href ||
-                href.startsWith("#") ||
-                href.startsWith("javascript:") ||
-                href.startsWith("mailto:") ||
-                href.startsWith("tel:") ||
-                link.getAttribute("target") === "_blank" ||
-                link.hasAttribute("onclick")
-            ) {
-                return;
-            }
-
-            const isInternal = link.hostname === window.location.hostname || !link.hostname;
-            if (isInternal && href.indexOf(".html") !== -1) {
-                // Si el navegador soporta View Transitions nativas cross-document (@view-transition en CSS), se maneja automáticamente
-                if (CSS.supports && (CSS.supports("view-transition-name", "root") || CSS.supports("navigation", "auto"))) {
-                    return;
-                }
-
-                // Fallback JS para navegadores legacy
-                e.preventDefault();
-                document.body.classList.add("page-exit");
-
-                setTimeout(function () {
-                    window.location.href = href;
-                }, 240);
-            }
-        });
 
         // Limpieza de estado de salida al retroceder/avanzar en el historial (bfcache)
         window.addEventListener("pageshow", function (event) {

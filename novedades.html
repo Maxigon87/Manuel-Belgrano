@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Novedades y Agenda - Escuela N°3 Manuel Belgrano</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="Novedades, noticias, agenda escolar, actos patrios Escuela N°3 Manuel Belgrano San Luis" name="keywords" />
+  <meta content="Portal oficial de noticias, novedades institucionales y agenda escolar de la Escuela N°3 Manuel Belgrano." name="description" />
+  <meta name="view-transition" content="same-origin" />
+
+  <!-- Icono Institucional -->
+  <link rel="icon" href="img/logo mb.png" sizes="32x32" type="image/png" />
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- Owl Carousel & Base Modal Styles -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/modal.css" />
+
+  <style>
+    /* Baseline typography sizing to prevent FOUT layout jumps without altering font families */
+    .font-body-sm, .text-body-sm { font-size: 13px; line-height: 20px; }
+    .font-body-md, .text-body-md { font-size: 15px; line-height: 24px; }
+    .font-body-lg, .text-body-lg { font-size: 18px; line-height: 28px; }
+    .font-headline-sm, .text-headline-sm { font-size: 18px; line-height: 26px; }
+    .font-headline-md, .text-headline-md { font-size: 22px; line-height: 30px; }
+    .font-headline-lg, .text-headline-lg { font-size: 28px; line-height: 36px; }
+    .font-headline-xl, .text-headline-xl { font-size: 40px; line-height: 48px; }
+    .font-display-hero, .text-display-hero { font-size: 56px; line-height: 64px; }
+    .font-stat-metric, .text-stat-metric { font-size: 48px; line-height: 52px; }
+    .font-label-md, .text-label-md { font-size: 12px; line-height: 16px; }
+    .font-label-lg, .text-label-lg { font-size: 14px; line-height: 20px; }
+
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+
+  <!-- Tailwind CSS CDN -->
+  <script>
+    (function() {
+      const _w = console.warn;
+      console.warn = function(...a) {
+        if (typeof a[0] === 'string' && a[0].includes('cdn.tailwindcss.com')) return;
+        _w.apply(console, a);
+      };
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "argentina-blue": "#0079c1",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#dae2fd",
+            "surface-tint": "#515f78",
+            "inverse-primary": "#b9c7e4",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-background": "#131b2e",
+            "surface-variant": "#dae2fd",
+            "tertiary-container": "#2a1700",
+            "sun-gold-glow": "#fbbf24",
+            "primary-fixed-dim": "#b9c7e4",
+            "secondary-fixed-dim": "#93ccff",
+            "tertiary": "#000000",
+            "surface-container": "#eaedff",
+            "outline-variant": "#c5c6cd",
+            "inverse-surface": "#283044",
+            "parchment-warm": "#f4ebd7",
+            "on-tertiary-fixed-variant": "#653e00",
+            "surface-container-low": "#f2f3ff",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#2a1700",
+            "surface-card": "#ffffff",
+            "on-surface": "#131b2e",
+            "error": "#ba1a1a",
+            "primary-fixed": "#d6e3ff",
+            "surface-dim": "#d2d9f4",
+            "secondary-fixed": "#cce5ff",
+            "surface-canvas": "#f8fafc",
+            "on-secondary-fixed": "#001d31",
+            "outline": "#75777e",
+            "surface-container-high": "#e2e7ff",
+            "sky-light": "#38bdf8",
+            "on-secondary-container": "#00476e",
+            "on-primary-fixed": "#0d1c32",
+            "secondary-container": "#5bb8fe",
+            "on-primary-fixed-variant": "#39475f",
+            "on-primary": "#ffffff",
+            "background": "#faf8ff",
+            "secondary": "#006398",
+            "tertiary-fixed-dim": "#ffb95f",
+            "on-secondary-fixed-variant": "#004b73",
+            "inverse-on-surface": "#eef0ff",
+            "primary-container": "#0d1c32",
+            "on-primary-container": "#76849f",
+            "surface-ice": "#f0f9ff",
+            "on-tertiary-container": "#b87500",
+            "surface": "#faf8ff",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#ffddb8",
+            "primary": "#000000",
+            "surface-bright": "#faf8ff",
+            "institutional-indigo": "#21469b"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-md": "1rem",
+            "space-3xl": "4rem",
+            "space-3xs": "0.125rem",
+            "gutter-desktop": "2rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.75rem",
+            "space-2xs": "0.25rem",
+            "space-xs": "0.5rem",
+            "space-xl": "2rem",
+            "space-4xl": "6rem",
+            "space-lg": "1.5rem",
+            "container-max": "80rem",
+            "space-2xl": "3rem"
+          },
+          fontFamily: {
+            "stat-metric": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "stat-metric": ["48px", { lineHeight: "52px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "body-sm": ["13px", { lineHeight: "20px", letterSpacing: "0.005em", fontWeight: "400" }],
+            "display-hero-mobile": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "0em", fontWeight: "600" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "-0.005em", fontWeight: "400" }],
+            "body-md": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            "display-hero": ["56px", { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-xl-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "700" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+  
+  <!-- HEADER & NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.06)]">
+    <!-- Topbar Superior -->
+    <div class="bg-primary-container text-on-primary hidden lg:block">
+      <div class="max-w-container-max mx-auto px-gutter-desktop h-10 flex items-center justify-between font-body-sm text-body-sm">
+        <div class="flex items-center gap-space-lg text-primary-fixed">
+          <span class="flex items-center gap-space-2xs">
+            <span class="material-symbols-outlined text-[16px] text-sky-light">mail</span>
+            secretariamanuelbelgrano3@gmail.com
+          </span>
+          <span class="flex items-center gap-space-2xs">
+            <span class="material-symbols-outlined text-[16px] text-sky-light">call</span>
+            Interno: 8335
+          </span>
+          <span class="flex items-center gap-space-2xs">
+            <span class="material-symbols-outlined text-[16px] text-sky-light">location_on</span>
+            San Luis, Argentina
+          </span>
+        </div>
+        <div class="flex items-center gap-space-md">
+          <div class="inline-flex items-center gap-space-2xs px-space-xs py-space-3xs rounded-full bg-secondary-fixed/20 text-secondary-fixed font-label-md text-label-md">
+            <span class="material-symbols-outlined text-[14px]">calendar_month</span>
+            <span id="fecha"></span> 📅
+          </div>
+          <div class="flex items-center gap-space-xs text-primary-fixed ml-space-xs">
+            <a aria-label="Facebook" class="hover:text-sky-light transition-colors" href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">public</span>
+            </a>
+            <a aria-label="Instagram" class="hover:text-sky-light transition-colors" href="https://www.instagram.com/escuelamanuelbelgrano3/" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+            </a>
+            <a aria-label="YouTube" class="hover:text-sky-light transition-colors" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">smart_display</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="h-20 max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop flex items-center justify-between gap-space-md">
+      <a href="index.html" class="flex items-center gap-space-md no-underline text-inherit">
+        <img alt="Logo Escuela N°3 Manuel Belgrano" class="h-10 w-auto object-contain" src="img/logo mb.png" />
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none font-bold">Escuela N°3 Manuel Belgrano</span>
+          <span class="font-label-md text-label-md text-secondary font-medium tracking-wide mt-space-3xs">San Luis · Fundada en 1884</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden xl:flex items-center gap-space-xs">
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="index.html">Inicio</a>
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="propuesta.html">Propuesta</a>
+        <a class="px-space-sm py-space-xs transition-colors bg-surface-container-high text-on-surface font-label-lg rounded-lg font-semibold" href="novedades.html">Novedades</a>
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="nosotros.html">Nosotros</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-space-xs sm:gap-space-sm">
+        <a class="hidden sm:inline-flex items-center px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-argentina-blue hover:bg-surface-container-high hover:text-on-surface transition-colors" href="alum.html">Portal Alumnos</a>
+
+        <button class="hidden md:inline-flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg bg-surface-container-low text-institutional-indigo hover:bg-surface-container hover:text-on-surface transition-colors cursor-pointer" onclick="abrirModal()">
+          <span class="material-symbols-outlined text-[16px]">lock</span>Acceso Docente
+        </button>
+        <a class="inline-flex items-center px-space-md py-space-xs rounded-lg font-label-lg text-label-lg bg-argentina-blue text-on-primary hover:bg-secondary transition-all shadow-[0_4px_14px_rgba(0,121,193,0.3)]" href="inscripciones.html">Inscripciones 2027</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT AREA -->
+  <main id="main-content" class="w-full pt-20 lg:pt-[7.5rem] bg-surface min-h-screen">
+    
+    <!-- Subpage Banner -->
+    <section class="bg-primary-container text-on-primary py-space-2xl relative overflow-hidden">
+      <div class="absolute -top-24 -left-24 w-80 h-80 bg-argentina-blue/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop relative z-10">
+        <div class="flex flex-col items-start gap-space-xs">
+          <div class="inline-flex items-center gap-space-xs text-sky-light font-label-md text-label-md">
+            <a href="index.html" class="hover:underline text-inherit">Inicio</a>
+            <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+            <span class="text-on-primary font-semibold">Novedades y Agenda</span>
+          </div>
+          <h1 class="font-display-hero text-headline-xl lg:text-display-hero text-on-primary font-bold tracking-tight">
+            Novedades y Agenda Institucional
+          </h1>
+          <p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-2xl">
+            Cobertura completa de eventos patrios, jornadas de formación, comunicados oficiales de rectoría y proyectos destacados de nuestros alumnos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop py-space-2xl">
+      
+      <!-- Live Pulse Header & Filter Bar (Stitch Design) -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-lg mb-space-2xl pb-space-lg border-b border-surface-container-high/40">
+        <div>
+          <div class="inline-flex items-center gap-space-xs px-space-sm py-space-3xs rounded-full bg-surface-ice text-argentina-blue font-label-md text-label-md mb-space-xs border-0 shadow-sm">
+            <span class="relative flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full rounded-full bg-argentina-blue opacity-80 animate-ping"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-argentina-blue"></span>
+            </span>
+            <span class="tracking-wider uppercase font-bold text-[11px]">LA WEB VIVA · ACTUALIZACIONES EN TIEMPO REAL</span>
+          </div>
+          <h2 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">
+            Noticias y Publicaciones Oficiales
+          </h2>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex items-center gap-space-xs flex-wrap font-label-md text-label-md">
+          <div class="flex items-center gap-space-2xs flex-wrap">
+            <button onclick="filtrarNovedadesPage('todos', this)" class="btn-filter-nov px-space-sm py-space-2xs rounded-full bg-institutional-indigo text-on-primary font-semibold shadow-sm transition-all cursor-pointer">
+              Todos
+            </button>
+            <button onclick="filtrarNovedadesPage('patrio', this)" class="btn-filter-nov px-space-sm py-space-2xs rounded-full bg-surface-card text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer">
+              Actos Patrios
+            </button>
+            <button onclick="filtrarNovedadesPage('institucional', this)" class="btn-filter-nov px-space-sm py-space-2xs rounded-full bg-surface-card text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer">
+              Institucional
+            </button>
+            <button onclick="filtrarNovedadesPage('producciones', this)" class="btn-filter-nov px-space-sm py-space-2xs rounded-full bg-surface-card text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer">
+              Producciones Estudiantiles
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Spotlight Headline News Story -->
+      <article class="news-page-item group bg-surface-card rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 mb-space-2xl border border-surface-container-high/40" data-category="patrio">
+        <div class="lg:col-span-7 relative h-72 lg:h-auto overflow-hidden bg-surface-container-low">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/actopatrio.jpg" alt="Acto Patrio 9 de Julio Escuela Manuel Belgrano">
+          <div class="absolute inset-0 bg-gradient-to-t from-on-background/60 via-transparent to-transparent opacity-60"></div>
+          <span class="absolute top-space-md left-space-md px-space-sm py-space-3xs rounded-full bg-argentina-blue text-on-primary font-label-md text-label-md font-bold shadow-md">
+            Destacado · Acto Patrio
+          </span>
+        </div>
+        <div class="lg:col-span-5 p-space-xl lg:p-space-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-space-xs font-label-md text-label-md text-argentina-blue mb-space-sm">
+              <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+              <span>9 de Julio</span>
+              <span class="text-outline-variant">•</span>
+              <span class="text-on-surface-variant">Comunidad Educativa</span>
+            </div>
+            <h3 class="font-headline-xl text-headline-lg lg:text-headline-xl text-on-surface tracking-tight group-hover:text-argentina-blue transition-colors mb-space-md font-bold">
+              9 de Julio: “Día de la Independencia”
+            </h3>
+            <p class="font-body-lg text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
+              Esta mañana la Escuela N°3 “Manuel Belgrano” se vistió de celeste y blanco. Nivel Inicial, Primario y Secundario compartieron juntos el acto patrio reafirmando nuestro compromiso republicano con poesías, representaciones y baile folclórico.
+            </p>
+          </div>
+          <div class="pt-space-md border-t border-surface-container-low flex items-center justify-between">
+            <a href="posteo1.html" class="inline-flex items-center gap-space-xs text-argentina-blue font-label-lg text-label-lg font-bold group-hover:text-institutional-indigo transition-colors no-underline">
+              <span>Leer artículo completo</span>
+              <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">3 min lectura</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Main Layout Split: Left Articles Grid (8 cols) + Right Agenda Sidebar (4 cols) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+        
+        <!-- Left Column: Articles List (8 cols) -->
+        <div class="lg:col-span-8 flex flex-col gap-space-xl" id="gridNovedadesPage">
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+            <!-- Article 1: Jornada Docente -->
+            <article class="news-page-item group bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1 border border-surface-container-high/40" data-category="institucional">
+              <div class="relative w-full h-56 overflow-hidden bg-surface-container-low">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/jornada.jpg" alt="Jornada de reflexión docente">
+                <div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent opacity-60"></div>
+                <span class="absolute top-space-sm left-space-sm px-space-xs py-space-3xs rounded-full bg-institutional-indigo text-on-primary font-label-md text-label-md shadow-md">
+                  Institucional
+                </span>
+              </div>
+              <div class="p-space-lg flex flex-col flex-1 justify-between">
+                <div>
+                  <div class="flex items-center gap-space-xs font-label-md text-label-md text-argentina-blue mb-space-xs">
+                    <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                    <span>11/8/2026</span>
+                    <span class="text-outline-variant">•</span>
+                    <span class="text-on-surface-variant font-normal">Cuerpo Docente</span>
+                  </div>
+                  <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight group-hover:text-argentina-blue transition-colors mb-space-xs font-bold">
+                    Jornada de reflexión docente
+                  </h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed line-clamp-3 mb-space-md">
+                    Un espacio de aprendizaje y crecimiento colectivo de nuestra querida Escuela N°3 Manuel Belgrano, analizando proyectos pedagógicos e integración tecnológica.
+                  </p>
+                </div>
+                <div class="pt-space-sm flex items-center justify-between border-t border-surface-container-low">
+                  <a href="posteo2.html" class="inline-flex items-center gap-space-2xs text-argentina-blue font-label-lg text-label-lg font-semibold group-hover:text-institutional-indigo transition-colors no-underline">
+                    <span>Leer nota completa</span>
+                    <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                  </a>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">2 min</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Article 2: 141° Aniversario -->
+            <article class="news-page-item group bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1 border border-surface-container-high/40" data-category="institucional">
+              <div class="relative w-full h-56 overflow-hidden bg-surface-container-low">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/frenteansl.png" alt="141 Aniversario Escuela Manuel Belgrano">
+                <div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent opacity-60"></div>
+                <span class="absolute top-space-sm left-space-sm px-space-xs py-space-3xs rounded-full bg-sun-gold-glow text-tertiary-container font-label-md text-label-md shadow-md font-bold">
+                  Aniversario
+                </span>
+              </div>
+              <div class="p-space-lg flex flex-col flex-1 justify-between">
+                <div>
+                  <div class="flex items-center gap-space-xs font-label-md text-label-md text-argentina-blue mb-space-xs">
+                    <span class="material-symbols-outlined text-[16px]">verified</span>
+                    <span>141° Aniversario</span>
+                    <span class="text-outline-variant">•</span>
+                    <span class="text-on-surface-variant font-normal">San Luis (1884)</span>
+                  </div>
+                  <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight group-hover:text-argentina-blue transition-colors mb-space-xs font-bold">
+                    141° Aniversario de la Escuela N°3
+                  </h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed line-clamp-3 mb-space-md">
+                    Conmemoración de la vasta historia institucional, valores patrióticos y trayectoria en la educación de San Luis.
+                  </p>
+                </div>
+                <div class="pt-space-sm flex items-center justify-between border-t border-surface-container-low">
+                  <a href="posteo3.html" class="inline-flex items-center gap-space-2xs text-argentina-blue font-label-lg text-label-lg font-semibold group-hover:text-institutional-indigo transition-colors no-underline">
+                    <span>Leer historia</span>
+                    <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                  </a>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">4 min</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Section Break: Producciones Estudiantiles -->
+          <div class="bg-surface-canvas p-space-xl rounded-2xl border border-surface-container-high/60">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-lg">
+              <div>
+                <span class="text-argentina-blue font-label-md text-label-md uppercase tracking-wider font-bold">TRABAJOS DESTACADOS</span>
+                <h3 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Producciones de Estudiantes</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Proyectos de Lengua, Literatura y Expresión Artística (4°, 5° y 6° Año)</p>
+              </div>
+              <a href="galeria.html" class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-surface-card border border-surface-container-high text-on-surface hover:bg-surface-container-high transition-colors font-label-lg text-label-lg font-semibold no-underline shrink-0">
+                <span>Ver Galería Completa</span>
+                <span class="material-symbols-outlined text-[18px]">grid_view</span>
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+              <!-- Prod 1 -->
+              <a href="posteo1.html" class="news-page-item group bg-surface-card rounded-xl p-space-sm border border-surface-container-high/40 shadow-xs hover:shadow-md transition-all flex flex-col no-underline" data-category="producciones">
+                <img src="img/posteos/posteo1/posteo1.png" alt="Aquello otro" class="w-full h-36 object-cover rounded-lg mb-space-xs group-hover:scale-105 transition-transform" />
+                <span class="font-label-md text-[11px] text-argentina-blue font-bold">4° Año</span>
+                <h4 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate group-hover:text-argentina-blue">Aquello otro</h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Así vemos, sentimos y contamos lo desconocido.</p>
+              </a>
+              <!-- Prod 2 -->
+              <a href="posteo2.html" class="news-page-item group bg-surface-card rounded-xl p-space-sm border border-surface-container-high/40 shadow-xs hover:shadow-md transition-all flex flex-col no-underline" data-category="producciones">
+                <img src="img/posteos/posteo2/posteo2.png" alt="Casas tomadas" class="w-full h-36 object-cover rounded-lg mb-space-xs group-hover:scale-105 transition-transform" />
+                <span class="font-label-md text-[11px] text-argentina-blue font-bold">5° Año</span>
+                <h4 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate group-hover:text-argentina-blue">Casas tomadas</h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Relecturas del cuento de Cortázar.</p>
+              </a>
+              <!-- Prod 3 -->
+              <a href="posteo3.html" class="news-page-item group bg-surface-card rounded-xl p-space-sm border border-surface-container-high/40 shadow-xs hover:shadow-md transition-all flex flex-col no-underline" data-category="producciones">
+                <img src="img/posteos/posteo3/Imagen 1 - copia.jpg" alt="Palabras Tetris" class="w-full h-36 object-cover rounded-lg mb-space-xs group-hover:scale-105 transition-transform" />
+                <span class="font-label-md text-[11px] text-argentina-blue font-bold">6° Año</span>
+                <h4 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate group-hover:text-argentina-blue">Palabras Tetris</h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Crecer es encajar palabras que nos construyen.</p>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Enhanced Academic Agenda Widget (4 cols) -->
+        <div class="lg:col-span-4 flex flex-col gap-space-lg">
+          
+          <div class="bg-surface-card rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col border border-surface-container-high/40">
+            <!-- Widget Title & Badge -->
+            <div class="flex items-center justify-between pb-space-md mb-space-md border-b border-surface-container-low">
+              <div class="flex items-center gap-space-xs">
+                <span class="material-symbols-outlined text-[24px] text-argentina-blue">event_upcoming</span>
+                <h3 class="font-headline-md text-headline-md text-on-surface font-bold">Agenda Escolar</h3>
+              </div>
+              <span class="px-space-xs py-space-3xs rounded-full bg-surface-ice text-argentina-blue font-label-md text-label-md font-semibold">
+                Fechas Clave
+              </span>
+            </div>
+
+            <!-- Event List -->
+            <div class="flex flex-col gap-space-md flex-1">
+              <!-- Event 1: 24 AGO - Día de San Luis -->
+              <div class="flex items-start gap-space-md p-space-sm rounded-xl hover:bg-surface-ice transition-colors cursor-pointer group">
+                <div class="flex flex-col items-center justify-center w-14 h-14 rounded-xl bg-surface-ice text-argentina-blue group-hover:bg-argentina-blue group-hover:text-on-primary transition-colors shrink-0 shadow-sm">
+                  <span class="font-bold text-[18px] leading-tight">24</span>
+                  <span class="font-label-md text-[11px] uppercase tracking-wider font-semibold">AGO</span>
+                </div>
+                <div class="flex flex-col min-w-0 flex-1">
+                  <div class="flex items-center justify-between gap-space-xs">
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface truncate group-hover:text-argentina-blue transition-colors font-semibold">
+                      “Día de San Luis”
+                    </h4>
+                    <span class="px-space-2xs py-space-3xs rounded-full bg-secondary-fixed/20 text-secondary font-label-md text-[10px] shrink-0 font-bold">
+                      Confirmado
+                    </span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-2xs mt-space-3xs">
+                    <span class="material-symbols-outlined text-[16px] text-argentina-blue">schedule</span>
+                    <span>15:00 hs</span>
+                    <span class="text-outline-variant">|</span>
+                    <span>Todos los niveles</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Event 2: 14 AGO - Acto Homenaje Gral. San Martín -->
+              <div class="flex items-start gap-space-md p-space-sm rounded-xl hover:bg-surface-ice transition-colors cursor-pointer group">
+                <div class="flex flex-col items-center justify-center w-14 h-14 rounded-xl bg-surface-container-high text-on-surface group-hover:bg-institutional-indigo group-hover:text-on-primary transition-colors shrink-0 shadow-sm">
+                  <span class="font-bold text-[18px] leading-tight">14</span>
+                  <span class="font-label-md text-[11px] uppercase tracking-wider font-semibold">AGO</span>
+                </div>
+                <div class="flex flex-col min-w-0 flex-1">
+                  <div class="flex items-center justify-between gap-space-xs">
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface truncate group-hover:text-institutional-indigo transition-colors font-semibold">
+                      Acto Gral. San Martín
+                    </h4>
+                    <span class="px-space-2xs py-space-3xs rounded-full bg-sun-gold-glow/20 text-on-tertiary-container font-label-md text-[10px] shrink-0 font-bold">
+                      Próximo
+                    </span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-2xs mt-space-3xs">
+                    <span class="material-symbols-outlined text-[16px] text-argentina-blue">schedule</span>
+                    <span>16:30 hs</span>
+                    <span class="text-outline-variant">|</span>
+                    <span>Salón de Actos</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Event 3: 09 JUL - Día de la Independencia (Realizado) -->
+              <div class="flex items-start gap-space-md p-space-sm rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group opacity-80 hover:opacity-100">
+                <div class="flex flex-col items-center justify-center w-14 h-14 rounded-xl bg-surface-container text-on-surface-variant shrink-0">
+                  <span class="font-bold text-[18px] leading-tight">09</span>
+                  <span class="font-label-md text-[11px] uppercase tracking-wider">JUL</span>
+                </div>
+                <div class="flex flex-col min-w-0 flex-1">
+                  <div class="flex items-center justify-between gap-space-xs">
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">
+                      Día de la Independencia
+                    </h4>
+                    <span class="px-space-2xs py-space-3xs rounded bg-surface-container-highest text-on-surface font-label-md text-[10px] shrink-0">
+                      Realizado
+                    </span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-3xs">
+                    Acto Central Conmemorativo
+                  </p>
+                </div>
+              </div>
+
+              <!-- Event 4: 18 MAY - Día de la Escarapela -->
+              <div class="flex items-start gap-space-md p-space-sm rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group opacity-80 hover:opacity-100">
+                <div class="flex flex-col items-center justify-center w-14 h-14 rounded-xl bg-surface-container text-on-surface-variant shrink-0">
+                  <span class="font-bold text-[18px] leading-tight">18</span>
+                  <span class="font-label-md text-[11px] uppercase tracking-wider">MAY</span>
+                </div>
+                <div class="flex flex-col min-w-0 flex-1">
+                  <div class="flex items-center justify-between gap-space-xs">
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">
+                      Día de la Escarapela
+                    </h4>
+                    <span class="px-space-2xs py-space-3xs rounded bg-surface-container-highest text-on-surface font-label-md text-[10px] shrink-0">
+                      Realizado
+                    </span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-3xs">
+                    Jornada de Conciencia Patria
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Button to Full Calendar -->
+            <div class="pt-space-lg mt-space-md border-t border-surface-container-low">
+              <a href="calendario.html" class="inline-flex items-center justify-center gap-space-xs w-full py-space-sm px-space-md rounded-xl bg-surface-container text-on-surface hover:bg-argentina-blue hover:text-on-primary font-label-lg text-label-lg transition-all duration-300 shadow-sm group no-underline">
+                <span class="material-symbols-outlined text-[18px] text-argentina-blue group-hover:text-on-primary transition-colors">calendar_month</span>
+                <span>Ver Calendario Escolar Completo</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    function filtrarNovedadesPage(categoria, btn) {
+      const botones = document.querySelectorAll('.btn-filter-nov');
+      botones.forEach(b => {
+        b.className = 'btn-filter-nov px-space-sm py-space-2xs rounded-full bg-surface-card text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer';
+      });
+      btn.className = 'btn-filter-nov px-space-sm py-space-2xs rounded-full bg-institutional-indigo text-on-primary font-semibold shadow-sm transition-all cursor-pointer';
+      
+      const items = document.querySelectorAll('.news-page-item');
+      items.forEach(item => {
+        if (categoria === 'todos' || item.getAttribute('data-category') === categoria) {
+          item.style.display = item.classList.contains('grid') ? 'grid' : 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+  <!-- MODAL DE ACCESO A DOCENTES (#loginModal) -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Acceso Docente</h2>
+      <p class="text-sm text-gray-600 mb-4">Ingrese su clave institucional de docente para acceder al panel de gestión.</p>
+      <input type="password" id="passwordInput" placeholder="Contraseña de acceso" />
+      <button onclick="checkPassword()">Entrar</button>
+      <button onclick="cerrarModal()">Cancelar</button>
+      <p id="errorMsg"></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-primary-container text-on-primary pt-space-3xl pb-space-xl">
+    <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-xl pb-space-2xl border-b border-surface-container-high/10">
+        
+        <div class="lg:col-span-4 flex flex-col items-start">
+          <div class="flex items-center gap-space-sm mb-space-md">
+            <img alt="Logo Escuela N°3 Manuel Belgrano" class="h-10 w-auto object-contain" src="img/logo mb.png" />
+            <span class="font-headline-sm text-headline-sm text-on-primary font-bold">Escuela N°3 Manuel Belgrano</span>
+          </div>
+          <p class="font-body-md text-body-md text-on-primary-container mb-space-lg leading-relaxed">
+            Más de 140 años forming generaciones comprometidas con los valores patrióticos, la excelencia académica y la innovación comunitaria en el corazón de San Luis.
+          </p>
+          <div class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-secondary-fixed/20 text-secondary-fixed font-label-md text-label-md">
+            <span class="material-symbols-outlined text-[16px] text-sun-gold-glow">verified</span>
+            Institución Histórica Oficial
+          </div>
+        </div>
+
+        <div class="lg:col-span-3 flex flex-col">
+          <h3 class="font-headline-sm text-headline-sm text-on-primary mb-space-md font-bold">Información Académica</h3>
+          <ul class="flex flex-col gap-space-sm font-body-md text-body-md text-on-primary-container p-0 m-0 list-none">
+            <li class="hover:text-sky-light transition-colors"><a href="propuesta.html" class="no-underline text-inherit">Educación Primaria Integral</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="calendario.html" class="no-underline text-inherit">Calendario y Exámenes</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="alum.html" class="no-underline text-inherit">Comunidad Estudiantil</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="javascript:void(0)" onclick="abrirModal()" class="no-underline text-inherit">Acceso Docentes</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="carga.html" class="no-underline text-inherit">Administración</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="inscripciones.html" class="no-underline text-inherit">Matrícula y Requisitos 2027</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3 flex flex-col">
+          <h3 class="font-headline-sm text-headline-sm text-on-primary mb-space-md font-bold">Sede Institucional</h3>
+          <div class="flex flex-col gap-space-sm font-body-md text-body-md text-on-primary-container">
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">pin_drop</span>
+              <span>Pringles 319, D5700 San Luis, Argentina</span>
+            </div>
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">schedule</span>
+              <span>Lunes a Viernes: 07:30 - 18:30 hs</span>
+            </div>
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">call</span>
+              <span>Interno Administrativo: 8335</span>
+            </div>
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">mail</span>
+              <span>secretariamanuelbelgrano3@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 flex flex-col">
+          <h3 class="font-headline-sm text-headline-sm text-on-primary mb-space-md font-bold">Canales Oficiales</h3>
+          <p class="font-body-sm text-body-sm text-on-primary-container mb-space-md">Siga nuestras actividades y comunicados oficiales en redes sociales.</p>
+          <div class="flex items-center gap-space-sm">
+            <a class="w-9 h-9 rounded-lg bg-surface-container-high/20 flex items-center justify-center text-primary-fixed hover:bg-secondary hover:text-on-secondary transition-all no-underline" href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">public</span>
+            </a>
+            <a class="w-9 h-9 rounded-lg bg-surface-container-high/20 flex items-center justify-center text-primary-fixed hover:bg-secondary hover:text-on-secondary transition-all no-underline" href="https://www.instagram.com/escuelamanuelbelgrano3/" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+            </a>
+            <a class="w-9 h-9 rounded-lg bg-surface-container-high/20 flex items-center justify-center text-primary-fixed hover:bg-secondary hover:text-on-secondary transition-all no-underline" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">smart_display</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-space-lg flex flex-col md:flex-row items-center justify-between font-body-sm text-body-sm text-on-primary-container gap-space-sm">
+        <p class="m-0">&copy; Escuela Manuel Belgrano N°3. Todos los derechos reservados.</p>
+        <p class="m-0">Desarrollado por <a href="nosotros.html" class="text-sky-light hover:underline">EMGI</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top fixed bottom-6 right-6 w-12 h-12 rounded-full bg-argentina-blue text-white flex items-center justify-center shadow-lg hover:bg-secondary transition-all z-40" title="Volver arriba">
+    <i class="fa fa-angle-double-up text-[18px]"></i>
+  </a>
+
+  <!-- SCRIPTS -->
+  <script src="js/modal.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/spa-router.js"></script>
+</body>
+</html>

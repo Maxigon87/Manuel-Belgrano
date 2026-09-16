@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Propuesta Educativa - Escuela N°3 Manuel Belgrano</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="Propuesta educativa, pilares institucionales, niveles educativos Escuela N°3 Manuel Belgrano San Luis" name="keywords" />
+  <meta content="Conozca la propuesta educativa, pilares institucionales y modelo pedagógico de la Escuela N°3 Manuel Belgrano." name="description" />
+  <meta name="view-transition" content="same-origin" />
+
+  <!-- Icono Institucional -->
+  <link rel="icon" href="img/logo mb.png" sizes="32x32" type="image/png" />
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- Owl Carousel & Base Modal Styles -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/modal.css" />
+
+  <style>
+    /* Baseline typography sizing to prevent FOUT layout jumps without altering font families */
+    .font-body-sm, .text-body-sm { font-size: 13px; line-height: 20px; }
+    .font-body-md, .text-body-md { font-size: 15px; line-height: 24px; }
+    .font-body-lg, .text-body-lg { font-size: 18px; line-height: 28px; }
+    .font-headline-sm, .text-headline-sm { font-size: 18px; line-height: 26px; }
+    .font-headline-md, .text-headline-md { font-size: 22px; line-height: 30px; }
+    .font-headline-lg, .text-headline-lg { font-size: 28px; line-height: 36px; }
+    .font-headline-xl, .text-headline-xl { font-size: 40px; line-height: 48px; }
+    .font-display-hero, .text-display-hero { font-size: 56px; line-height: 64px; }
+    .font-stat-metric, .text-stat-metric { font-size: 48px; line-height: 52px; }
+    .font-label-md, .text-label-md { font-size: 12px; line-height: 16px; }
+    .font-label-lg, .text-label-lg { font-size: 14px; line-height: 20px; }
+
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+
+  <!-- Tailwind CSS CDN -->
+  <script>
+    (function() {
+      const _w = console.warn;
+      console.warn = function(...a) {
+        if (typeof a[0] === 'string' && a[0].includes('cdn.tailwindcss.com')) return;
+        _w.apply(console, a);
+      };
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "argentina-blue": "#0079c1",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#dae2fd",
+            "surface-tint": "#515f78",
+            "inverse-primary": "#b9c7e4",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-background": "#131b2e",
+            "surface-variant": "#dae2fd",
+            "tertiary-container": "#2a1700",
+            "sun-gold-glow": "#fbbf24",
+            "primary-fixed-dim": "#b9c7e4",
+            "secondary-fixed-dim": "#93ccff",
+            "tertiary": "#000000",
+            "surface-container": "#eaedff",
+            "outline-variant": "#c5c6cd",
+            "inverse-surface": "#283044",
+            "parchment-warm": "#f4ebd7",
+            "on-tertiary-fixed-variant": "#653e00",
+            "surface-container-low": "#f2f3ff",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#2a1700",
+            "surface-card": "#ffffff",
+            "on-surface": "#131b2e",
+            "error": "#ba1a1a",
+            "primary-fixed": "#d6e3ff",
+            "surface-dim": "#d2d9f4",
+            "secondary-fixed": "#cce5ff",
+            "surface-canvas": "#f8fafc",
+            "on-secondary-fixed": "#001d31",
+            "outline": "#75777e",
+            "surface-container-high": "#e2e7ff",
+            "sky-light": "#38bdf8",
+            "on-secondary-container": "#00476e",
+            "on-primary-fixed": "#0d1c32",
+            "secondary-container": "#5bb8fe",
+            "on-primary-fixed-variant": "#39475f",
+            "on-primary": "#ffffff",
+            "background": "#faf8ff",
+            "secondary": "#006398",
+            "tertiary-fixed-dim": "#ffb95f",
+            "on-secondary-fixed-variant": "#004b73",
+            "inverse-on-surface": "#eef0ff",
+            "primary-container": "#0d1c32",
+            "on-primary-container": "#76849f",
+            "surface-ice": "#f0f9ff",
+            "on-tertiary-container": "#b87500",
+            "surface": "#faf8ff",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#ffddb8",
+            "primary": "#000000",
+            "surface-bright": "#faf8ff",
+            "institutional-indigo": "#21469b"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-md": "1rem",
+            "space-3xl": "4rem",
+            "space-3xs": "0.125rem",
+            "gutter-desktop": "2rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.75rem",
+            "space-2xs": "0.25rem",
+            "space-xs": "0.5rem",
+            "space-xl": "2rem",
+            "space-4xl": "6rem",
+            "space-lg": "1.5rem",
+            "container-max": "80rem",
+            "space-2xl": "3rem"
+          },
+          fontFamily: {
+            "stat-metric": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "stat-metric": ["48px", { lineHeight: "52px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "body-sm": ["13px", { lineHeight: "20px", letterSpacing: "0.005em", fontWeight: "400" }],
+            "display-hero-mobile": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "0em", fontWeight: "600" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "-0.005em", fontWeight: "400" }],
+            "body-md": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            "display-hero": ["56px", { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "800" }],
+            "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-xl-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "700" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+  
+  <!-- HEADER & NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.06)]">
+    <!-- Topbar Superior -->
+    <div class="bg-primary-container text-on-primary hidden lg:block">
+      <div class="max-w-container-max mx-auto px-gutter-desktop h-10 flex items-center justify-between font-body-sm text-body-sm">
+        <div class="flex items-center gap-space-lg text-primary-fixed">
+          <span class="flex items-center gap-space-2xs">
+            <span class="material-symbols-outlined text-[16px] text-sky-light">mail</span>
+            secretariamanuelbelgrano3@gmail.com
+          </span>
+          <span class="flex items-center gap-space-2xs">
+            <span class="material-symbols-outlined text-[16px] text-sky-light">call</span>
+            Interno: 8335
+          </span>
+          <span class="flex items-center gap-space-2xs">
+            <span class="material-symbols-outlined text-[16px] text-sky-light">location_on</span>
+            San Luis, Argentina
+          </span>
+        </div>
+        <div class="flex items-center gap-space-md">
+          <div class="inline-flex items-center gap-space-2xs px-space-xs py-space-3xs rounded-full bg-secondary-fixed/20 text-secondary-fixed font-label-md text-label-md">
+            <span class="material-symbols-outlined text-[14px]">calendar_month</span>
+            <span id="fecha"></span> 📅
+          </div>
+          <div class="flex items-center gap-space-xs text-primary-fixed ml-space-xs">
+            <a aria-label="Facebook" class="hover:text-sky-light transition-colors" href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">public</span>
+            </a>
+            <a aria-label="Instagram" class="hover:text-sky-light transition-colors" href="https://www.instagram.com/escuelamanuelbelgrano3/" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+            </a>
+            <a aria-label="YouTube" class="hover:text-sky-light transition-colors" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">smart_display</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="h-20 max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop flex items-center justify-between gap-space-md">
+      <a href="index.html" class="flex items-center gap-space-md no-underline text-inherit">
+        <img alt="Logo Escuela N°3 Manuel Belgrano" class="h-10 w-auto object-contain" src="img/logo mb.png" />
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none font-bold">Escuela N°3 Manuel Belgrano</span>
+          <span class="font-label-md text-label-md text-secondary font-medium tracking-wide mt-space-3xs">San Luis · Fundada en 1884</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden xl:flex items-center gap-space-xs">
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="index.html">Inicio</a>
+        <a class="px-space-sm py-space-xs transition-colors bg-surface-container-high text-on-surface font-label-lg rounded-lg font-semibold" href="propuesta.html">Propuesta</a>
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="novedades.html">Novedades</a>
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="nosotros.html">Nosotros</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-space-xs sm:gap-space-sm">
+        <a class="hidden sm:inline-flex items-center px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg text-argentina-blue hover:bg-surface-container-high hover:text-on-surface transition-colors" href="alum.html">Portal Alumnos</a>
+
+        <button class="hidden md:inline-flex items-center gap-space-2xs px-space-sm py-space-xs rounded-lg font-label-lg text-label-lg bg-surface-container-low text-institutional-indigo hover:bg-surface-container hover:text-on-surface transition-colors cursor-pointer" onclick="abrirModal()">
+          <span class="material-symbols-outlined text-[16px]">lock</span>Acceso Docente
+        </button>
+        <a class="inline-flex items-center px-space-md py-space-xs rounded-lg font-label-lg text-label-lg bg-argentina-blue text-on-primary hover:bg-secondary transition-all shadow-[0_4px_14px_rgba(0,121,193,0.3)]" href="inscripciones.html">Inscripciones 2027</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT AREA -->
+  <main id="main-content" class="w-full pt-20 lg:pt-[7.5rem] bg-surface min-h-screen">
+    
+    <!-- Subpage Banner -->
+    <section class="bg-primary-container text-on-primary py-space-2xl relative overflow-hidden">
+      <div class="absolute -top-24 -left-24 w-80 h-80 bg-argentina-blue/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop relative z-10">
+        <div class="flex flex-col items-start gap-space-xs">
+          <div class="inline-flex items-center gap-space-xs text-sky-light font-label-md text-label-md">
+            <a href="index.html" class="hover:underline text-inherit">Inicio</a>
+            <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+            <span class="text-on-primary font-semibold">Propuesta Educativa</span>
+          </div>
+          <h1 class="font-display-hero text-headline-xl lg:text-display-hero text-on-primary font-bold tracking-tight">
+            Propuesta Educativa e Identidad
+          </h1>
+          <p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-2xl">
+            Formación humana integral, valores cívicos, innovación pedagógica y compromiso social para potenciar el futuro de cada estudiante.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROPUESTA EDUCATIVA Y PILARES INSTITUCIONALES -->
+    <section class="w-full bg-surface-canvas py-space-3xl lg:py-space-4xl">
+      <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
+        <div class="text-center max-w-3xl mx-auto mb-space-3xl">
+          <span class="text-argentina-blue font-label-md text-label-md uppercase tracking-wider font-bold">NUESTRA IDENTIDAD</span>
+          <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mt-space-2xs">Pilares Institucionales</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mt-space-sm leading-relaxed">
+            Valores fundamentales que fundamentan nuestra excelencia académica y formación humana integral en cada ciclo formativo.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-xl">
+          <!-- Pilar 1 -->
+          <div class="bg-surface-card rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col border border-surface-container-high/40">
+            <div class="w-12 h-12 rounded-xl bg-surface-ice text-argentina-blue flex items-center justify-center mb-space-lg">
+              <span class="material-symbols-outlined text-[26px]">volunteer_activism</span>
+            </div>
+            <span class="font-label-md text-label-md text-secondary font-semibold">“Educar para la Paz”</span>
+            <h3 class="font-headline-md text-headline-md text-on-surface mt-space-2xs mb-space-sm">Formación en Valores</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Construimos un entorno donde el respeto, la empatía y la solidaridad orientan la convivencia cotidiana de estudiantes, docentes y familias puntanas.
+            </p>
+          </div>
+          <!-- Pilar 2 -->
+          <div class="bg-surface-card rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col border border-surface-container-high/40">
+            <div class="w-12 h-12 rounded-xl bg-surface-ice text-argentina-blue flex items-center justify-center mb-space-lg">
+              <span class="material-symbols-outlined text-[26px]">psychology</span>
+            </div>
+            <span class="font-label-md text-label-md text-secondary font-semibold">Pensamiento Crítico y Tecnología</span>
+            <h3 class="font-headline-md text-headline-md text-on-surface mt-space-2xs mb-space-sm">Innovación Académica</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Integramos metodologías activas de aprendizaje, pensamiento científico y herramientas digitales para preparar a los alumnos ante los desafíos del futuro.
+            </p>
+          </div>
+          <!-- Pilar 3 -->
+          <div class="bg-surface-card rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col border border-surface-container-high/40">
+            <div class="w-12 h-12 rounded-xl bg-surface-ice text-argentina-blue flex items-center justify-center mb-space-lg">
+              <span class="material-symbols-outlined text-[26px]">history_edu</span>
+            </div>
+            <span class="font-label-md text-label-md text-secondary font-semibold">+140 Años en San Luis</span>
+            <h3 class="font-headline-md text-headline-md text-on-surface mt-space-2xs mb-space-sm">Trayectoria &amp; Legado</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Desde 1884, formamos generaciones de ciudadanos comprometidos en San Luis, manteniendo viva la tradición y proyectándonos hacia una educación moderna.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NIVELES EDUCATIVOS Y ENFOQUE PEDAGÓGICO -->
+    <section class="w-full bg-surface py-space-3xl lg:py-space-4xl">
+      <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
+        <div class="text-center max-w-3xl mx-auto mb-space-3xl">
+          <span class="text-argentina-blue font-label-md text-label-md uppercase tracking-wider font-bold">DESARROLLO ETAPAS FORMATIVAS</span>
+          <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mt-space-2xs">Niveles y Proyecto Pedagógico</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mt-space-sm leading-relaxed">
+            Acompañamos a nuestros estudiantes en cada etapa de su crecimiento académico, emocional y social.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-xl">
+          <!-- Nivel Inicial -->
+          <div class="bg-surface-card rounded-2xl p-space-xl shadow-sm border border-surface-container-high/60 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-space-md">
+                <span class="px-space-xs py-space-3xs rounded-full bg-secondary-fixed/30 text-on-secondary-fixed font-label-md text-label-md font-semibold">Primeros Pasos</span>
+                <span class="material-symbols-outlined text-[28px] text-argentina-blue">child_care</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-xs">Nivel Inicial</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                Centrado en la estimulación temprana, la socialización mediante el juego, la autonomía progresiva y el desarrollo de habilidades sensoriales y creativas.
+              </p>
+              <ul class="flex flex-col gap-space-2xs font-body-sm text-body-sm text-on-surface-variant mb-space-lg list-none p-0">
+                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Espacios lúdicos seguros</li>
+                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Iniciación a la literatura infantil</li>
+                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Expresión plástica y musical</li>
+              </ul>
+            </div>
+            <div class="pt-space-sm border-t border-surface-container-low">
+              <span class="font-label-md text-label-md text-secondary font-semibold">Salas de 4 y 5 años</span>
+            </div>
+          </div>
+
+          <!-- Nivel Primario -->
+          <div class="bg-surface-card rounded-2xl p-space-xl shadow-md border-2 border-argentina-blue/30 relative flex flex-col justify-between">
+            <div class="absolute -top-3 right-6 px-space-xs py-space-3xs rounded-full bg-argentina-blue text-on-primary font-label-md text-label-md font-bold">
+              Núcleo Académico
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-space-md">
+                <span class="px-space-xs py-space-3xs rounded-full bg-surface-ice text-argentina-blue font-label-md text-label-md font-semibold">1° a 6° Grado</span>
+                <span class="material-symbols-outlined text-[28px] text-argentina-blue">school</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-xs">Nivel Primario</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                Consolidación de la lectura comprensiva, razonamiento lógico-matemático, pensamiento científico y valores cívicos democráticos.
+              </p>
+              <ul class="flex flex-col gap-space-2xs font-body-sm text-body-sm text-on-surface-variant mb-space-lg list-none p-0">
+                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Taller de Robótica e Informática</li>
+                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Feria Institucional de Ciencias</li>
+                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Actos Patrios y Valores Cívicos</li>
+              </ul>
+            </div>
+            <div class="pt-space-sm border-t border-surface-container-low">
+              <span class="font-label-md text-label-md text-argentina-blue font-semibold">Jornada Escolar Completa</span>
+            </div>
+          </div>
+
+          <!-- Nivel Secundario -->
+          <div class="bg-surface-card rounded-2xl p-space-xl shadow-sm border border-surface-container-high/60 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-space-md">
+                <span class="px-space-xs py-space-3xs rounded-full bg-secondary-fixed/30 text-on-secondary-fixed font-label-md text-label-md font-semibold">Proyección Futura</span>
+                <span class="material-symbols-outlined text-[28px] text-argentina-blue">workspace_premium</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-on-surface font-bold mb-space-xs">Nivel Secundario</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                Formación orientada, desarrollo del pensamiento crítico, habilidades de investigación y articulación con el ámbito universitario y laboral.
+              </p>
+              <ul class="flex flex-col gap-space-2xs font-body-sm text-body-sm text-on-surface-variant mb-space-lg list-none p-0">
+                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Orientación Vocacional y Tutorías</li>
+                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Proyectos Sociocomunitarios</li>
+                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Preparación Universitaria</li>
+              </ul>
+            </div>
+            <div class="pt-space-sm border-t border-surface-container-low">
+              <span class="font-label-md text-label-md text-secondary font-semibold">Ciclo Básico y Orientado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EJES TRANSVERSALES E INNOVACIÓN -->
+    <section class="w-full bg-surface-canvas py-space-3xl lg:py-space-4xl">
+      <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
+        <div class="mb-space-2xl">
+          <span class="text-argentina-blue font-label-md text-label-md uppercase tracking-wider font-bold">APRENDIZAJE INTEGRAL</span>
+          <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mt-space-2xs">Ejes Transversales y Programas Específicos</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+          
+          <div class="bg-surface-card p-space-lg rounded-2xl border border-surface-container-high/40 shadow-xs flex flex-col">
+            <div class="w-10 h-10 rounded-lg bg-surface-ice text-argentina-blue flex items-center justify-center mb-space-sm">
+              <span class="material-symbols-outlined text-[22px]">computer</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-2xs">Educación Digital</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Uso responsable y crítico de las nuevas tecnologías, alfabetización digital y programación inicial.
+            </p>
+          </div>
+
+          <div class="bg-surface-card p-space-lg rounded-2xl border border-surface-container-high/40 shadow-xs flex flex-col">
+            <div class="w-10 h-10 rounded-lg bg-surface-ice text-argentina-blue flex items-center justify-center mb-space-sm">
+              <span class="material-symbols-outlined text-[22px]">volunteer_activism</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-2xs">Convivencia Escolar</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Programa permanente "Educar para la Paz", promoviendo la empatía, el respeto y la resolución pacífica de conflictos.
+            </p>
+          </div>
+
+          <div class="bg-surface-card p-space-lg rounded-2xl border border-surface-container-high/40 shadow-xs flex flex-col">
+            <div class="w-10 h-10 rounded-lg bg-surface-ice text-argentina-blue flex items-center justify-center mb-space-sm">
+              <span class="material-symbols-outlined text-[22px]">palette</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-2xs">Arte y Expresión</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Estímulo de la creatividad a través de plástica, coro escolar, literatura y encuentros culturales.
+            </p>
+          </div>
+
+          <div class="bg-surface-card p-space-lg rounded-2xl border border-surface-container-high/40 shadow-xs flex flex-col">
+            <div class="w-10 h-10 rounded-lg bg-surface-ice text-argentina-blue flex items-center justify-center mb-space-sm">
+              <span class="material-symbols-outlined text-[22px]">sports_soccer</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-2xs">Vida Saludable</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Educación física, actividades deportivas intercolegiales y hábitos de nutrición y bienestar.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION: INSCRIPCIONES Y CONTACTO -->
+    <section class="w-full bg-primary-container text-on-primary py-space-3xl relative overflow-hidden">
+      <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop relative z-10 text-center max-w-3xl">
+        <span class="inline-flex items-center gap-space-xs px-space-sm py-space-3xs rounded-full bg-sun-gold-glow/20 text-sun-gold-glow font-label-md text-label-md mb-space-md font-semibold">
+          <span class="material-symbols-outlined text-[16px]">how_to_reg</span> Ciclo Lectivo 2027
+        </span>
+        <h2 class="font-headline-xl text-headline-xl text-on-primary font-bold tracking-tight mb-space-sm">
+          ¿Desea sumar a su hijo a nuestra comunidad educativa?
+        </h2>
+        <p class="font-body-lg text-body-lg text-primary-fixed-dim mb-space-xl leading-relaxed">
+          Conozca los requisitos de matriculación para el próximo ciclo lectivo o comuníquese con el equipo directivo.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-space-md">
+          <a href="inscripciones.html" class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm rounded-xl font-label-lg text-label-lg bg-argentina-blue text-on-primary hover:bg-secondary transition-all shadow-lg font-semibold w-full sm:w-auto">
+            <span>Iniciar Inscripción 2027</span>
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </a>
+          <a href="nosotros.html" class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm rounded-xl font-label-lg text-label-lg bg-surface-container-high/20 text-on-primary hover:bg-surface-container-high/40 transition-all font-semibold w-full sm:w-auto">
+            <span>Contactar a Secretaría</span>
+            <span class="material-symbols-outlined text-[18px]">mail</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL DE ACCESO A DOCENTES (#loginModal) -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Acceso Docente</h2>
+      <p class="text-sm text-gray-600 mb-4">Ingrese su clave institucional de docente para acceder al panel de gestión.</p>
+      <input type="password" id="passwordInput" placeholder="Contraseña de acceso" />
+      <button onclick="checkPassword()">Entrar</button>
+      <button onclick="cerrarModal()">Cancelar</button>
+      <p id="errorMsg"></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-primary-container text-on-primary pt-space-3xl pb-space-xl">
+    <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-xl pb-space-2xl border-b border-surface-container-high/10">
+        
+        <div class="lg:col-span-4 flex flex-col items-start">
+          <div class="flex items-center gap-space-sm mb-space-md">
+            <img alt="Logo Escuela N°3 Manuel Belgrano" class="h-10 w-auto object-contain" src="img/logo mb.png" />
+            <span class="font-headline-sm text-headline-sm text-on-primary font-bold">Escuela N°3 Manuel Belgrano</span>
+          </div>
+          <p class="font-body-md text-body-md text-on-primary-container mb-space-lg leading-relaxed">
+            Más de 140 años formando generaciones comprometidas con los valores patrióticos, la excelencia académica y la innovación comunitaria en el corazón de San Luis.
+          </p>
+          <div class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-secondary-fixed/20 text-secondary-fixed font-label-md text-label-md">
+            <span class="material-symbols-outlined text-[16px] text-sun-gold-glow">verified</span>
+            Institución Histórica Oficial
+          </div>
+        </div>
+
+        <div class="lg:col-span-3 flex flex-col">
+          <h3 class="font-headline-sm text-headline-sm text-on-primary mb-space-md font-bold">Información Académica</h3>
+          <ul class="flex flex-col gap-space-sm font-body-md text-body-md text-on-primary-container p-0 m-0 list-none">
+            <li class="hover:text-sky-light transition-colors"><a href="propuesta.html" class="no-underline text-inherit">Educación Primaria Integral</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="calendario.html" class="no-underline text-inherit">Calendario y Exámenes</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="alum.html" class="no-underline text-inherit">Comunidad Estudiantil</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="javascript:void(0)" onclick="abrirModal()" class="no-underline text-inherit">Acceso Docentes</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="carga.html" class="no-underline text-inherit">Administración</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="inscripciones.html" class="no-underline text-inherit">Matrícula y Requisitos 2027</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3 flex flex-col">
+          <h3 class="font-headline-sm text-headline-sm text-on-primary mb-space-md font-bold">Sede Institucional</h3>
+          <div class="flex flex-col gap-space-sm font-body-md text-body-md text-on-primary-container">
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">pin_drop</span>
+              <span>Pringles 319, D5700 San Luis, Argentina</span>
+            </div>
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">schedule</span>
+              <span>Lunes a Viernes: 07:30 - 18:30 hs</span>
+            </div>
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">call</span>
+              <span>Interno Administrativo: 8335</span>
+            </div>
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-[20px] text-sky-light shrink-0 mt-space-3xs">mail</span>
+              <span>secretariamanuelbelgrano3@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 flex flex-col">
+          <h3 class="font-headline-sm text-headline-sm text-on-primary mb-space-md font-bold">Canales Oficiales</h3>
+          <p class="font-body-sm text-body-sm text-on-primary-container mb-space-md">Siga nuestras actividades y comunicados oficiales en redes sociales.</p>
+          <div class="flex items-center gap-space-sm">
+            <a class="w-9 h-9 rounded-lg bg-surface-container-high/20 flex items-center justify-center text-primary-fixed hover:bg-secondary hover:text-on-secondary transition-all no-underline" href="https://www.facebook.com/profile.php?id=100090941122310&locale=es_LA" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">public</span>
+            </a>
+            <a class="w-9 h-9 rounded-lg bg-surface-container-high/20 flex items-center justify-center text-primary-fixed hover:bg-secondary hover:text-on-secondary transition-all no-underline" href="https://www.instagram.com/escuelamanuelbelgrano3/" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+            </a>
+            <a class="w-9 h-9 rounded-lg bg-surface-container-high/20 flex items-center justify-center text-primary-fixed hover:bg-secondary hover:text-on-secondary transition-all no-underline" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">smart_display</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-space-lg flex flex-col md:flex-row items-center justify-between font-body-sm text-body-sm text-on-primary-container gap-space-sm">
+        <p class="m-0">&copy; Escuela Manuel Belgrano N°3. Todos los derechos reservados.</p>
+        <p class="m-0">Desarrollado por <a href="nosotros.html" class="text-sky-light hover:underline">EMGI</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top fixed bottom-6 right-6 w-12 h-12 rounded-full bg-argentina-blue text-white flex items-center justify-center shadow-lg hover:bg-secondary transition-all z-40" title="Volver arriba">
+    <i class="fa fa-angle-double-up text-[18px]"></i>
+  </a>
+
+  <!-- SCRIPTS -->
+  <script src="js/modal.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/spa-router.js"></script>
+</body>
+</html>

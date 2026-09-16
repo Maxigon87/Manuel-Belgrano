@@ -48,14 +48,23 @@ window.checkPassword = async function () {
             const data = await response.json();
             if (data.fields) {
                 const hasDocenteRole = data.fields.rol && data.fields.rol.stringValue === "docente";
+                const hasAdminRole = data.fields.rol && data.fields.rol.stringValue === "admin";
                 const isEnabled = data.fields.enabled && data.fields.enabled.booleanValue === true;
                 const isExplicitlyDisabled = data.fields.enabled && data.fields.enabled.booleanValue === false;
 
-                if (!isExplicitlyDisabled && (hasDocenteRole || isEnabled)) {
-                    sessionStorage.setItem("access_granted", "true");
-                    cerrarModal();
-                    window.location.href = "docentes.html";
-                    return;
+                if (!isExplicitlyDisabled) {
+                    if (hasAdminRole) {
+                        sessionStorage.setItem("access_granted", "true");
+                        sessionStorage.setItem("admin_access_granted", "true");
+                        cerrarModal();
+                        window.location.href = "carga.html";
+                        return;
+                    } else if (hasDocenteRole || isEnabled || !data.fields.rol) {
+                        sessionStorage.setItem("access_granted", "true");
+                        cerrarModal();
+                        window.location.href = "docentes.html";
+                        return;
+                    }
                 }
             }
         }

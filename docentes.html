@@ -240,9 +240,10 @@
       <!-- Desktop Nav Menu -->
       <nav class="hidden xl:flex items-center gap-space-xs">
         <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="index.html">Inicio</a>
-        <a class="px-space-sm py-space-xs transition-colors bg-surface-container-high text-on-surface font-label-lg rounded-lg font-semibold" href="docentes.html">Portal Docente</a>
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="propuesta.html">Propuesta</a>
+        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="novedades.html">Novedades</a>
         <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="nosotros.html">Nosotros</a>
-        <a class="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" href="galeria.html">Novedades</a>
+        <a class="px-space-sm py-space-xs transition-colors bg-surface-container-high text-on-surface font-label-lg rounded-lg font-semibold" href="docentes.html">Portal Docente</a>
       </nav>
 
       <!-- Action Buttons -->
@@ -271,24 +272,13 @@
             Portal Docente
           </h1>
           <p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-xl">
-            Espacio privado para el equipo docente: acceso a repositorios en Drive, planificaciones y gestión administrativa.
+            Espacio privado para el equipo docente: acceso a la carga de novedades, repositorios en Drive, planificaciones y gestión administrativa.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Modal de Contraseña de Administrador (Compartida) -->
-    <div id="adminAuthModal" class="modal">
-      <div class="modal-content text-center shadow-lg border-0 rounded-4 p-4" style="max-width: 350px; margin: auto;">
-        <h4 class="text-primary font-weight-bold mb-3">Acceso Admin</h4>
-        <p class="text-muted mb-4" style="font-size: 0.9rem;">Ingrese la contraseña para administrar las noticias de la escuela.</p>
-        <input type="password" id="adminPasswordInput" class="form-control mb-3 text-center border-2 rounded p-3" placeholder="Contraseña de Administrador" style="font-size: 1rem;" />
-        <button id="btnSubmitAdminPass" class="btn btn-primary w-100 py-3 rounded font-weight-bold mb-2">Validar</button>
-        <button id="btnCancelAdminPass" class="btn btn-outline-secondary w-100 py-3 rounded font-weight-bold" style="border: 1px solid #ccc;">Cancelar</button>
-        <p id="adminAuthError" class="text-danger mt-3 font-weight-bold" style="font-size: 0.85rem;"></p>
-      </div>
-    </div>
-
+  
     <!-- Modal Flotante Moderno para Crear Noticias -->
     <div id="newsCreateModal" class="modal">
       <div class="modal-content shadow-lg border-0 rounded-4 p-4" style="max-width: 550px; width: 95%; max-height: 90vh; overflow-y: auto; margin: auto;">
@@ -392,7 +382,7 @@
       </div>
 
       <!-- Section Platforms -->
-      <div>
+      <div class="mb-space-3xl">
         <div class="text-center max-w-2xl mx-auto mb-space-2xl">
           <span class="inline-flex items-center gap-space-2xs px-space-sm py-space-3xs rounded-full bg-secondary-fixed/20 text-secondary-fixed font-label-md text-label-md mb-space-xs">
             <span class="material-symbols-outlined text-[16px]">language</span> Plataformas Externas
@@ -465,6 +455,8 @@
         </div>
       </div>
 
+
+
     </div>
 
   </main>
@@ -480,6 +472,18 @@
       <p id="errorMsg"></p>
     </div>
   </div>
+
+  <!-- Modal de Contraseña de Administrador (Compartida) -->
+    <div id="adminAuthModal" class="modal">
+      <div class="modal-content text-center shadow-lg border-0 rounded-4 p-4" style="max-width: 350px; margin: auto;">
+        <h4 class="text-primary font-weight-bold mb-3">Acceso Admin</h4>
+        <p class="text-muted mb-4" style="font-size: 0.9rem;">Ingrese la contraseña para administrar las noticias de la escuela.</p>
+        <input type="password" id="adminPasswordInput" class="form-control mb-3 text-center border-2 rounded p-3" placeholder="Contraseña de Administrador" style="font-size: 1rem;" />
+        <button id="btnSubmitAdminPass" class="btn btn-primary w-100 py-3 rounded font-weight-bold mb-2">Validar</button>
+        <button id="btnCancelAdminPass" class="btn btn-outline-secondary w-100 py-3 rounded font-weight-bold" style="border: 1px solid #ccc;">Cancelar</button>
+        <p id="adminAuthError" class="text-danger mt-3 font-weight-bold" style="font-size: 0.85rem;"></p>
+      </div>
+    </div>
 
   <!-- FOOTER -->
   <footer class="w-full bg-primary-container text-on-primary pt-space-3xl pb-space-xl">
@@ -507,6 +511,7 @@
             <li class="hover:text-sky-light transition-colors"><a href="calendario.html" class="no-underline text-inherit">Calendario y Exámenes</a></li>
             <li class="hover:text-sky-light transition-colors"><a href="alum.html" class="no-underline text-inherit">Comunidad Estudiantil</a></li>
             <li class="hover:text-sky-light transition-colors"><a href="javascript:void(0)" onclick="abrirModal()" class="no-underline text-inherit">Acceso Docentes</a></li>
+            <li class="hover:text-sky-light transition-colors"><a href="carga.html" class="no-underline text-inherit">Administración</a></li>
             <li class="hover:text-sky-light transition-colors"><a href="inscripciones.html" class="no-underline text-inherit">Matrícula y Requisitos 2027</a></li>
           </ul>
         </div>

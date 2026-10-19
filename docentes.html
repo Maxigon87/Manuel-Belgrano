@@ -222,6 +222,12 @@
             <a aria-label="YouTube" class="hover:text-sky-light transition-colors" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank">
               <span class="material-symbols-outlined text-[18px]">smart_display</span>
             </a>
+            <!-- Theme Toggle Topbar -->
+            <div class="relative theme-toggle-container ml-space-xs pl-space-xs border-l border-primary-fixed/20 flex items-center">
+              <button onclick="window.toggleThemeMode()" class="theme-toggle-btn flex items-center justify-center w-7 h-7 rounded-full bg-surface-container-high/20 hover:bg-surface-container-high/40 text-primary-fixed hover:text-white transition-all cursor-pointer" title="Cambiar modo de color" aria-label="Cambiar modo de color">
+                <span class="material-symbols-outlined theme-icon text-[18px]">dark_mode</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -251,6 +257,12 @@
         <button onclick="cerrarSesionDocente(event)" class="inline-flex items-center gap-space-2xs px-space-md py-space-xs rounded-lg font-label-lg text-label-lg bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-all shadow-sm cursor-pointer">
           <span class="material-symbols-outlined text-[16px]">logout</span>Cerrar Sesión
         </button>
+        <!-- Theme Toggle Nav / Mobile -->
+        <div class="relative theme-toggle-container flex items-center">
+          <button onclick="window.toggleThemeMode()" class="theme-toggle-btn flex items-center justify-center w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface transition-all cursor-pointer shadow-xs" title="Cambiar modo de color" aria-label="Cambiar modo de color">
+            <span class="material-symbols-outlined theme-icon text-[20px]">dark_mode</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>

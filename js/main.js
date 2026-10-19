@@ -179,8 +179,134 @@ async function verificarClave() {
 //Click globo emergente en drive
 function mostrarGlobo() {
     const globo = document.getElementById("globo");
-    globo.classList.toggle("show-tooltip");
+    if (globo) {
+        globo.classList.toggle("show-tooltip");
+    }
 }
+
+/* ==========================================================================
+   SISTEMA DE MODO OSCURO / CLARO Y SUGERENCIA NOCTURNA (> 21:00)
+   ========================================================================== */
+function updateThemeToggleUI(isDark) {
+    const buttons = document.querySelectorAll(".theme-toggle-btn");
+    buttons.forEach(btn => {
+        const icon = btn.querySelector(".theme-icon");
+        if (icon) {
+            icon.textContent = isDark ? "light_mode" : "dark_mode";
+        }
+        btn.setAttribute("title", isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+        btn.setAttribute("aria-label", isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+    });
+}
+
+function initThemeSystem() {
+    // Por defecto siempre modo claro si no hay preferencia explícita guardada
+    const savedTheme = localStorage.getItem("mb_theme_mode");
+    const isDark = savedTheme === "dark";
+
+    if (isDark) {
+        document.documentElement.classList.add("dark");
+    } else {
+        document.documentElement.classList.remove("dark");
+    }
+    updateThemeToggleUI(isDark);
+
+    // Revisar horario nocturno (> 21:00 o antes de 06:00) para mostrar mensaje por primera vez en el día
+    checkNightPrompt();
+}
+
+window.toggleThemeMode = function() {
+    const isCurrentlyDark = document.documentElement.classList.contains("dark");
+    const newMode = isCurrentlyDark ? "light" : "dark";
+
+    if (newMode === "dark") {
+        document.documentElement.classList.add("dark");
+    } else {
+        document.documentElement.classList.remove("dark");
+    }
+
+    localStorage.setItem("mb_theme_mode", newMode);
+    updateThemeToggleUI(newMode === "dark");
+
+    // Cerrar sugerencia si estaba abierta
+    closeNightPrompt();
+};
+
+function checkNightPrompt() {
+    const now = new Date();
+    const currentHour = now.getHours();
+    const isNightTime = currentHour >= 21 || currentHour < 6;
+
+    if (!isNightTime) return;
+
+    // Verificar si ya se mostró hoy
+    const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    const lastPromptDate = localStorage.getItem("mb_night_prompt_shown_date");
+
+    if (lastPromptDate === todayStr) {
+        return; // Ya fue mostrado hoy
+    }
+
+    // Esperar un momento a que la página cargue para que se vea amigable y elegante
+    setTimeout(() => {
+        showNightPromptBubble();
+        localStorage.setItem("mb_night_prompt_shown_date", todayStr);
+    }, 1200);
+}
+
+function showNightPromptBubble() {
+    // Buscar el contenedor del toggle
+    const toggleContainers = document.querySelectorAll(".theme-toggle-container");
+    if (!toggleContainers.length) return;
+
+    // Solo anexar al primer toggle visible
+    const container = toggleContainers[0];
+    if (container.querySelector(".night-theme-prompt")) return;
+
+    const isDark = document.documentElement.classList.contains("dark");
+
+    const promptEl = document.createElement("div");
+    promptEl.className = "night-theme-prompt";
+    promptEl.innerHTML = `
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="material-symbols-outlined" style="color: #38bdf8; font-size: 20px;">nightlight</span>
+                <span style="font-weight: 700; font-size: 14px;">¡Buenas noches!</span>
+            </div>
+            <button onclick="closeNightPrompt()" style="background: none; border: none; cursor: pointer; color: #94a3b8; padding: 0; line-height: 1;" title="Cerrar">
+                <span class="material-symbols-outlined" style="font-size: 18px;">close</span>
+            </button>
+        </div>
+        <p style="font-size: 13px; line-height: 1.4; margin: 0; opacity: 0.9;">
+            Ya es de noche. Si preferís descansar la vista, desde este interruptor podés activar o desactivar el <strong>modo oscuro</strong> o <strong>claro</strong> cuando gustes.
+        </p>
+        <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px;">
+            <button onclick="window.toggleThemeMode()" style="padding: 6px 12px; font-size: 12px; font-weight: 600; border-radius: 8px; background: #0284c7; color: #ffffff; border: none; cursor: pointer;">
+                ${isDark ? 'Cambiar a modo claro' : 'Probar modo oscuro'}
+            </button>
+            <button onclick="closeNightPrompt()" style="padding: 6px 10px; font-size: 12px; font-weight: 500; border-radius: 8px; background: transparent; border: 1px solid rgba(148, 163, 184, 0.4); color: inherit; cursor: pointer;">
+                Entendido
+            </button>
+        </div>
+    `;
+
+    container.appendChild(promptEl);
+}
+
+window.closeNightPrompt = function() {
+    const prompts = document.querySelectorAll(".night-theme-prompt");
+    prompts.forEach(p => p.remove());
+};
+
+// Inicializar inmediatamente y tras carga de DOM
+initThemeSystem();
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initThemeSystem);
+} else {
+    initThemeSystem();
+}
+document.addEventListener("spa:pageLoaded", initThemeSystem);
+
 
 //fecha de index
 

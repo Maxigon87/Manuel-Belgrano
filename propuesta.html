@@ -209,6 +209,12 @@
             <a aria-label="YouTube" class="hover:text-sky-light transition-colors" href="https://youtube.com/playlist?list=PLCf5cp5gaTRww06heNYR6pbuyDZZyKVoY&si=qBsykSUxhcNvY8Ec" target="_blank">
               <span class="material-symbols-outlined text-[18px]">smart_display</span>
             </a>
+            <!-- Theme Toggle Topbar -->
+            <div class="relative theme-toggle-container ml-space-xs pl-space-xs border-l border-primary-fixed/20 flex items-center">
+              <button onclick="window.toggleThemeMode()" class="theme-toggle-btn flex items-center justify-center w-7 h-7 rounded-full bg-surface-container-high/20 hover:bg-surface-container-high/40 text-primary-fixed hover:text-white transition-all cursor-pointer" title="Cambiar modo de color" aria-label="Cambiar modo de color">
+                <span class="material-symbols-outlined theme-icon text-[18px]">dark_mode</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -240,6 +246,12 @@
           <span class="material-symbols-outlined text-[16px]">lock</span>Acceso Docente
         </button>
         <a class="inline-flex items-center px-space-md py-space-xs rounded-lg font-label-lg text-label-lg bg-argentina-blue text-on-primary hover:bg-secondary transition-all shadow-[0_4px_14px_rgba(0,121,193,0.3)]" href="inscripciones.html">Inscripciones 2027</a>
+        <!-- Theme Toggle Nav / Mobile -->
+        <div class="relative theme-toggle-container flex items-center">
+          <button onclick="window.toggleThemeMode()" class="theme-toggle-btn flex items-center justify-center w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface transition-all cursor-pointer shadow-xs" title="Cambiar modo de color" aria-label="Cambiar modo de color">
+            <span class="material-symbols-outlined theme-icon text-[20px]">dark_mode</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -347,7 +359,7 @@
               </ul>
             </div>
             <div class="pt-space-sm border-t border-surface-container-low">
-              <span class="font-label-md text-label-md text-secondary font-semibold">Salas de 4 y 5 años</span>
+              <span class="font-label-md text-label-md text-secondary font-semibold">Salas de 3,4 y 5 años</span>
             </div>
           </div>
 
@@ -366,7 +378,6 @@
                 Consolidación de la lectura comprensiva, razonamiento lógico-matemático, pensamiento científico y valores cívicos democráticos.
               </p>
               <ul class="flex flex-col gap-space-2xs font-body-sm text-body-sm text-on-surface-variant mb-space-lg list-none p-0">
-                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Taller de Robótica e Informática</li>
                 <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Feria Institucional de Ciencias</li>
                 <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Actos Patrios y Valores Cívicos</li>
               </ul>
@@ -390,7 +401,7 @@
               <ul class="flex flex-col gap-space-2xs font-body-sm text-body-sm text-on-surface-variant mb-space-lg list-none p-0">
                 <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Orientación Vocacional y Tutorías</li>
                 <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Proyectos Sociocomunitarios</li>
-                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Preparación Universitaria</li>
+                <li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-argentina-blue">check_circle</span> Preparación para la vida y el trabajo</li>
               </ul>
             </div>
             <div class="pt-space-sm border-t border-surface-container-low">

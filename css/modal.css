@@ -105,4 +105,110 @@
   font-size: 0.875rem !important;
 }
 
+/* ==========================================================================
+   TEMA OSCURO GLOBAL (MANUAL)
+   ========================================================================== */
+html.dark, html.dark body {
+  background-color: #0b1120 !important;
+  color: #e2e8f0 !important;
+}
+
+html.dark header {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark main {
+  background-color: #0b1120 !important;
+}
+
+html.dark .bg-surface,
+html.dark .bg-surface-canvas,
+html.dark .bg-surface-container-low,
+html.dark .bg-surface-container,
+html.dark .bg-surface-container-high {
+  background-color: #0f172a !important;
+}
+
+html.dark .bg-surface-card,
+html.dark .bg-surface-container-lowest {
+  background-color: #1e293b !important;
+}
+
+html.dark .text-on-surface {
+  color: #f1f5f9 !important;
+}
+
+html.dark .text-on-surface-variant {
+  color: #94a3b8 !important;
+}
+
+html.dark .border-surface-container-high,
+html.dark [class*="border-surface-container"] {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark .bg-surface-ice {
+  background-color: rgba(2, 132, 199, 0.15) !important;
+  color: #38bdf8 !important;
+}
+
+/* ==========================================================================
+   GLOBO DE CONVERSACIÓN / SUGERENCIA NOCTURNA (> 21:00)
+   ========================================================================== */
+.night-theme-prompt {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  width: 290px;
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  animation: promptPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: inherit;
+}
+
+html.dark .night-theme-prompt {
+  background: #1e293b;
+  color: #f8fafc;
+  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+/* Flecha estilo burbuja de conversación hacia el botón */
+.night-theme-prompt::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 18px;
+  width: 16px;
+  height: 16px;
+  background: inherit;
+  transform: rotate(45deg);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html.dark .night-theme-prompt::before {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@keyframes promptPop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
 

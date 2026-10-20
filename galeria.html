@@ -262,13 +262,15 @@
           <div class="inline-flex items-center gap-space-xs text-sky-light font-label-md text-label-md">
             <a href="index.html" class="hover:underline text-inherit">Inicio</a>
             <span class="material-symbols-outlined text-[14px]">chevron_right</span>
-            <span class="text-on-primary font-semibold">Novedades y Publicaciones</span>
+            <a href="novedades.html" class="hover:underline text-inherit">Novedades</a>
+            <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+            <span class="text-on-primary font-semibold">Producciones de Alumnos</span>
           </div>
           <h1 class="font-display-hero text-headline-xl lg:text-display-hero text-on-primary font-bold tracking-tight">
-            Novedades y Producciones
+            Galería de Producciones Estudiantiles
           </h1>
           <p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-2xl">
-            Noticias institucionales, actos patrios, comunicados oficiales y proyectos creativos desarrollados por nuestra comunidad educativa.
+            Espacio dedicado exclusivamente a las creaciones literarias, ensayos, fanzines, ilustraciones y producciones desarrolladas por los estudiantes de nuestra institución.
           </p>
         </div>
       </div>
@@ -276,147 +278,42 @@
 
     <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop py-space-2xl">
       
-      <!-- Live Pulse Header & Filter Bar (Stitch Design) -->
+      <!-- Filter Bar for Student Works -->
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-lg mb-space-2xl pb-space-lg border-b border-surface-container-high/40">
         <div>
           <div class="inline-flex items-center gap-space-xs px-space-sm py-space-3xs rounded-full bg-surface-ice text-argentina-blue font-label-md text-label-md mb-space-xs border-0 shadow-sm">
-            <span class="relative flex h-2 w-2">
-              <span class="absolute inline-flex h-full w-full rounded-full bg-argentina-blue opacity-80 animate-ping"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-argentina-blue"></span>
-            </span>
-            <span class="tracking-wider uppercase font-bold text-[11px]">PORTAL DE NOVEDADES · ACTUALIZADO</span>
+            <span class="material-symbols-outlined text-[16px]">school</span>
+            <span class="tracking-wider uppercase font-bold text-[11px]">CREATIVIDAD &amp; PROYECTOS DEL AULA</span>
           </div>
           <h2 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">
-            Todas las Publicaciones y Eventos
+            Trabajos y Muestras de los Alumnos
           </h2>
         </div>
 
-        <!-- Filter Tabs -->
+        <!-- Filter Tabs por Año / Curso -->
         <div class="flex items-center gap-space-2xs flex-wrap font-label-md text-label-md">
           <button onclick="filtrarGaleria('todos', this)" class="btn-filter-galeria px-space-sm py-space-2xs rounded-full bg-institutional-indigo text-on-primary font-semibold shadow-sm transition-all cursor-pointer">
-            Todos
+            Todos los Trabajos
           </button>
-          <button onclick="filtrarGaleria('patrio', this)" class="btn-filter-galeria px-space-sm py-space-2xs rounded-full bg-surface-card text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer">
-            Actos Patrios
+          <button onclick="filtrarGaleria('4to', this)" class="btn-filter-galeria px-space-sm py-space-2xs rounded-full bg-surface-card text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer">
+            4° Año (Aquello otro)
           </button>
-          <button onclick="filtrarGaleria('institucional', this)" class="btn-filter-galeria px-space-sm py-space-2xs rounded-full bg-surface-card text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer">
-            Institucional
+          <button onclick="filtrarGaleria('5to', this)" class="btn-filter-galeria px-space-sm py-space-2xs rounded-full bg-surface-card text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer">
+            5° Año (Casas tomadas)
           </button>
-          <button onclick="filtrarGaleria('producciones', this)" class="btn-filter-galeria px-space-sm py-space-2xs rounded-full bg-surface-card text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer">
-            Producciones Estudiantiles
+          <button onclick="filtrarGaleria('6to', this)" class="btn-filter-galeria px-space-sm py-space-2xs rounded-full bg-surface-card text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer">
+            6° Año (Palabras Tetris)
           </button>
         </div>
       </div>
 
-      <!-- Featured Headline Story Card -->
-      <article class="galeria-item group bg-surface-card rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 mb-space-2xl border border-surface-container-high/40" data-category="patrio">
-        <div class="lg:col-span-7 relative h-72 lg:h-auto overflow-hidden bg-surface-container-low">
-          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/actopatrio.jpg" alt="Acto Patrio 9 de Julio Escuela Manuel Belgrano">
-          <div class="absolute inset-0 bg-gradient-to-t from-on-background/60 via-transparent to-transparent opacity-60"></div>
-          <span class="absolute top-space-md left-space-md px-space-sm py-space-3xs rounded-full bg-argentina-blue text-on-primary font-label-md text-label-md font-bold shadow-md">
-            Destacado · Acto Patrio
-          </span>
-        </div>
-        <div class="lg:col-span-5 p-space-xl lg:p-space-2xl flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-space-xs font-label-md text-label-md text-argentina-blue mb-space-sm">
-              <span class="material-symbols-outlined text-[18px]">calendar_today</span>
-              <span>9 de Julio</span>
-              <span class="text-outline-variant">•</span>
-              <span class="text-on-surface-variant">Comunidad Educativa</span>
-            </div>
-            <h3 class="font-headline-xl text-headline-lg lg:text-headline-xl text-on-surface tracking-tight group-hover:text-argentina-blue transition-colors mb-space-md font-bold">
-              9 de Julio: “Día de la Independencia”
-            </h3>
-            <p class="font-body-lg text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
-              Esta mañana la Escuela N°3 “Manuel Belgrano” se vistió de celeste y blanco. Nivel Inicial, Primario y Secundario compartieron juntos el acto patrio reafirmando nuestro compromiso republicano.
-            </p>
-          </div>
-          <div class="pt-space-md border-t border-surface-container-low flex items-center justify-between">
-            <a href="posteo1.html" class="inline-flex items-center gap-space-xs text-argentina-blue font-label-lg text-label-lg font-bold group-hover:text-institutional-indigo transition-colors no-underline">
-              <span>Leer artículo completo</span>
-              <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </a>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">3 min lectura</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Main Grid of All Articles & Student Productions -->
+      <!-- Main Grid of Student Productions -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-xl mb-space-3xl" id="gridGaleria">
         
-        <!-- Card 1: Jornada de Reflexión Docente -->
-        <article class="galeria-item group bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1 border border-surface-container-high/40" data-category="institucional">
-          <div class="relative w-full h-56 overflow-hidden bg-surface-container-low">
-            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/jornada.jpg" alt="Jornada de reflexión docente">
-            <div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent opacity-60"></div>
-            <span class="absolute top-space-sm left-space-sm px-space-xs py-space-3xs rounded-full bg-institutional-indigo text-on-primary font-label-md text-label-md shadow-md">
-              Institucional
-            </span>
-          </div>
-          <div class="p-space-lg flex flex-col flex-1 justify-between">
-            <div>
-              <div class="flex items-center gap-space-xs font-label-md text-label-md text-argentina-blue mb-space-xs">
-                <span class="material-symbols-outlined text-[16px]">calendar_today</span>
-                <span>11/8/2026</span>
-                <span class="text-outline-variant">•</span>
-                <span class="text-on-surface-variant font-normal">Cuerpo Docente</span>
-              </div>
-              <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight group-hover:text-argentina-blue transition-colors mb-space-xs font-bold">
-                Jornada de reflexión docente
-              </h3>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed line-clamp-3 mb-space-md">
-                Un espacio de aprendizaje y crecimiento colectivo de nuestra querida Escuela N°3 Manuel Belgrano, analizando proyectos pedagógicos, integración tecnológica y convivencia escolar.
-              </p>
-            </div>
-            <div class="pt-space-sm flex items-center justify-between border-t border-surface-container-low">
-              <a href="posteo2.html" class="inline-flex items-center gap-space-2xs text-argentina-blue font-label-lg text-label-lg font-semibold group-hover:text-institutional-indigo transition-colors no-underline">
-                <span>Leer nota completa</span>
-                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </a>
-              <span class="font-body-sm text-body-sm text-on-surface-variant">2 min</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 2: 141° Aniversario Escuela -->
-        <article class="galeria-item group bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1 border border-surface-container-high/40" data-category="institucional">
-          <div class="relative w-full h-56 overflow-hidden bg-surface-container-low">
-            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/frenteansl.png" alt="Sede Histórica Escuela Manuel Belgrano">
-            <div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent opacity-60"></div>
-            <span class="absolute top-space-sm left-space-sm px-space-xs py-space-3xs rounded-full bg-sun-gold-glow text-tertiary-container font-label-md text-label-md shadow-md font-bold">
-              Aniversario
-            </span>
-          </div>
-          <div class="p-space-lg flex flex-col flex-1 justify-between">
-            <div>
-              <div class="flex items-center gap-space-xs font-label-md text-label-md text-argentina-blue mb-space-xs">
-                <span class="material-symbols-outlined text-[16px]">verified</span>
-                <span>141° Aniversario</span>
-                <span class="text-outline-variant">•</span>
-                <span class="text-on-surface-variant font-normal">San Luis (1884)</span>
-              </div>
-              <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight group-hover:text-argentina-blue transition-colors mb-space-xs font-bold">
-                141° Aniversario de la Institución
-              </h3>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed line-clamp-3 mb-space-md">
-                Conmemoración del camino recorrido desde la fundación como Elemental del Este, manteniendo viva la antorcha del saber y el compromiso patrio.
-              </p>
-            </div>
-            <div class="pt-space-sm flex items-center justify-between border-t border-surface-container-low">
-              <a href="posteo3.html" class="inline-flex items-center gap-space-2xs text-argentina-blue font-label-lg text-label-lg font-semibold group-hover:text-institutional-indigo transition-colors no-underline">
-                <span>Leer memoria histórica</span>
-                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </a>
-              <span class="font-body-sm text-body-sm text-on-surface-variant">4 min</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 3: Posteo 1 (4° Año) -->
-        <article class="galeria-item group bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1 border border-surface-container-high/40" data-category="producciones">
-          <div class="relative w-full h-56 overflow-hidden bg-surface-container-low">
-            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/posteos/posteo1/posteo1.png" alt="Proyecto Aquello otro">
+        <!-- Producción 1: 4° Año - Proyecto Aquello otro -->
+        <article class="galeria-item group bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1 border border-surface-container-high/40" data-category="4to">
+          <div class="relative w-full h-60 overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/posteos/posteo1/posteo1.png" alt="Proyecto Aquello otro - 4° Año">
             <div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent opacity-60"></div>
             <span class="absolute top-space-sm left-space-sm px-space-xs py-space-3xs rounded-full bg-surface-ice text-argentina-blue font-label-md text-label-md shadow-md font-bold">
               4° Año · Lengua y Literatura
@@ -426,29 +323,31 @@
             <div>
               <div class="flex items-center gap-space-xs font-label-md text-label-md text-argentina-blue mb-space-xs">
                 <span class="material-symbols-outlined text-[16px]">draw</span>
-                <span>Producción Estudiantil</span>
+                <span>Fanzines &amp; Escritura</span>
+                <span class="text-outline-variant">•</span>
+                <span class="text-on-surface-variant font-normal">Tópico Generativo</span>
               </div>
               <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight group-hover:text-argentina-blue transition-colors mb-space-xs font-bold">
                 Proyecto “Aquello otro”
               </h3>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed line-clamp-3 mb-space-md">
-                Así vemos, sentimos y contamos lo desconocido. Creación literaria y plástica de los estudiantes de 4° año.
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                Así vemos, sentimos y contamos lo desconocido. Creación literaria, elaboración de fanzines-objeto y reflexiones sobre el respeto y la tolerancia.
               </p>
             </div>
             <div class="pt-space-sm flex items-center justify-between border-t border-surface-container-low">
               <a href="posteo1.html" class="inline-flex items-center gap-space-2xs text-argentina-blue font-label-lg text-label-lg font-semibold group-hover:text-institutional-indigo transition-colors no-underline">
-                <span>Ver producciones</span>
+                <span>Ver producciones de 4°</span>
                 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </a>
-              <span class="font-body-sm text-body-sm text-on-surface-variant">Galería</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Galería de fotos</span>
             </div>
           </div>
         </article>
 
-        <!-- Card 4: Posteo 2 (5° Año) -->
-        <article class="galeria-item group bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1 border border-surface-container-high/40" data-category="producciones">
-          <div class="relative w-full h-56 overflow-hidden bg-surface-container-low">
-            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/posteos/posteo2/posteo2.png" alt="Casas tomadas">
+        <!-- Producción 2: 5° Año - Casas tomadas -->
+        <article class="galeria-item group bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1 border border-surface-container-high/40" data-category="5to">
+          <div class="relative w-full h-60 overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/posteos/posteo2/posteo2.png" alt="Casas tomadas - 5° Año">
             <div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent opacity-60"></div>
             <span class="absolute top-space-sm left-space-sm px-space-xs py-space-3xs rounded-full bg-surface-ice text-argentina-blue font-label-md text-label-md shadow-md font-bold">
               5° Año · Literatura Cortázar
@@ -459,28 +358,30 @@
               <div class="flex items-center gap-space-xs font-label-md text-label-md text-argentina-blue mb-space-xs">
                 <span class="material-symbols-outlined text-[16px]">menu_book</span>
                 <span>Análisis &amp; Plástica</span>
+                <span class="text-outline-variant">•</span>
+                <span class="text-on-surface-variant font-normal">Relecturas</span>
               </div>
               <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight group-hover:text-argentina-blue transition-colors mb-space-xs font-bold">
                 Proyecto “Casas tomadas”
               </h3>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed line-clamp-3 mb-space-md">
-                Las sombras toman lo que el miedo deja libre. Relecturas del cuento de Julio Cortázar e ilustraciones originales.
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                Las sombras toman lo que el miedo deja libre. Relecturas del clásico cuento de Julio Cortázar e ilustraciones originales producidas por cada estudiante.
               </p>
             </div>
             <div class="pt-space-sm flex items-center justify-between border-t border-surface-container-low">
               <a href="posteo2.html" class="inline-flex items-center gap-space-2xs text-argentina-blue font-label-lg text-label-lg font-semibold group-hover:text-institutional-indigo transition-colors no-underline">
-                <span>Ver producciones</span>
+                <span>Ver producciones de 5°</span>
                 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </a>
-              <span class="font-body-sm text-body-sm text-on-surface-variant">Galería</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Galería interactiva</span>
             </div>
           </div>
         </article>
 
-        <!-- Card 5: Posteo 3 (6° Año) -->
-        <article class="galeria-item group bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1 border border-surface-container-high/40" data-category="producciones">
-          <div class="relative w-full h-56 overflow-hidden bg-surface-container-low">
-            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/posteos/posteo3/Imagen 1 - copia.jpg" alt="Palabras Tetris">
+        <!-- Producción 3: 6° Año - Palabras Tetris -->
+        <article class="galeria-item group bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1 border border-surface-container-high/40" data-category="6to">
+          <div class="relative w-full h-60 overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/posteos/posteo3/Imagen 1 - copia.jpg" alt="Palabras Tetris - 6° Año">
             <div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent opacity-60"></div>
             <span class="absolute top-space-sm left-space-sm px-space-xs py-space-3xs rounded-full bg-surface-ice text-argentina-blue font-label-md text-label-md shadow-md font-bold">
               6° Año · Expresión Final
@@ -491,52 +392,22 @@
               <div class="flex items-center gap-space-xs font-label-md text-label-md text-argentina-blue mb-space-xs">
                 <span class="material-symbols-outlined text-[16px]">school</span>
                 <span>Proyectos de Egreso</span>
+                <span class="text-outline-variant">•</span>
+                <span class="text-on-surface-variant font-normal">Cierre de Ciclo</span>
               </div>
               <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight group-hover:text-argentina-blue transition-colors mb-space-xs font-bold">
                 Proyecto “Palabras Tetris”
               </h3>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed line-clamp-3 mb-space-md">
-                Crecer es encajar palabras que nos construyen. Textos reflexivos y composiciones visuales de la promoción de egresados.
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                Crecer es encajar palabras que nos construyen. Textos reflexivos, autobiografías y composiciones visuales de la promoción de egresados.
               </p>
             </div>
             <div class="pt-space-sm flex items-center justify-between border-t border-surface-container-low">
               <a href="posteo3.html" class="inline-flex items-center gap-space-2xs text-argentina-blue font-label-lg text-label-lg font-semibold group-hover:text-institutional-indigo transition-colors no-underline">
-                <span>Ver producciones</span>
+                <span>Ver producciones de 6°</span>
                 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </a>
-              <span class="font-body-sm text-body-sm text-on-surface-variant">Galería</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 6: Reconocimiento Docente -->
-        <article class="galeria-item group bg-surface-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-1 border border-surface-container-high/40" data-category="institucional">
-          <div class="relative w-full h-56 overflow-hidden bg-surface-container-low">
-            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/nilda.jpg" alt="Profesor Paez Augusto y comunidad">
-            <div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent opacity-60"></div>
-            <span class="absolute top-space-sm left-space-sm px-space-xs py-space-3xs rounded-full bg-secondary-fixed/30 text-on-secondary-fixed font-label-md text-label-md shadow-md font-bold">
-              Muestra Anual
-            </span>
-          </div>
-          <div class="p-space-lg flex flex-col flex-1 justify-between">
-            <div>
-              <div class="flex items-center gap-space-xs font-label-md text-label-md text-argentina-blue mb-space-xs">
-                <span class="material-symbols-outlined text-[16px]">workspace_premium</span>
-                <span>Coordinación Pedagógica</span>
-              </div>
-              <h3 class="font-headline-md text-headline-md text-on-surface tracking-tight group-hover:text-argentina-blue transition-colors mb-space-xs font-bold">
-                Muestra Anual de Producciones 2025
-              </h3>
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed line-clamp-3 mb-space-md">
-                Coordinado por el Profesor Paez Augusto con los estudiantes de 4°, 5° y 6° año de la Escuela N°3 Manuel Belgrano.
-              </p>
-            </div>
-            <div class="pt-space-sm flex items-center justify-between border-t border-surface-container-low">
-              <a href="nosotros.html" class="inline-flex items-center gap-space-2xs text-argentina-blue font-label-lg text-label-lg font-semibold group-hover:text-institutional-indigo transition-colors no-underline">
-                <span>Ver cuerpo docente</span>
-                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </a>
-              <span class="font-body-sm text-body-sm text-on-surface-variant">Institucional</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Muestra final</span>
             </div>
           </div>
         </article>
@@ -555,10 +426,10 @@
       });
       btn.className = 'btn-filter-galeria px-space-sm py-space-2xs rounded-full bg-institutional-indigo text-on-primary font-semibold shadow-sm transition-all cursor-pointer';
       
-      const items = document.querySelectorAll('#gridGaleria .galeria-item, .galeria-item');
+      const items = document.querySelectorAll('#gridGaleria .galeria-item');
       items.forEach(item => {
         if (categoria === 'todos' || item.getAttribute('data-category') === categoria) {
-          item.style.display = item.classList.contains('grid') ? 'grid' : 'flex';
+          item.style.display = 'flex';
         } else {
           item.style.display = 'none';
         }

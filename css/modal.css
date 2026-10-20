@@ -287,15 +287,21 @@ a.inline-flex:active,
    ========================================================================== */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.38s cubic-bezier(0.2, 0.8, 0.2, 1),
-              transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
 .scroll-reveal.is-visible {
   opacity: 1 !important;
   transform: translateY(0) !important;
+}
+
+.stat-number {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  transition: transform 0.3s ease;
 }
 
 /* Reducir movimiento si el usuario tiene activado 'prefers-reduced-motion' */

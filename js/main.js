@@ -357,14 +357,14 @@ if (climaElement) {
     function initScrollAnimations() {
         // 1. Detección automática de secciones y bloques para aparición suave al hacer scroll
         const scrollElements = document.querySelectorAll(
-            "main > section, main .max-w-container-max > div, .scroll-reveal, [data-animate]"
+            "main section, main > div, main > div > section, main .max-w-container-max > div, .scroll-reveal, [data-animate]"
         );
 
         if (scrollElements.length > 0) {
             scrollElements.forEach(function (el) {
-                // No ocultar el banner o hero superior inmediato para no retardar el primer impacto visual
+                // Si el elemento contiene el banner o hero superior inmediato (primeros 500px), no ocultarlo
                 const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.85) {
+                if (rect.top < window.innerHeight * 0.75) {
                     el.classList.add("scroll-reveal", "is-visible");
                 } else {
                     el.classList.add("scroll-reveal");
@@ -378,8 +378,8 @@ if (climaElement) {
             } else {
                 const observerOptions = {
                     root: null,
-                    rootMargin: "0px 0px -60px 0px",
-                    threshold: 0.1
+                    rootMargin: "0px 0px -50px 0px",
+                    threshold: 0.15
                 };
 
                 const scrollObserver = new IntersectionObserver(function (entries, observer) {
@@ -399,7 +399,7 @@ if (climaElement) {
             }
         }
 
-        // 2. Contador animado para las estadísticas (+140 Años, 60+ Docentes, 800+ Alumnos)
+        // 2. Contador animado para las estadísticas (+140 Años, 200+ Docentes, 800+ Alumnos, 100%)
         const statNumbers = document.querySelectorAll(".stat-number");
 
         if (statNumbers.length > 0) {
@@ -409,15 +409,15 @@ if (climaElement) {
 
                 const prefix = el.getAttribute("data-prefix") || "";
                 const suffix = el.getAttribute("data-suffix") || "";
-                const duration = 2000; // 2 segundos
+                const duration = 1800; // 1.8 segundos
                 const startTimestamp = performance.now();
 
                 function step(now) {
                     const elapsed = now - startTimestamp;
                     const progress = Math.min(elapsed / duration, 1);
                     
-                    // Función de suavizado (easeOutCubic)
-                    const easeProgress = 1 - Math.pow(1 - progress, 3);
+                    // Función de suavizado (easeOutQuart)
+                    const easeProgress = 1 - Math.pow(1 - progress, 4);
                     const currentVal = Math.floor(easeProgress * targetVal);
 
                     el.textContent = `${prefix}${currentVal}${suffix}`;
@@ -450,7 +450,7 @@ if (climaElement) {
                         }
                     });
                 }, {
-                    threshold: 0.25
+                    threshold: 0.2
                 });
 
                 statNumbers.forEach(function (el) {

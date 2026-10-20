@@ -355,43 +355,46 @@ if (climaElement) {
    ========================================================================== */
 (function () {
     function initScrollAnimations() {
-        // 1. Configuración de Observer para animaciones de aparición con stagger
-        const animatedElements = document.querySelectorAll("[data-animate]");
+        // 1. Detección automática de secciones y bloques para aparición suave al hacer scroll
+        const scrollElements = document.querySelectorAll(
+            "main > section, main .max-w-container-max > div, .scroll-reveal, [data-animate]"
+        );
 
-        if (animatedElements.length > 0) {
+        if (scrollElements.length > 0) {
+            scrollElements.forEach(function (el) {
+                // No ocultar el banner o hero superior inmediato para no retardar el primer impacto visual
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) {
+                    el.classList.add("scroll-reveal", "is-visible");
+                } else {
+                    el.classList.add("scroll-reveal");
+                }
+            });
+
             if (!("IntersectionObserver" in window)) {
-                // Fallback para navegadores sin IntersectionObserver
-                animatedElements.forEach(function (el) {
+                scrollElements.forEach(function (el) {
                     el.classList.add("is-visible");
                 });
             } else {
                 const observerOptions = {
                     root: null,
-                    rootMargin: "0px 0px -40px 0px",
-                    threshold: 0.15
+                    rootMargin: "0px 0px -60px 0px",
+                    threshold: 0.1
                 };
 
                 const scrollObserver = new IntersectionObserver(function (entries, observer) {
                     entries.forEach(function (entry) {
                         if (entry.isIntersecting) {
-                            const target = entry.target;
-                            const delay = parseInt(target.getAttribute("data-delay") || "0", 10);
-
-                            if (delay > 0) {
-                                setTimeout(function () {
-                                    target.classList.add("is-visible");
-                                }, delay);
-                            } else {
-                                target.classList.add("is-visible");
-                            }
-
-                            observer.unobserve(target);
+                            entry.target.classList.add("is-visible");
+                            observer.unobserve(entry.target);
                         }
                     });
                 }, observerOptions);
 
-                animatedElements.forEach(function (el) {
-                    scrollObserver.observe(el);
+                scrollElements.forEach(function (el) {
+                    if (!el.classList.contains("is-visible")) {
+                        scrollObserver.observe(el);
+                    }
                 });
             }
         }
@@ -474,11 +477,58 @@ if (climaElement) {
         });
     }
 
+    /* ==========================================================================
+       CONTROLADOR DEL PRELOADER / CARGADOR INSTITUCIONAL
+       ========================================================================== */
+    function initPreloader() {
+        let preloader = document.getElementById("mb-preloader");
+        if (!preloader) {
+            preloader = document.createElement("div");
+            preloader.id = "mb-preloader";
+            preloader.innerHTML = `
+                <div class="preloader-emblem">
+                    <div class="preloader-ring"></div>
+                    <img src="img/logo mb.png" alt="Cargando...">
+                </div>
+                <div class="preloader-text">Cargando...</div>
+                <div class="preloader-bar-bg">
+                    <div class="preloader-bar-fill"></div>
+                </div>
+            `;
+            document.body.prepend(preloader);
+        }
+
+        function hidePreloader() {
+            if (!preloader || preloader.classList.contains("preloader-hidden")) return;
+            preloader.classList.add("preloader-hidden");
+            setTimeout(() => {
+                if (preloader.parentNode) preloader.remove();
+            }, 550);
+        }
+
+        // Ocultar cuando la ventana cargue por completo (imágenes, fuentes, estilos)
+        if (document.readyState === "complete") {
+            setTimeout(hidePreloader, 350);
+        } else {
+            window.addEventListener("load", function () {
+                setTimeout(hidePreloader, 350);
+            });
+            // Fallback de seguridad por si algún recurso externo tarda demasiado
+            setTimeout(hidePreloader, 2500);
+        }
+    }
+
+    initPreloader();
+
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", initScrollAnimations);
     } else {
         initScrollAnimations();
     }
+
+    document.addEventListener("spa:pageLoaded", function () {
+        initScrollAnimations();
+    });
 })();
 
 

@@ -154,6 +154,43 @@ html.dark .bg-surface-ice {
 }
 
 /* ==========================================================================
+   INSIGNIAS Y CHIPS DE ALTO CONTRASTE (MODO LIGHT Y DARK)
+   ========================================================================== */
+.bg-secondary-fixed\/20,
+[class*="bg-secondary-fixed/20"] {
+  background-color: #e0f2fe !important; /* sky-100 */
+  color: #0369a1 !important;            /* sky-700 / azul institucional legible */
+  border: 1px solid #bae6fd !important;
+  font-weight: 600 !important;
+}
+
+.bg-secondary-fixed\/20 .material-symbols-outlined,
+[class*="bg-secondary-fixed/20"] .material-symbols-outlined {
+  color: #0284c7 !important;
+}
+
+/* Insignias que están dentro de banners oscuros (como el topbar o el footer) */
+.bg-primary-container .bg-secondary-fixed\/20,
+footer .bg-secondary-fixed\/20 {
+  background-color: rgba(56, 189, 248, 0.18) !important;
+  color: #7dd3fc !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+
+/* Modo oscuro */
+html.dark .bg-secondary-fixed\/20,
+html.dark [class*="bg-secondary-fixed/20"] {
+  background-color: rgba(2, 132, 199, 0.22) !important;
+  color: #7dd3fc !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+html.dark .bg-secondary-fixed\/20 .material-symbols-outlined,
+html.dark [class*="bg-secondary-fixed/20"] .material-symbols-outlined {
+  color: #38bdf8 !important;
+}
+
+/* ==========================================================================
    GLOBO DE CONVERSACIÓN / SUGERENCIA NOCTURNA (> 21:00)
    ========================================================================== */
 .night-theme-prompt {
@@ -208,6 +245,174 @@ html.dark .night-theme-prompt::before {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+/* ==========================================================================
+   ANIMACIONES INTERACTIVAS: HOVER BOTONES Y MICRO-INTERACCIONES
+   ========================================================================== */
+button,
+.theme-toggle-btn,
+a.inline-flex,
+a.btn,
+.back-to-top,
+header nav a,
+.group.bg-surface-card {
+  transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              color 0.2s ease !important;
+}
+
+button:hover,
+a.inline-flex:hover,
+.theme-toggle-btn:hover,
+.back-to-top:hover {
+  transform: translateY(-2px) scale(1.04) !important;
+}
+
+button:active,
+a.inline-flex:active,
+.theme-toggle-btn:active {
+  transform: translateY(0) scale(0.97) !important;
+}
+
+/* Tarjetas y enlaces interactivos */
+.group.bg-surface-card:hover {
+  transform: translateY(-4px) scale(1.015) !important;
+  box-shadow: 0 16px 32px -8px rgba(0, 121, 193, 0.15) !important;
+}
+
+/* ==========================================================================
+   ANIMACIONES AL HACER SCROLL: APARICIÓN SUAVE DE SECCIONES (OPTIMIZADA)
+   ========================================================================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.38s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Reducir movimiento si el usuario tiene activado 'prefers-reduced-motion' */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  button:hover, a.inline-flex:hover {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   CARGADOR DE PÁGINA (PRELOADER INSTITUCIONAL)
+   ========================================================================== */
+#mb-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              visibility 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.dark #mb-preloader {
+  background: #0b1120;
+}
+
+#mb-preloader.preloader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-emblem {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-emblem img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  animation: emblemPulse 1.8s ease-in-out infinite;
+}
+
+.preloader-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 121, 193, 0.15);
+  border-top-color: #0079c1;
+  animation: preloaderSpin 1s linear infinite;
+}
+
+html.dark .preloader-ring {
+  border-color: rgba(56, 189, 248, 0.15);
+  border-top-color: #38bdf8;
+}
+
+.preloader-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: #0079c1;
+  text-transform: uppercase;
+}
+
+html.dark .preloader-text {
+  color: #38bdf8;
+}
+
+.preloader-bar-bg {
+  width: 140px;
+  height: 4px;
+  background: rgba(0, 121, 193, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+html.dark .preloader-bar-bg {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.preloader-bar-fill {
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(90deg, #0079c1, #5bb8fe);
+  border-radius: 999px;
+  animation: preloaderBar 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes preloaderSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes emblemPulse {
+  0%, 100% { transform: scale(0.96); opacity: 0.9; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes preloaderBar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(250%); }
 }
 
 

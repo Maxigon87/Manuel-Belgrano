@@ -20,7 +20,7 @@
      * Actualiza el estado activo de los enlaces en el menú del Header
      */
     function updateActiveNavLinks(targetPath) {
-        const navLinks = document.querySelectorAll("header nav a, header a[href]");
+        const navLinks = document.querySelectorAll("header nav a");
         const currentFile = targetPath.split("/").pop().split("#")[0] || "index.html";
 
         navLinks.forEach((link) => {

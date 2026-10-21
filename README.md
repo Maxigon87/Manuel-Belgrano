@@ -55,3 +55,7 @@ Manuel-Belgrano/
 ├── carga.html           # Interfaz de carga rápida/administración
 ├── index.html           # Página principal / Layout base
 └── README.md            # Documentación del proyecto
+
+
+Egresados : 
+2025- Veucassios

@@ -531,6 +531,126 @@ if (climaElement) {
     });
 })();
 
+/* ==========================================================================
+   SISTEMA GLOBAL DE LIGHTBOX PARA GALERÍA Y TRABAJOS DE ALUMNOS
+   ========================================================================== */
+(function () {
+    let globalLightbox = null;
+    let lightboxImg = null;
+    let lightboxCaption = null;
+
+    function createGlobalLightbox() {
+        if (document.getElementById("global-image-lightbox")) {
+            globalLightbox = document.getElementById("global-image-lightbox");
+            lightboxImg = document.getElementById("global-image-lightbox-img");
+            lightboxCaption = document.getElementById("global-image-lightbox-caption");
+            return;
+        }
+
+        globalLightbox = document.createElement("div");
+        globalLightbox.id = "global-image-lightbox";
+        globalLightbox.className = "global-image-lightbox";
+        globalLightbox.setAttribute("aria-hidden", "true");
+        globalLightbox.innerHTML = `
+            <button type="button" class="global-image-lightbox__close" id="global-image-lightbox-close" aria-label="Cerrar imagen ampliada">
+                &times;
+            </button>
+            <div class="global-image-lightbox__container">
+                <img id="global-image-lightbox-img" class="global-image-lightbox__img" src="" alt="Imagen ampliada" />
+                <div id="global-image-lightbox-caption" class="global-image-lightbox__caption"></div>
+            </div>
+        `;
+
+        document.body.appendChild(globalLightbox);
+        lightboxImg = document.getElementById("global-image-lightbox-img");
+        lightboxCaption = document.getElementById("global-image-lightbox-caption");
+
+        const closeBtn = document.getElementById("global-image-lightbox-close");
+        if (closeBtn) {
+            closeBtn.addEventListener("click", closeGlobalLightbox);
+        }
+
+        globalLightbox.addEventListener("click", function (e) {
+            if (e.target === globalLightbox || e.target.classList.contains("global-image-lightbox__container")) {
+                closeGlobalLightbox();
+            }
+        });
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && globalLightbox && globalLightbox.classList.contains("is-visible")) {
+                closeGlobalLightbox();
+            }
+        });
+    }
+
+    function openGlobalLightbox(src, altText) {
+        if (!globalLightbox) createGlobalLightbox();
+        if (!src) return;
+
+        lightboxImg.src = src;
+        lightboxImg.alt = altText || "Imagen de producción escolar ampliada";
+        lightboxCaption.textContent = altText || "";
+
+        globalLightbox.classList.add("is-visible");
+        document.body.classList.add("lightbox-open");
+        globalLightbox.setAttribute("aria-hidden", "false");
+    }
+
+    function closeGlobalLightbox() {
+        if (!globalLightbox) return;
+        globalLightbox.classList.remove("is-visible");
+        document.body.classList.remove("lightbox-open");
+        globalLightbox.setAttribute("aria-hidden", "true");
+        if (lightboxImg) lightboxImg.src = "";
+    }
+
+    window.openGlobalLightbox = openGlobalLightbox;
+    window.closeGlobalLightbox = closeGlobalLightbox;
+
+    function bindLightboxToImages() {
+        createGlobalLightbox();
+
+        // Detectar imágenes de producciones escolares en galerías, offcanvas y publicaciones
+        const targetImages = document.querySelectorAll(
+            ".galeria-imagenes img, " +
+            ".alumnos-modales img, " +
+            ".alumnos-grid .alumno-card img, " +
+            "article img, " +
+            "#gridGaleria img, " +
+            ".galeria-item img"
+        );
+
+        targetImages.forEach(function (img) {
+            if (img.classList.contains("has-lightbox-bound") || img.closest(".no-lightbox")) return;
+
+            // Evitar que el clic en la miniatura de la tarjeta de alumno abra el lightbox antes que el offcanvas si no lo desea
+            // Pero si el usuario hace clic dentro de la vista del alumno, o en galerías, sí abre.
+            if (img.closest(".alumno-card")) {
+                return; // Las tarjetas abren el panel del alumno
+            }
+
+            img.classList.add("has-lightbox-bound");
+            img.style.cursor = "zoom-in";
+
+            img.addEventListener("click", function (e) {
+                e.stopPropagation();
+                const src = img.currentSrc || img.src;
+                const caption = img.alt || img.getAttribute("title") || "";
+                openGlobalLightbox(src, caption);
+            });
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", bindLightboxToImages);
+    } else {
+        bindLightboxToImages();
+    }
+
+    document.addEventListener("spa:pageLoaded", bindLightboxToImages);
+})();
+
+
 
 
 
